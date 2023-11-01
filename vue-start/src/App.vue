@@ -1,25 +1,22 @@
 <template>
     <div>
-        <!-- Tlačidlo na otvorenie modálneho okna -->
-        <button @click="openModal" class="bg-blue-500 text-white p-2 rounded-lg">Otvoriť modálne okno</button>
-
-        <!-- Modálny overlay -->
+        <button @click="openModal" class="bg-blue-500 text-white p-2">
+            Otvoriť modálne okno
+        </button>
         <div v-if="showModal" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-            <!-- Modálne okno -->
-            <div class="bg-white w-1/2 p-4 rounded-lg shadow-lg relative">
-                <!-- Tlačidlo "Zavrieť" (X close) -->
+            <div class="bg-white w-1/2 p-4 shadow-lg relative">
                 <button @click="closeModal" class="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full w-6 h-6 flex items-center justify-center">
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M3.293 4.293a1 1 0 011.414 0L10 8.586l5.293-5.293a1 1 0 111.414 1.414L11.414 10l5.293 5.293a1 1 0 01-1.414 1.414L10 11.414l-5.293 5.293a1 1 0 01-1.414-1.414L8.586 10 3.293 4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                 </button>
                 <h2 class="text-xl font-bold mb-4">Modálne okno</h2>
-                <!-- Obsah modálneho okna -->
                 <p>Tu môže byť obsah vášho modálneho okna.</p>
-                <button @click="closeModal" class="bg-blue-500 text-white p-2 rounded-lg mt-4">Zavrieť</button>
+                <button @click="closeModal" class="bg-blue-500 text-white p-2 mt-4">Zavrieť</button>
             </div>
         </div>
     </div>
+
     <form class="bg-gray-500 p-10">
         <div class="mb-5">
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vaše celé meno:</label>
@@ -30,7 +27,7 @@
                         <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
                     </svg>
                 </div>
-                <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        v-model="name"
                        placeholder="Meno Priezvisko"
                        required>
@@ -38,7 +35,7 @@
         </div>
         <div class="mb-5">
             <label for="mail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mailová adresa:</label>
-            <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                    v-model="email"
                    placeholder="mail@mail.sk"
                    required>
