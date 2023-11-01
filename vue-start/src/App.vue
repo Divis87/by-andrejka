@@ -24,6 +24,7 @@ export default {
 
         }
     },
+
     methods: {
         onFileChange(e) {
             this.image = e.target.files[0];
