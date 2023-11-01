@@ -32,8 +32,6 @@ const upload = multer({ storage: storage });
 app.post('/upload', upload.single('image'), (req, res) => {
   const { name, password, email, text, selectedItem, size } = req.body;
 
-  // TODO: spracovanie údajov (meno, heslo)
-
   // odoslanie potvrdzujúceho e-mailu
   let transporter = nodemailer.createTransport({
     service: 'gmail',
