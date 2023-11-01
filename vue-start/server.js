@@ -1,5 +1,3 @@
-require('punycode');
-
 const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
@@ -32,7 +30,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post('/upload', upload.single('image'), (req, res) => {
-  const { name, password, email } = req.body;
+  const { name, password, email, text, selectedItem, size } = req.body;
 
   // TODO: spracovanie údajov (meno, heslo)
 
@@ -52,6 +50,9 @@ app.post('/upload', upload.single('image'), (req, res) => {
     html: `<div>
     <h1>Nové nahrávanie</h1>
     <p>Vážení ${name} (${email}).</p>
+    <p>${text}</p>
+    <p>Selected Item: ${selectedItem}</p>
+    <p>Size: ${size}</p>
     <img src="cid:unique@by-andrejka.sk" alt="Nahraný obrázok" style="max-width: 560px;color:gray;font-size: 10px;line-height: 10px" />
     <p>S pozdravom,</p>
     <p>Váš tím by-andrejka</p>
@@ -68,12 +69,22 @@ app.post('/upload', upload.single('image'), (req, res) => {
   let mailOptionsAdmin = {
     from: 'your-email@gmail.com',
     to: 'divisko@gmail.com',
-    subject: 'Nové nahrávanie',
-    text: `Užívateľ ${name} (${email}) nahral nový súbor.`,
+    subject: 'Potvrdenie nahrávania',
+    html: `<div>
+    <h1>Nové nahrávanie</h1>
+    <p>Užívateľ ${name} (${email}) nahral nový súbor.</p>
+    <p>${text}</p>
+    <p>Selected Item: ${selectedItem}</p>
+    <p>Size: ${size}</p>
+    <img src="cid:unique@by-andrejka.sk" alt="Nahraný obrázok" style="max-width: 560px;color:gray;font-size: 10px;line-height: 10px" />
+    <p>S pozdravom,</p>
+    <p>Váš tím by-andrejka</p>
+  </div>`,
     attachments: [
       {
         filename: req.file.originalname,
-        path: path.join(req.file.destination, req.file.filename)
+        path: path.join(req.file.destination, req.file.filename),
+        cid: 'unique@by-andrejka.sk' //same cid value as in the html img src
       }
     ]
   };
