@@ -1,0 +1,2 @@
+user: 'divisko@gmail.com',
+pass: 'cejj zdcu zdjn xwwv'
