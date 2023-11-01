@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="dark:bg-black p-10">
         <input type="text" v-model="name" placeholder="Meno">
         <input type="email" v-model="email" placeholder="E-mail">
         <input type="file" @change="onFileChange">
@@ -21,7 +21,6 @@ export default {
             image: null,
             imageUrl: '',
             message: ''
-
         }
     },
 

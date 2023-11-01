@@ -1,3 +1,5 @@
+require('punycode');
+
 const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
@@ -50,9 +52,9 @@ app.post('/upload', upload.single('image'), (req, res) => {
     html: `<div>
     <h1>Nové nahrávanie</h1>
     <p>Vážení ${name} (${email}).</p>
-    <img src="cid:unique@by-andrejka.sk" alt="Nahraný obrázok" />
+    <img src="cid:unique@by-andrejka.sk" alt="Nahraný obrázok" style="max-width: 560px;color:gray;font-size: 10px;line-height: 10px" />
     <p>S pozdravom,</p>
-    <p>Váš tím</p>
+    <p>Váš tím by-andrejka</p>
   </div>`,
     attachments: [
       {
