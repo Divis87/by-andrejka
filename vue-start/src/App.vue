@@ -21,6 +21,7 @@ export default {
             image: null,
             imageUrl: '',
             message: ''
+
         }
     },
     methods: {
