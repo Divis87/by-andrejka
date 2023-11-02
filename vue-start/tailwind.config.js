@@ -8,6 +8,7 @@ module.exports = {
         transparent: 'transparent',
         current: 'currentColor',
         white: {
+          500: 'rgba(255, 255, 255, .5)',
           DEFAULT: 'white'
         },
         black: {
