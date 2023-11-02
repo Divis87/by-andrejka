@@ -71,7 +71,6 @@
                     </div>
                 </div>
             </div>
-            <strong>{{ message }}</strong>
         </div>
     </div>
 </template>

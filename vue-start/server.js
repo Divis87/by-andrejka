@@ -32,6 +32,42 @@ const upload = multer({ storage: storage });
 app.post('/upload', upload.single('image'), (req, res) => {
   const { name, password, email, text, selectedItem, size } = req.body;
 
+  // Načítajte obsah hlavičky a päty zo súborov
+  const headerContent = fs.readFileSync('header.html', 'utf8');
+  const footerContent = fs.readFileSync('footer.html', 'utf8');
+
+  // Spojte hlavičku, strednú časť a pätu
+  const emailContentUser = `
+    ${headerContent}
+    <div>
+      <h1>Nové nahrávanie</h1>
+      <p>Vážení ${name} (${email}).</p>
+      <p>${text}</p>
+      <p>Selected Item: ${selectedItem}</p>
+      <p>Size: ${size}</p>
+      <img src="cid:unique@by-andrejka.sk" alt="Nahraný obrázok" style="max-width: 560px; color: gray; font-size: 10px; line-height: 10px" />
+      <p>S pozdravom,</p>
+      <p>Váš tím by-andrejka</p>
+    </div>
+    ${footerContent}
+  `;
+
+  // Spojte hlavičku, strednú časť a pätu
+  const emailContentAdmin = `
+    ${headerContent}
+    <div>
+      <h1>Nové nahrávanie</h1>
+      <p>Vážení ${name} (${email}).</p>
+      <p>${text}</p>
+      <p>Selected Item: ${selectedItem}</p>
+      <p>Size: ${size}</p>
+      <img src="cid:unique@by-andrejka.sk" alt="Nahraný obrázok" style="max-width: 560px; color: gray; font-size: 10px; line-height: 10px" />
+      <p>S pozdravom,</p>
+      <p>Váš tím by-andrejka</p>
+    </div>
+    ${footerContent}
+  `;
+
   // odoslanie potvrdzujúceho e-mailu
   let transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -45,21 +81,12 @@ app.post('/upload', upload.single('image'), (req, res) => {
     from: 'your-email@gmail.com',
     to: email,
     subject: 'Potvrdenie nahrávania',
-    html: `<div>
-    <h1>Nové nahrávanie</h1>
-    <p>Vážení ${name} (${email}).</p>
-    <p>${text}</p>
-    <p>Selected Item: ${selectedItem}</p>
-    <p>Size: ${size}</p>
-    <img src="cid:unique@by-andrejka.sk" alt="Nahraný obrázok" style="max-width: 560px;color:gray;font-size: 10px;line-height: 10px" />
-    <p>S pozdravom,</p>
-    <p>Váš tím by-andrejka</p>
-  </div>`,
+    html: emailContentUser,
     attachments: [
       {
         filename: req.file.originalname,
         path: path.join(req.file.destination, req.file.filename),
-        cid: 'unique@by-andrejka.sk' //same cid value as in the html img src
+        cid: 'unique@by-andrejka.sk' // rovnaká hodnota cid ako v html img src
       }
     ]
   };
@@ -68,21 +95,12 @@ app.post('/upload', upload.single('image'), (req, res) => {
     from: 'your-email@gmail.com',
     to: 'divisko@gmail.com',
     subject: 'Potvrdenie nahrávania',
-    html: `<div>
-    <h1>Nové nahrávanie</h1>
-    <p>Užívateľ ${name} (${email}) nahral nový súbor.</p>
-    <p>${text}</p>
-    <p>Selected Item: ${selectedItem}</p>
-    <p>Size: ${size}</p>
-    <img src="cid:unique@by-andrejka.sk" alt="Nahraný obrázok" style="max-width: 560px;color:gray;font-size: 10px;line-height: 10px" />
-    <p>S pozdravom,</p>
-    <p>Váš tím by-andrejka</p>
-  </div>`,
+    html: emailContentAdmin,
     attachments: [
       {
         filename: req.file.originalname,
         path: path.join(req.file.destination, req.file.filename),
-        cid: 'unique@by-andrejka.sk' //same cid value as in the html img src
+        cid: 'unique@by-andrejka.sk' // rovnaká hodnota cid ako v html img src
       }
     ]
   };
