@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <form class="bg-gray-500 p-10">
+    <div class="bg-gray-500 p-10">
         <div class="mb-5">
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vaše celé meno:</label>
             <div class="relative">
@@ -50,8 +50,9 @@
         <img v-if="imageUrl" :src="imageUrl" />
         <button @click="upload" class="text-green">Upload</button>
         <p v-if="message" class="text-green">{{ message }}</p>
-    </form>
+    </div>
 </template>
+
 
 <script>
 import axios from 'axios';
