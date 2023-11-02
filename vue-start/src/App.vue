@@ -49,7 +49,11 @@
         <input type="file" @change="onFileChange">
         <img v-if="imageUrl" :src="imageUrl" />
         <button @click="upload" class="text-green">Upload</button>
-        <p v-if="message" class="text-green">{{ message }}</p>
+
+        <!-- Success message -->
+        <div v-if="message" class="fixed top-0 left-0 right-0 bg-green-500 text-white p-4 text-center">
+            <strong>{{ message }}</strong>
+        </div>
     </div>
 </template>
 
@@ -99,7 +103,12 @@ export default {
                 }
             }).then(response => {
                 this.message = response.data.message;
-                console.log('File uploaded successfully.')
+                console.log('File uploaded successfully.');
+
+                // Set a timer to automatically hide the message after 5 seconds
+                setTimeout(() => {
+                    this.message = '';
+                }, 10000);
             }).catch(err => {
                 console.error(err);
                 this.message = 'An error occurred while uploading the file.';

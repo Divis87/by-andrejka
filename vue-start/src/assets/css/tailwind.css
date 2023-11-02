@@ -3,3 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.success-message-enter-active,
+.success-message-leave-active {
+    transition: opacity 0.5s;
+}
+.success-message-enter, .success-message-leave-to /* .success-message-leave-active v budúcnosti */ {
+    opacity: 0;
+}
