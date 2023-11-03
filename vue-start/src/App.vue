@@ -1,51 +1,103 @@
 <template>
-    <div>
-        <button @click="openModal" class="bg-blue-500 text-white p-2">
-            Otvoriť modálne okno
-        </button>
-        <div v-if="showModal" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-            <div class="bg-white w-1/2 p-4 shadow-lg relative">
-                <button @click="closeModal" class="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full w-6 h-6 flex items-center justify-center">
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M3.293 4.293a1 1 0 011.414 0L10 8.586l5.293-5.293a1 1 0 111.414 1.414L11.414 10l5.293 5.293a1 1 0 01-1.414 1.414L10 11.414l-5.293 5.293a1 1 0 01-1.414-1.414L8.586 10 3.293 4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                </button>
-                <h2 class="text-xl font-bold mb-4">Modálne okno</h2>
-                <p>Tu môže byť obsah vášho modálneho okna.</p>
-                <button @click="closeModal" class="bg-blue-500 text-white p-2 mt-4">Zavrieť</button>
-            </div>
+    <button type="button" data-hs-overlay="#hs-overlay-unstyled" aria-controls="hs-overlay-unstyled" aria-label="Toggle navigation">
+        Open sidebar
+    </button>
+
+    <div id="hs-overlay-unstyled" class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-64 bg-white pt-3 pb-5 overflow-y-auto lg:block lg:translate-x-0 lg:right-auto lg:bottom-0">
+        <div class="flex justify-end px-3">
+            <button type="button" class="w-8 h-8" data-hs-overlay="#hs-overlay-unstyled" aria-controls="hs-overlay-unstyled" aria-label="Toggle navigation">
+                <span class="sr-only">Close Sidebar</span>
+                <svg class="w-3 h-3" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                </svg>
+            </button>
         </div>
     </div>
-
     <div class="bg-orange p-10">
-        <div class="mb-5">
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Vaše celé meno:</label>
-            <div class="relative">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                    <i class="fa-regular fa-user text-gray-500"></i>
+        <div class="step-1">
+            <div class="mb-5">
+                <div>
+                    <label for="item1">Item 1</label>
+                    <input type="radio" id="item1" value="item1" v-model="selectedItem">
                 </div>
-                <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                       v-model="name"
-                       placeholder="Meno Priezvisko"
-                       required>
+                <div>
+                    <label for="item2">Item 2</label>
+                    <input type="radio" id="item2" value="item2" v-model="selectedItem">
+                </div>
             </div>
         </div>
-        <div class="mb-5">
-            <label for="mail" class="block mb-2 text-sm font-medium text-gray-900">E-mailová adresa:</label>
-            <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                   v-model="email"
-                   placeholder="mail@mail.sk"
-                   required>
+
+        <div class="step-2">
+            <div class="mb-5">
+                <div>
+                    <label for="gender-item1">Mužské</label>
+                    <input type="radio" id="gender-item1" value="Men" v-model="genderItem">
+                </div>
+                <div>
+                    <label for="gender-item2">Ženské</label>
+                    <input type="radio" id="gender-item2" value="Women" v-model="genderItem">
+                </div>
+                <div>
+                    <label for="gender-item3">Detské</label>
+                    <input type="radio" id="gender-item3" value="Kids" v-model="genderItem">
+                </div>
+            </div>
+            <div class="mb-5">
+                <input type="text" v-model="size" placeholder="Veľkosť">
+            </div>
         </div>
-        <select v-model="selectedItem">
-            <option value="item1">Item 1</option>
-            <option value="item2">Item 2</option>
-        </select>
-        <input type="text" v-model="size" placeholder="Veľkosť">
-        <textarea v-model="text" placeholder="Správa"></textarea>
-        <input type="file" @change="onFileChange">
-        <img v-if="imageUrl" :src="imageUrl" />
-        <button @click="upload" class="text-green">Upload</button>
+
+        <div class="step-3">
+            <div class="mb-5">
+                <div class="w-full">
+                    <div>
+                        <img class="h-64 w-64 object-cover rounded-full mb-5" v-if="imageUrl" :src="imageUrl"/>
+                    </div>
+                    <label class="block">
+                        <span class="sr-only">Choose photo</span>
+                        <input type="file" @change="onFileChange"
+                           class="block w-full text-sm text-gray
+                            file:mr-4 file:py-3 file:px-5
+                            file:rounded-full file:border-0
+                            file:text-sm file:font-semibold
+                            file:bg-violet-50 file:text-gray
+                            hover:file:bg-violet-100
+                          "/>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-4">
+            <div class="mb-5">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Vaše celé meno:</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                        <i class="fa-regular fa-user text-gray-500"></i>
+                    </div>
+                    <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                           v-model="name"
+                           placeholder="Meno Priezvisko"
+                           required>
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <label for="mail" class="block mb-2 text-sm font-medium text-gray-900">E-mailová adresa:</label>
+                <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                       v-model="email"
+                       placeholder="mail@mail.sk"
+                       required>
+            </div>
+
+            <div class="mb-5">
+                <textarea v-model="text" placeholder="Správa"></textarea>
+            </div>
+
+            <div class="mb-5">
+                <button @click="upload" class="text-green">Potvrdiť</button>
+            </div>
+        </div>
 
         <!-- Success message -->
         <div v-if="message" class="transition transform fixed z-100 bottom-0 inset-x-0 pb-2 sm:pb-5 opacity-100 scale-100 translate-y-0 ease-out duration-500">
@@ -70,6 +122,7 @@
             </div>
         </div>
     </div>
+
 </template>
 
 
@@ -87,8 +140,9 @@ export default {
             image: null,
             imageUrl: '',
             message: '',
-            selectedItem: 'item1',
+            selectedItem: '',
             size: '',
+            genderItem: ''
         }
     },
 
@@ -111,6 +165,7 @@ export default {
             formData.append('selectedItem', this.selectedItem);
             formData.append('size', this.size);
             formData.append('image', this.image);
+            formData.append('genderItem', this.genderItem);
 
             axios.post('http://localhost:3000/upload', formData, {
                 headers: {
