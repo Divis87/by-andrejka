@@ -17,22 +17,22 @@
         </div>
     </div>
 
-    <div class="bg-gray-500 p-10">
+    <div class="bg-orange p-10">
         <div class="mb-5">
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vaše celé meno:</label>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Vaše celé meno:</label>
             <div class="relative">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                    <i class="fa-regular fa-user text-gray-500 dark:text-gray-400"></i>
+                    <i class="fa-regular fa-user text-gray-500"></i>
                 </div>
-                <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
                        v-model="name"
                        placeholder="Meno Priezvisko"
                        required>
             </div>
         </div>
         <div class="mb-5">
-            <label for="mail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mailová adresa:</label>
-            <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            <label for="mail" class="block mb-2 text-sm font-medium text-gray-900">E-mailová adresa:</label>
+            <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                    v-model="email"
                    placeholder="mail@mail.sk"
                    required>

@@ -8,24 +8,29 @@ module.exports = {
         transparent: 'transparent',
         current: 'currentColor',
         white: {
-          500: 'rgba(255, 255, 255, .5)',
+          900: '#F7F8F6',
           DEFAULT: 'white'
         },
         black: {
           DEFAULT: 'black'
         },
         green: {
-          DEFAULT: 'green'
+          DEFAULT: '#276361'
         },
         blue: {
-          DEFAULT: 'blue'
+          DEFAULT: '#3B83EC'
+        },
+        orange: {
+          DEFAULT: '#F58931'
         },
         pink: {
-          500: 'rgba(249, 168, 212, .5)',
-          DEFAULT: '#ec4899'
+          DEFAULT: '#E39A92'
         },
-        darkblue: {
-          DEFAULT: '#0f172a'
+        gold: {
+          DEFAULT: '#F3BC3B'
+        },
+        beige: {
+          DEFAULT: '#C8C1B5'
         },
       },
     },
