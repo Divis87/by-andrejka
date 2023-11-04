@@ -1,4 +1,3 @@
-// tailwind.config.js
 module.exports = {
   darkMode: 'media',
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
@@ -9,28 +8,41 @@ module.exports = {
         current: 'currentColor',
         white: {
           900: '#F7F8F6',
-          DEFAULT: 'white'
+          DEFAULT: 'white',
         },
         black: {
-          DEFAULT: 'black'
+          DEFAULT: 'black',
         },
         green: {
-          DEFAULT: '#276361'
+          DEFAULT: '#276361',
         },
         blue: {
-          DEFAULT: '#3B83EC'
+          DEFAULT: '#3B83EC',
         },
         orange: {
-          DEFAULT: '#F58931'
+          DEFAULT: '#F58931',
         },
         pink: {
-          DEFAULT: '#E39A92'
+          DEFAULT: '#E39A92',
         },
         gold: {
-          DEFAULT: '#F3BC3B'
+          DEFAULT: '#F3BC3B',
         },
         beige: {
-          DEFAULT: '#C8C1B5'
+          DEFAULT: '#C8C1B5',
+        },
+      },
+      animation: {
+        'slide-in': 'slide-in 0.3s cubic-bezier(.8,.2,.48,1)',
+      },
+      keyframes: {
+        'slide-in': {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          '100%': {
+            transform: 'translateX(0)',
+          },
         },
       },
     },
