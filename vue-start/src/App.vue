@@ -27,7 +27,7 @@
                                        v-model="selectedItem"
                                        @change="selectedItemFilled = true; updateSelectedItemText">
                                 <label for="item1"
-                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 transition duration-300
+                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
                                          peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
                                     <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
                                         <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
@@ -53,9 +53,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex justify-center flex-col text-lg text-gray-500">
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </div>
                                 </label>
                             </li>
                             <li class="mb-5">
@@ -68,7 +65,7 @@
                                     v-model="selectedItem"
                                     @change="selectedItemFilled = true; updateSelectedItemText">
                                 <label for="item2"
-                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 transition duration-300
+                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
                                          peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
                                     <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
                                         <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
@@ -93,9 +90,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="flex justify-center flex-col text-lg text-gray-500">
-                                        <i class="fa-solid fa-arrow-right"></i>
                                     </div>
                                 </label>
                             </li>
@@ -173,17 +167,7 @@
                                 <input type="radio" id="gender-item3" value="Kids" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
-                        <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Cena aj s poštovným</p>
-                            <p>{{ subtotalPrice }} €</p>
-                        </div>
-                        <p class="text-sm text-gray-500">
-                            {{ selectedItemText }}
-                        </p>
-                        <div class="mt-6">
+                        <div class="mb-5">
                             <button @click="nextStep('step-3')" v-show="currentStep === 'step-2'"
                                     :disabled="!genderFilled"
                                     :class="{ 'opacity-50 cursor-not-allowed': !genderFilled }"
@@ -191,6 +175,15 @@
                                 Continue
                             </button>
                         </div>
+                    </div>
+
+                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                        <div class="flex justify-between text-base font-medium text-gray-900">
+                            <p>Cena aj s poštovným</p>
+                            <p>{{ subtotalPrice }} €</p>
+                        </div>
+                        <p class="text-sm text-gray-500" v-html="selectedItemText">
+                        </p>
                     </div>
                 </div>
 
@@ -233,17 +226,7 @@
                         <div class="mb-5">
                             <input type="text" v-model="size" placeholder="Veľkosť" @change="updateColorSizeFilled">
                         </div>
-                    </div>
-
-                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
-                        <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Cena aj s poštovným</p>
-                            <p>{{ subtotalPrice }} €</p>
-                        </div>
-                        <p class="text-sm text-gray-500">
-                            {{ selectedItemText }}
-                        </p>
-                        <div class="mt-6">
+                        <div class="mb-5">
                             <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
                                     :disabled="!colorSizeFilled"
                                     :class="{ 'opacity-50 cursor-not-allowed': !colorSizeFilled }"
@@ -251,6 +234,15 @@
                                 Continue
                             </button>
                         </div>
+                    </div>
+
+                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                        <div class="flex justify-between text-base font-medium text-gray-900">
+                            <p>Cena aj s poštovným</p>
+                            <p>{{ subtotalPrice }} €</p>
+                        </div>
+                        <p class="text-sm text-gray-500" v-html="selectedItemText">
+                        </p>
                     </div>
                 </div>
 
@@ -289,16 +281,7 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
-                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
-                        <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Cena aj s poštovným</p>
-                            <p>{{ subtotalPrice }} €</p>
-                        </div>
-                        <p class="text-sm text-gray-500">
-                            {{ selectedItemText }}
-                        </p>
-                        <div class="mt-6">
+                        <div class="mb-5">
                             <button @click="nextStep('step-5')" v-show="currentStep === 'step-4'"
                                     :disabled="!imageUploaded"
                                     :class="{ 'opacity-50 cursor-not-allowed': !imageUploaded }"
@@ -306,6 +289,14 @@
                                 Continue
                             </button>
                         </div>
+                    </div>
+                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                        <div class="flex justify-between text-base font-medium text-gray-900">
+                            <p>Cena aj s poštovným</p>
+                            <p>{{ subtotalPrice }} €</p>
+                        </div>
+                        <p class="text-sm text-gray-500" v-html="selectedItemText">
+                        </p>
                     </div>
                 </div>
 
@@ -348,10 +339,17 @@
                                    @change="updateContact">
                         </div>
                         <div class="mb-5">
-                                        <textarea v-model="text"
-                                                  placeholder="Adresa"
-                                                  @change="updateContact">
-                                        </textarea>
+                            <textarea v-model="text"
+                                      placeholder="Adresa"
+                                      @change="updateContact">
+                            </textarea>
+                        </div>
+                        <div class="mb-5">
+                            <button @click="upload"
+                                    :disabled="!contactFilled"
+                                    :class="{ 'opacity-50 cursor-not-allowed': !contactFilled }"
+                                    class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                                Potvrdiť</button>
                         </div>
                     </div>
                     <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
@@ -362,13 +360,6 @@
                         <p class="text-sm text-gray-500">
                             {{ selectedItemText }}
                         </p>
-                        <div class="mt-6">
-                            <button @click="upload"
-                                    :disabled="!contactFilled"
-                                    :class="{ 'opacity-50 cursor-not-allowed': !contactFilled }"
-                                    class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                                Potvrdiť</button>
-                        </div>
                     </div>
                 </div>
 
@@ -485,13 +476,13 @@ export default {
         updateSelectedItemText() {
             if (this.currentStep === 'step-2') {
                 // Display text for step-2
-                this.selectedItemText = `Selected Item: ${this.selectedItem}`;
+                this.selectedItemText = `${this.selectedItem}`;
             } else if (this.currentStep === 'step-3') {
                 // Display text for step-3
-                this.selectedItemText = `Selected Item: ${this.selectedItem}, Gender: ${this.genderItem}`;
+                this.selectedItemText = `${this.selectedItem}, ${this.genderItem}`;
             } else if (this.currentStep === 'step-4' || this.currentStep === 'step-5') {
                 // Display text for step-4 and step-5
-                this.selectedItemText = `Selected Item: ${this.selectedItem}, Gender: ${this.genderItem}, Color: ${this.colorItem}, Size: ${this.size}`;
+                this.selectedItemText = `${this.selectedItem}, ${this.genderItem}, Farba: ${this.colorItem}, Veľkosť: ${this.size}`;
             }
         },
         updateColorSizeFilled() {
