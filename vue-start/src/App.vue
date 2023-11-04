@@ -48,7 +48,7 @@
                                         <div class="flex flex-1 items-end justify-between">
                                             <div class="flex">
                                                 <div class="font-medium text-gray-500">
-                                                    50.00 €
+                                                    {{ item1SubtotalPrice }} €
                                                 </div>
                                             </div>
                                         </div>
@@ -68,14 +68,35 @@
                                     v-model="selectedItem"
                                     @change="selectedItemFilled = true; updateSelectedItemText">
                                 <label for="item2"
-                                       class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue peer-checked:text-blue hover:text-gray-600 hover:bg-gray-100 transition duration-300">
-                                    <div class="block">
-                                        <div class="w-full text-lg font-semibold">Tričko</div>
-                                        <div class="w-full">Good for large websites</div>
+                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 transition duration-300
+                                         peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
+                                    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
+                                        <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                             alt=""
+                                             class="h-full w-full object-cover object-center">
                                     </div>
-                                    <svg class="w-5 h-5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                                    </svg>
+                                    <div class="ml-4 flex flex-1 flex-col text-md leading-snug">
+                                        <div>
+                                            <div class="flex font-medium text-gray-900">
+                                                <h3>
+                                                    Ručne maľované tričko
+                                                </h3>
+                                            </div>
+                                            <p class="mt-1 mb-1 text-gray-500 text-sm text-green">
+                                                <i class="fa-solid fa-check mr-1"></i> Doprava zdarma
+                                            </p>
+                                        </div>
+                                        <div class="flex flex-1 items-end justify-between">
+                                            <div class="flex">
+                                                <div class="font-medium text-gray-500">
+                                                    {{ item2SubtotalPrice }} €
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center flex-col text-lg text-gray-500">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
                                 </label>
                             </li>
                         </ul>
@@ -433,21 +454,14 @@ export default {
             contactFilled: false,
             imageUploaded: false,
             colorSizeFilled: false,
+            item1SubtotalPrice: 50,
+            item2SubtotalPrice: 20,
         }
     },
     computed: {
-        // Define a computed property to calculate the subtotal based on selected item
+        // Define a computed property to calculate the overall subtotal price based on the selected item
         subtotalPrice() {
-            // Define a mapping of item values to their prices in Euros
-            const itemPricesInEuros = {
-                item1: 50, // Price in Euros
-                item2: 20, // Price in Euros
-            };
-
-            // Get the price based on the selected item, default to 0 if not found
-            const priceInEuros = itemPricesInEuros[this.selectedItem] || 0;
-
-            return priceInEuros.toFixed(2); // Format the price as a string with 2 decimal places
+            return this.selectedItem === 'item1' ? this.item1SubtotalPrice : this.item2SubtotalPrice;
         },
     },
     methods: {
