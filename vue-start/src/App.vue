@@ -167,6 +167,8 @@
                                     </p>
                                     <div class="mt-6">
                                         <button @click="nextStep('step-5')" v-show="currentStep === 'step-4'"
+                                                :disabled="!imageUploaded"
+                                                :class="{ 'opacity-50 cursor-not-allowed': !imageUploaded }"
                                                 class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
                                             Continue
                                         </button>
@@ -295,6 +297,7 @@ export default {
             genderFilled: false,
             sizeFilled: false,
             contactFilled: false,
+            imageUploaded: false,
         }
     },
     computed: {
@@ -330,10 +333,6 @@ export default {
         closeModal() {
             this.showModal = false;
         },
-        onFileChange(e) {
-            this.image = e.target.files[0];
-            this.imageUrl = URL.createObjectURL(this.image);
-        },
         updateSelectedItemText() {
             if (this.currentStep === 'step-2') {
                 // Display text for step-2
@@ -348,6 +347,11 @@ export default {
         },
         updateContact() {
             this.contactFilled = this.name && this.email && this.text;
+        },
+        onFileChange(e) {
+            this.image = e.target.files[0];
+            this.imageUrl = URL.createObjectURL(this.image);
+            this.imageUploaded = true; // Image has been uploaded
         },
         upload() {
             let formData = new FormData();
