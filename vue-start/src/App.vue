@@ -238,6 +238,26 @@
                                 </div>
                             </div>
 
+                            <div class="step-6 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+                                 v-show="currentStep === 'step-6'">
+                                <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                                    <div class="flex items-start justify-between">
+                                        <div class="ml-3 flex h-7 items-center">
+                                            <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
+                                        </div>
+                                    </div>
+                                    <div class="mt-5 mb-5">
+                                        <h2 class="text-lg font-medium text-gray-900">
+                                            Ďakujeme za objednávku.
+                                        </h2>
+                                    </div>
+
+                                    <div class="mb-5">
+                                        V najbližšej dobe Vám bude zaslaná faktúra na uvedený e-mail.
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -245,8 +265,8 @@
         </div>
 
         <!-- Success message -->
-        <div v-if="message" class="transition fixed z-20 top-0 transform inset-x-0 px-4 py-6 sm:px-6">
-            <div class="p-2 rounded-lg bg-gray-900 shadow-lg sm:p-3">
+        <div v-if="message" class="transition fixed z-20 bottom-0 transform inset-x-0 px-4 py-6 sm:px-6">
+            <div class="p-2 rounded-lg bg-green shadow-lg sm:p-3">
                 <div class="flex items-center justify-between flex-wrap">
                     <div class="w-0 flex-1 flex items-center">
                         <img class="h-6" src="/_next/static/media/tailwind-ui-logo-on-dark.e075f076d1193a2062dc60571c75a1d2.svg" alt="">
@@ -375,11 +395,11 @@ export default {
 
                     // Set a timer to automatically hide the message after 10 seconds
                     setTimeout(() => {
-                        this.message = '';
+                        this.message = ''; // Clear the message after 10 seconds
                     }, 10000);
 
-                    // Close the modal
-                    this.closeModal();
+                    // Display the success message in step-6
+                    this.currentStep = 'step-6';
                 })
                 .catch((err) => {
                     console.error(err);
