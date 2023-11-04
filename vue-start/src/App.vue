@@ -4,11 +4,11 @@
             <div class="mb-5">
                 <div>
                     <label for="item1">Item 1</label>
-                    <input type="radio" id="item1" value="item1" v-model="selectedItem">
+                    <input type="radio" id="item1" value="item1" v-model="selectedItem" @change="updateSelectedItemText">
                 </div>
                 <div>
                     <label for="item2">Item 2</label>
-                    <input type="radio" id="item2" value="item2" v-model="selectedItem">
+                    <input type="radio" id="item2" value="item2" v-model="selectedItem" @change="updateSelectedItemText">
                 </div>
             </div>
             <button @click="openModal('step-2')">Continue</button>
@@ -66,7 +66,7 @@
                                         <p>$262.00</p>
                                     </div>
                                     <p class="text-sm text-gray-500">
-                                        Tu bude nejaký text
+                                        {{ selectedItemText }}
                                     </p>
                                     <div class="mt-6">
                                         <button @click="nextStep('step-3')" v-show="currentStep === 'step-2'"
@@ -76,59 +76,112 @@
                                 </div>
                             </div>
 
-                            <div class="step-3" v-show="currentStep === 'step-3'">
-                                <div class="mb-5">
-                                    <button @click="previousStep('step-2')" v-show="currentStep === 'step-3'">Back</button>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="w-full">
-                                        <div>
-                                            <img class="h-64 w-64 object-cover rounded-full mb-5" v-if="imageUrl" :src="imageUrl"/>
+                            <div class="step-3 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+                                 v-show="currentStep === 'step-3'">
+                                <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                                    <div class="flex items-start justify-between">
+                                        <div class="mr-3 flex h-7 items-center">
+                                            <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-2')" v-show="currentStep === 'step-3'"></modal-close-button>
                                         </div>
-                                        <label class="block">
-                                            <span class="sr-only">Choose photo</span>
-                                            <input type="file" @change="onFileChange"
-                                                   class="block w-full text-sm text-gray
+                                        <div class="ml-3 flex h-7 items-center">
+                                            <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
+                                        </div>
+                                    </div>
+                                    <div class="mt-5 mb-5">
+                                        <h2 class="text-lg font-medium text-gray-900">
+                                            step-3
+                                        </h2>
+                                    </div>
+                                    <div class="mb-5">
+                                        <button @click="previousStep('step-2')" v-show="currentStep === 'step-3'">Back</button>
+                                    </div>
+                                    <div class="mb-5">
+                                        <div class="w-full">
+                                            <div>
+                                                <img class="h-64 w-64 object-cover rounded-full mb-5" v-if="imageUrl" :src="imageUrl"/>
+                                            </div>
+                                            <label class="block">
+                                                <span class="sr-only">Choose photo</span>
+                                                <input type="file" @change="onFileChange"
+                                                       class="block w-full text-sm text-gray
                                                             file:mr-4 file:py-3 file:px-5
                                                             file:rounded-full file:border-0
                                                             file:text-sm file:font-semibold
                                                             file:bg-violet-50 file:text-gray
                                                             hover:file:bg-violet-100
                                                           "/>
-                                        </label>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                                <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'">Continue</button>
+                                <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                                    <div class="flex justify-between text-base font-medium text-gray-900">
+                                        <p>Subtotal</p>
+                                        <p>$262.00</p>
+                                    </div>
+                                    <p class="text-sm text-gray-500">
+                                        {{ selectedItemText }}
+                                    </p>
+                                    <div class="mt-6">
+                                        <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
+                                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                                            Continue</button>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="step-4" v-show="currentStep === 'step-4'">
-                                <div class="mb-5">
-                                    <button @click="previousStep('step-3')" v-show="currentStep === 'step-4'">Back</button>
-                                </div>
-                                <div class="mb-5">
-                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Vaše celé meno:</label>
-                                    <div class="relative">
-                                        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                                            <i class="fa-regular fa-user text-gray-500"></i>
+                            <div class="step-4 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+                                 v-show="currentStep === 'step-4'">
+                                <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                                    <div class="flex items-start justify-between">
+                                        <div class="mr-3 flex h-7 items-center">
+                                            <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-3')" v-show="currentStep === 'step-4'"></modal-close-button>
                                         </div>
-                                        <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                                               v-model="name"
-                                               placeholder="Meno Priezvisko"
+                                        <div class="ml-3 flex h-7 items-center">
+                                            <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
+                                        </div>
+                                    </div>
+                                    <div class="mt-5 mb-5">
+                                        <h2 class="text-lg font-medium text-gray-900">
+                                            Pre hoho to bude?
+                                        </h2>
+                                    </div>
+                                    <div class="mb-5">
+                                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Vaše celé meno:</label>
+                                        <div class="relative">
+                                            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                                                <i class="fa-regular fa-user text-gray-500"></i>
+                                            </div>
+                                            <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                                                   v-model="name"
+                                                   placeholder="Meno Priezvisko"
+                                                   required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-5">
+                                        <label for="mail" class="block mb-2 text-sm font-medium text-gray-900">E-mailová adresa:</label>
+                                        <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                               v-model="email"
+                                               placeholder="mail@mail.sk"
                                                required>
                                     </div>
+                                    <div class="mb-5">
+                                        <textarea v-model="text" placeholder="Správa"></textarea>
+                                    </div>
                                 </div>
-                                <div class="mb-5">
-                                    <label for="mail" class="block mb-2 text-sm font-medium text-gray-900">E-mailová adresa:</label>
-                                    <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                           v-model="email"
-                                           placeholder="mail@mail.sk"
-                                           required>
-                                </div>
-                                <div class="mb-5">
-                                    <textarea v-model="text" placeholder="Správa"></textarea>
-                                </div>
-                                <div class="mb-5">
-                                    <button @click="upload" class="text-green">Potvrdiť</button>
+                                <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                                    <div class="flex justify-between text-base font-medium text-gray-900">
+                                        <p>Subtotal</p>
+                                        <p>$262.00</p>
+                                    </div>
+                                    <p class="text-sm text-gray-500">
+                                        {{ selectedItemText }}
+                                    </p>
+                                    <div class="mt-6">
+                                        <button @click="upload"
+                                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                                            Potvrdiť</button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -169,7 +222,6 @@
 import axios from 'axios';
 import ModalCloseButton from '@/components/ModalIco.vue'; // Import the ModalCloseButton component
 
-
 export default {
     components: {
         ModalCloseButton,
@@ -190,6 +242,7 @@ export default {
             genderItem: '',
             closeIconClose: 'fa-solid fa-xmark text-md',
             closeIconArrowLeft: 'fa-solid fa-arrow-left text-md',
+            selectedItemText: '',
         }
     },
 
@@ -197,13 +250,16 @@ export default {
         nextStep(step) {
             // You can add validation logic here if needed
             this.currentStep = step;
+            this.updateSelectedItemText();
         },
         previousStep(step) {
             this.currentStep = step;
+            this.updateSelectedItemText();
         },
         openModal(step) {
             this.currentStep = step;
             this.showModal = true;
+            this.updateSelectedItemText();
         },
         closeModal() {
             this.showModal = false;
@@ -211,6 +267,15 @@ export default {
         onFileChange(e) {
             this.image = e.target.files[0];
             this.imageUrl = URL.createObjectURL(this.image);
+        },
+        updateSelectedItemText() {
+            if (this.currentStep === 'step-2') {
+                // Display only the selected item in step-2
+                this.selectedItemText = `Selected Item: ${this.selectedItem}`;
+            } else {
+                // In other steps, display a combined string
+                this.selectedItemText = `Selected Item: ${this.selectedItem}, Gender: ${this.genderItem}, Size: ${this.size}`;
+            }
         },
         upload() {
             let formData = new FormData();
