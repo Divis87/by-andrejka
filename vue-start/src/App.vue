@@ -15,7 +15,7 @@
                 <div class="mt-4 lg:row-span-3 lg:mt-0">
                     <div class="step-1">
                         <h2 class="text-lg font-medium text-gray-900 mb-7">
-                            Vyberte si produkt
+                            Máte záujem o:
                         </h2>
                         <ul>
                             <li class="mb-5">
@@ -37,12 +37,14 @@
                                     <div class="ml-4 flex flex-1 flex-col text-md leading-snug">
                                         <div>
                                             <div class="flex font-medium text-gray-900">
-                                                <h3>
+                                                <h3 class="-mt-1">
                                                     Ručne maľovaná riflová bunda
                                                 </h3>
                                             </div>
-                                            <p class="mt-1 mb-1 text-gray-500 text-sm text-green">
-                                                <i class="fa-solid fa-check mr-1"></i> Doprava zdarma
+                                            <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
+                                                <i class="fa-solid fa-check mr-1"></i> Malujem 1-3 prac. dni
+                                                <br>
+                                                <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
                                             </p>
                                         </div>
                                         <div class="flex flex-1 items-end justify-between">
@@ -75,12 +77,14 @@
                                     <div class="ml-4 flex flex-1 flex-col text-md leading-snug">
                                         <div>
                                             <div class="flex font-medium text-gray-900">
-                                                <h3>
+                                                <h3 class="-mt-1">
                                                     Ručne maľované tričko
                                                 </h3>
                                             </div>
-                                            <p class="mt-1 mb-1 text-gray-500 text-sm text-green">
-                                                <i class="fa-solid fa-check mr-1"></i> Doprava zdarma
+                                            <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
+                                                <i class="fa-solid fa-check mr-1"></i> Malujem 1-2 prac. dni
+                                                <br>
+                                                <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
                                             </p>
                                         </div>
                                         <div class="flex flex-1 items-end justify-between">
@@ -414,7 +418,7 @@
 <script>
 import axios from 'axios';
 import StepsModal from '@/components/StepsModal.vue';
-import ModalCloseButton from '@/components/ModalIco.vue'; // Import the ModalCloseButton component
+import ModalCloseButton from '@/components/ModalIco.vue';
 
 export default {
     components: {
