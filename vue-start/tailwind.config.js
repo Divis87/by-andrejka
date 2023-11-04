@@ -32,6 +32,9 @@ module.exports = {
           DEFAULT: '#C8C1B5',
         },
       },
+      gridTemplateRows: {
+        '[auto,auto,1fr]': 'auto auto 1fr',
+      },
       animation: {
         'slide-in': 'slide-in 0.3s cubic-bezier(.8,.2,.48,1)',
       },
@@ -50,5 +53,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 };
