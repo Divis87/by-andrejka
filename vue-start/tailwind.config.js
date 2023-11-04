@@ -14,7 +14,10 @@ module.exports = {
           DEFAULT: 'black',
         },
         green: {
-          DEFAULT: '#276361',
+          DEFAULT: '#529244',
+        },
+        success: {
+          DEFAULT: '#6ec35b',
         },
         blue: {
           DEFAULT: '#3B83EC',

@@ -1,58 +1,88 @@
 <template>
-    <ul class="grid w-full gap-6 md:grid-cols-2">
-        <li>
-            <input type="radio" id="hosting-small" name="hosting" value="hosting-small" class="hidden peer" required>
-            <label for="hosting-small"
-                   class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue peer-checked:text-blue hover:text-gray-600 hover:bg-gray-100">
-                <div class="block">
-                    <div class="w-full text-lg font-semibold">0-50 MB</div>
-                    <div class="w-full">Good for small websites</div>
-                </div>
-                <svg class="w-5 h-5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-            </label>
-        </li>
-        <li>
-            <input type="radio" id="hosting-big" name="hosting" value="hosting-big" class="hidden peer">
-            <label for="hosting-big"
-                   class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue peer-checked:text-blue hover:text-gray-600 hover:bg-gray-100">
-                <div class="block">
-                    <div class="w-full text-lg font-semibold">500-1000 MB</div>
-                    <div class="w-full">Good for large websites</div>
-                </div>
-                <svg class="w-5 h-5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-            </label>
-        </li>
-    </ul>
+
     <div class="bg-white">
         <div class="pt-6">
 
             <!-- Product info -->
             <div class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
                 <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Basic Tee 6-Pack</h1>
+                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+                        Basic Tee 6-Pack
+                    </h1>
                 </div>
 
                 <!-- Options -->
                 <div class="mt-4 lg:row-span-3 lg:mt-0">
                     <div class="step-1">
-                        <div class="mb-5">
-                            <div>
-                                <label for="item1">Item 1</label>
-                                <input type="radio" id="item1" value="item1" v-model="selectedItem" @change="selectedItemFilled = true; updateSelectedItemText">
-                            </div>
-                            <div>
-                                <label for="item2">Item 2</label>
-                                <input type="radio" id="item2" value="item2" v-model="selectedItem" @change="selectedItemFilled = true; updateSelectedItemText">
-                            </div>
-                        </div>
+                        <h2 class="text-lg font-medium text-gray-900 mb-7">
+                            Vyberte si produkt
+                        </h2>
+                        <ul>
+                            <li class="mb-5">
+                                <input type="radio"
+                                       id="item1"
+                                       name="product"
+                                       value="item1"
+                                       class="hidden peer"
+                                       v-model="selectedItem"
+                                       @change="selectedItemFilled = true; updateSelectedItemText">
+                                <label for="item1"
+                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 transition duration-300
+                                         peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
+                                    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
+                                        <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                             alt=""
+                                             class="h-full w-full object-cover object-center">
+                                    </div>
+                                    <div class="ml-4 flex flex-1 flex-col text-md leading-snug">
+                                        <div>
+                                            <div class="flex font-medium text-gray-900">
+                                                <h3>
+                                                    Ručne maľovaná riflová bunda
+                                                </h3>
+                                            </div>
+                                            <p class="mt-1 mb-1 text-gray-500 text-sm text-green">
+                                                <i class="fa-solid fa-check mr-1"></i> Doprava zdarma
+                                            </p>
+                                        </div>
+                                        <div class="flex flex-1 items-end justify-between">
+                                            <div class="flex">
+                                                <div class="font-medium text-gray-500">
+                                                    50.00 €
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center flex-col text-lg text-gray-500">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                </label>
+                            </li>
+                            <li class="mb-5">
+                                <input
+                                    type="radio"
+                                    id="item2"
+                                    name="product"
+                                    value="item2"
+                                    class="hidden peer"
+                                    v-model="selectedItem"
+                                    @change="selectedItemFilled = true; updateSelectedItemText">
+                                <label for="item2"
+                                       class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue peer-checked:text-blue hover:text-gray-600 hover:bg-gray-100 transition duration-300">
+                                    <div class="block">
+                                        <div class="w-full text-lg font-semibold">Tričko</div>
+                                        <div class="w-full">Good for large websites</div>
+                                    </div>
+                                    <svg class="w-5 h-5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                    </svg>
+                                </label>
+                            </li>
+                        </ul>
                         <button @click="openModal('step-2')"
                                 :disabled="!selectedItemFilled"
                                 :class="{ 'opacity-50 cursor-not-allowed': !selectedItemFilled }"
-                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">
                             Continue
                         </button>
                     </div>
@@ -78,14 +108,6 @@
                                 <li class="text-gray-400"><span class="text-gray-600">Pre-washed &amp; pre-shrunk</span></li>
                                 <li class="text-gray-400"><span class="text-gray-600">Ultra-soft 100% cotton</span></li>
                             </ul>
-                        </div>
-                    </div>
-
-                    <div class="mt-10">
-                        <h2 class="text-md font-medium text-gray-900">Details</h2>
-
-                        <div class="mt-4 space-y-6">
-                            <p class="text-md text-gray-600">The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming &quot;Charcoal Gray&quot; limited release.</p>
                         </div>
                     </div>
                 </div>
