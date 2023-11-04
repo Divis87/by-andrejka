@@ -42,7 +42,7 @@
                                                 </h3>
                                             </div>
                                             <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
-                                                <i class="fa-solid fa-check mr-1"></i> Malujem 1-3 prac. dni
+                                                <i class="fa-solid fa-check mr-1"></i> Malujem {{ item1Days }} prac. dni
                                                 <br>
                                                 <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
                                             </p>
@@ -82,7 +82,7 @@
                                                 </h3>
                                             </div>
                                             <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
-                                                <i class="fa-solid fa-check mr-1"></i> Malujem 1-2 prac. dni
+                                                <i class="fa-solid fa-check mr-1"></i> Malujem {{ item2Days }} prac. dni
                                                 <br>
                                                 <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
                                             </p>
@@ -183,9 +183,12 @@
 
                     <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
                         <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Cena aj s poštovným</p>
+                            <p>Cena:</p>
                             <p>{{ subtotalPrice }} €</p>
                         </div>
+                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                        </p>
                         <p class="text-sm text-gray-500" v-html="selectedItemText">
                         </p>
                     </div>
@@ -242,9 +245,12 @@
 
                     <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
                         <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Cena aj s poštovným</p>
+                            <p>Cena:</p>
                             <p>{{ subtotalPrice }} €</p>
                         </div>
+                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                        </p>
                         <p class="text-sm text-gray-500" v-html="selectedItemText">
                         </p>
                     </div>
@@ -276,12 +282,12 @@
                                     <span class="sr-only">Choose photo</span>
                                     <input type="file" @change="onFileChange"
                                            class="block w-full text-sm text-gray
-                                                            file:mr-4 file:py-3 file:px-5
-                                                            file:rounded-full file:border-0
-                                                            file:text-sm file:font-semibold
-                                                            file:bg-violet-50 file:text-gray
-                                                            hover:file:bg-violet-100
-                                                          "/>
+                                                file:mr-4 file:py-3 file:px-5
+                                                file:rounded-full file:border-0
+                                                file:text-sm file:font-semibold
+                                                file:bg-violet-50 file:text-gray
+                                                hover:file:bg-violet-100
+                                          "/>
                                 </label>
                             </div>
                         </div>
@@ -296,9 +302,12 @@
                     </div>
                     <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
                         <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Cena aj s poštovným</p>
+                            <p>Cena:</p>
                             <p>{{ subtotalPrice }} €</p>
                         </div>
+                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                        </p>
                         <p class="text-sm text-gray-500" v-html="selectedItemText">
                         </p>
                     </div>
@@ -358,11 +367,13 @@
                     </div>
                     <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
                         <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Cena aj s poštovným</p>
+                            <p>Cena:</p>
                             <p>{{ subtotalPrice }} €</p>
                         </div>
-                        <p class="text-sm text-gray-500">
-                            {{ selectedItemText }}
+                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                        </p>
+                        <p class="text-sm text-gray-500" v-html="selectedItemText">
                         </p>
                     </div>
                 </div>
@@ -451,12 +462,17 @@ export default {
             colorSizeFilled: false,
             item1SubtotalPrice: 50,
             item2SubtotalPrice: 20,
+            item1Days: '1-3',
+            item2Days: '1-2',
         }
     },
     computed: {
         // Define a computed property to calculate the overall subtotal price based on the selected item
         subtotalPrice() {
             return this.selectedItem === 'item1' ? this.item1SubtotalPrice : this.item2SubtotalPrice;
+        },
+        subtotalDays() {
+            return this.selectedItem === 'item1' ? this.item1Days : this.item2Days;
         },
     },
     methods: {
@@ -480,13 +496,13 @@ export default {
         updateSelectedItemText() {
             if (this.currentStep === 'step-2') {
                 // Display text for step-2
-                this.selectedItemText = `${this.selectedItem}`;
+                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}`;
             } else if (this.currentStep === 'step-3') {
                 // Display text for step-3
-                this.selectedItemText = `${this.selectedItem}, ${this.genderItem}`;
+                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}`;
             } else if (this.currentStep === 'step-4' || this.currentStep === 'step-5') {
                 // Display text for step-4 and step-5
-                this.selectedItemText = `${this.selectedItem}, ${this.genderItem}, Farba: ${this.colorItem}, Veľkosť: ${this.size}`;
+                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}, Farba: ${this.colorItem}, Veľkosť: ${this.size}`;
             }
         },
         updateColorSizeFilled() {
