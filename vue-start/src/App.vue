@@ -4,14 +4,19 @@
             <div class="mb-5">
                 <div>
                     <label for="item1">Item 1</label>
-                    <input type="radio" id="item1" value="item1" v-model="selectedItem" @change="updateSelectedItemText">
+                    <input type="radio" id="item1" value="item1" v-model="selectedItem" @change="selectedItemFilled = true; updateSelectedItemText">
                 </div>
                 <div>
                     <label for="item2">Item 2</label>
-                    <input type="radio" id="item2" value="item2" v-model="selectedItem" @change="updateSelectedItemText">
+                    <input type="radio" id="item2" value="item2" v-model="selectedItem" @change="selectedItemFilled = true; updateSelectedItemText">
                 </div>
             </div>
-            <button @click="openModal('step-2')">Continue</button>
+            <button @click="openModal('step-2')"
+                    :disabled="!selectedItemFilled"
+                    :class="{ 'opacity-50 cursor-not-allowed': !selectedItemFilled }"
+                    class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                Continue
+            </button>
         </div>
     </div>
 
@@ -44,15 +49,15 @@
                                     <div class="mb-5">
                                         <div>
                                             <label for="gender-item1">Mužské</label>
-                                            <input type="radio" id="gender-item1" value="Men" v-model="genderItem">
+                                            <input type="radio" id="gender-item1" value="Men" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
                                         </div>
                                         <div>
                                             <label for="gender-item2">Ženské</label>
-                                            <input type="radio" id="gender-item2" value="Women" v-model="genderItem">
+                                            <input type="radio" id="gender-item2" value="Women" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
                                         </div>
                                         <div>
                                             <label for="gender-item3">Detské</label>
-                                            <input type="radio" id="gender-item3" value="Kids" v-model="genderItem">
+                                            <input type="radio" id="gender-item3" value="Kids" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
                                         </div>
                                     </div>
                                 </div>
@@ -67,8 +72,11 @@
                                     </p>
                                     <div class="mt-6">
                                         <button @click="nextStep('step-3')" v-show="currentStep === 'step-2'"
+                                                :disabled="!genderFilled"
+                                                :class="{ 'opacity-50 cursor-not-allowed': !genderFilled }"
                                                 class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                                            Continue</button>
+                                            Continue
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +99,7 @@
                                         </h2>
                                     </div>
                                     <div class="mb-5">
-                                        <input type="text" v-model="size" placeholder="Veľkosť">
+                                        <input type="text" v-model="size" placeholder="Veľkosť" @change="sizeFilled = true; updateSize">
                                     </div>
                                 </div>
 
@@ -105,8 +113,11 @@
                                     </p>
                                     <div class="mt-6">
                                         <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
+                                                :disabled="!sizeFilled"
+                                                :class="{ 'opacity-50 cursor-not-allowed': !sizeFilled }"
                                                 class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                                            Continue</button>
+                                            Continue
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +187,7 @@
                                     </div>
                                     <div class="mt-5 mb-5">
                                         <h2 class="text-lg font-medium text-gray-900">
-                                            Pre hoho to bude?
+                                            Vaše kontaktné údaje
                                         </h2>
                                     </div>
                                     <div class="mb-5">
@@ -188,7 +199,8 @@
                                             <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
                                                    v-model="name"
                                                    placeholder="Meno Priezvisko"
-                                                   required>
+                                                   required
+                                                   @change="updateContact">
                                         </div>
                                     </div>
                                     <div class="mb-5">
@@ -196,10 +208,14 @@
                                         <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                v-model="email"
                                                placeholder="mail@mail.sk"
-                                               required>
+                                               required
+                                               @change="updateContact">
                                     </div>
                                     <div class="mb-5">
-                                        <textarea v-model="text" placeholder="Správa"></textarea>
+                                        <textarea v-model="text"
+                                                  placeholder="Adresa"
+                                                  @change="updateContact">
+                                        </textarea>
                                     </div>
                                 </div>
                                 <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
@@ -212,6 +228,8 @@
                                     </p>
                                     <div class="mt-6">
                                         <button @click="upload"
+                                                :disabled="!contactFilled"
+                                                :class="{ 'opacity-50 cursor-not-allowed': !contactFilled }"
                                                 class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
                                             Potvrdiť</button>
                                     </div>
@@ -273,6 +291,10 @@ export default {
             closeIconClose: 'fa-solid fa-xmark text-md',
             closeIconArrowLeft: 'fa-solid fa-arrow-left text-md',
             selectedItemText: '',
+            selectedItemFilled: false,
+            genderFilled: false,
+            sizeFilled: false,
+            contactFilled: false,
         }
     },
     computed: {
@@ -323,6 +345,9 @@ export default {
                 // Display text for step-4 and step-5
                 this.selectedItemText = `Selected Item: ${this.selectedItem}, Gender: ${this.genderItem}, Size: ${this.size}`;
             }
+        },
+        updateContact() {
+            this.contactFilled = this.name && this.email && this.text;
         },
         upload() {
             let formData = new FormData();
