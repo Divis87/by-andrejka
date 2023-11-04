@@ -95,11 +95,30 @@
                                     </div>
                                     <div class="mt-5 mb-5">
                                         <h2 class="text-lg font-medium text-gray-900">
+                                            Vyberte si farbu
+                                        </h2>
+                                    </div>
+                                    <div class="mt-5 mb-5">
+                                        <div class="mb-5">
+                                            <div>
+                                                <label for="color-item1">Biela</label>
+                                                <input type="radio" id="color-item1" value="White" v-model="colorItem" @change="updateColorSizeFilled">
+                                            </div>
+                                            <div>
+                                                <label for="color-item2">Sivá</label>
+                                                <input type="radio" id="color-item2" value="Gray" v-model="colorItem" @change="updateColorSizeFilled">
+                                            </div>
+                                            <div>
+                                                <label for="color-item3">Čierna</label>
+                                                <input type="radio" id="color-item3" value="Black" v-model="colorItem" @change="updateColorSizeFilled">
+                                            </div>
+                                        </div>
+                                        <h2 class="text-lg font-medium text-gray-900">
                                             Vyberte veľkosť
                                         </h2>
                                     </div>
                                     <div class="mb-5">
-                                        <input type="text" v-model="size" placeholder="Veľkosť" @change="sizeFilled = true; updateSize">
+                                        <input type="text" v-model="size" placeholder="Veľkosť" @change="updateColorSizeFilled">
                                     </div>
                                 </div>
 
@@ -113,8 +132,8 @@
                                     </p>
                                     <div class="mt-6">
                                         <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
-                                                :disabled="!sizeFilled"
-                                                :class="{ 'opacity-50 cursor-not-allowed': !sizeFilled }"
+                                                :disabled="!colorSizeFilled"
+                                                :class="{ 'opacity-50 cursor-not-allowed': !colorSizeFilled }"
                                                 class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
                                             Continue
                                         </button>
@@ -310,6 +329,7 @@ export default {
             selectedItem: '',
             size: '',
             genderItem: '',
+            colorItem: '',
             closeIconClose: 'fa-solid fa-xmark text-md',
             closeIconArrowLeft: 'fa-solid fa-arrow-left text-md',
             selectedItemText: '',
@@ -318,6 +338,7 @@ export default {
             sizeFilled: false,
             contactFilled: false,
             imageUploaded: false,
+            colorSizeFilled: false,
         }
     },
     computed: {
@@ -362,8 +383,11 @@ export default {
                 this.selectedItemText = `Selected Item: ${this.selectedItem}, Gender: ${this.genderItem}`;
             } else if (this.currentStep === 'step-4' || this.currentStep === 'step-5') {
                 // Display text for step-4 and step-5
-                this.selectedItemText = `Selected Item: ${this.selectedItem}, Gender: ${this.genderItem}, Size: ${this.size}`;
+                this.selectedItemText = `Selected Item: ${this.selectedItem}, Gender: ${this.genderItem}, Color: ${this.colorItem}, Size: ${this.size}`;
             }
+        },
+        updateColorSizeFilled() {
+            this.colorSizeFilled = this.colorItem && this.size;
         },
         updateContact() {
             this.contactFilled = this.name && this.email && this.text;
@@ -382,6 +406,7 @@ export default {
             formData.append('size', this.size);
             formData.append('image', this.image);
             formData.append('genderItem', this.genderItem);
+            formData.append('colorItem', this.colorItem);
 
             axios
                 .post('http://localhost:3000/upload', formData, {
