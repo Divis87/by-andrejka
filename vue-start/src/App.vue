@@ -55,15 +55,12 @@
                                             <input type="radio" id="gender-item3" value="Kids" v-model="genderItem">
                                         </div>
                                     </div>
-                                    <div class="mb-5">
-                                        <input type="text" v-model="size" placeholder="Veľkosť">
-                                    </div>
                                 </div>
 
                                 <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
                                     <div class="flex justify-between text-base font-medium text-gray-900">
-                                        <p>Subtotal</p>
-                                        <p>$262.00</p>
+                                        <p>Cena aj s poštovným</p>
+                                        <p>{{ subtotalPrice }} €</p>
                                     </div>
                                     <p class="text-sm text-gray-500">
                                         {{ selectedItemText }}
@@ -76,6 +73,7 @@
                                 </div>
                             </div>
 
+                            <!-- step-3 -->
                             <div class="step-3 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
                                  v-show="currentStep === 'step-3'">
                                 <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
@@ -89,11 +87,48 @@
                                     </div>
                                     <div class="mt-5 mb-5">
                                         <h2 class="text-lg font-medium text-gray-900">
+                                            Vyberte veľkosť
+                                        </h2>
+                                    </div>
+                                    <div class="mb-5">
+                                        <input type="text" v-model="size" placeholder="Veľkosť">
+                                    </div>
+                                </div>
+
+                                <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                                    <div class="flex justify-between text-base font-medium text-gray-900">
+                                        <p>Cena aj s poštovným</p>
+                                        <p>{{ subtotalPrice }} €</p>
+                                    </div>
+                                    <p class="text-sm text-gray-500">
+                                        {{ selectedItemText }}
+                                    </p>
+                                    <div class="mt-6">
+                                        <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
+                                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                                            Continue</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-4 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+                                 v-show="currentStep === 'step-4'">
+                                <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                                    <div class="flex items-start justify-between">
+                                        <div class="mr-3 flex h-7 items-center">
+                                            <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-3')" v-show="currentStep === 'step-4'"></modal-close-button>
+                                        </div>
+                                        <div class="ml-3 flex h-7 items-center">
+                                            <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
+                                        </div>
+                                    </div>
+                                    <div class="mt-5 mb-5">
+                                        <h2 class="text-lg font-medium text-gray-900">
                                             step-3
                                         </h2>
                                     </div>
                                     <div class="mb-5">
-                                        <button @click="previousStep('step-2')" v-show="currentStep === 'step-3'">Back</button>
+                                        <button @click="previousStep('step-3')" v-show="currentStep === 'step-4'">Back</button>
                                     </div>
                                     <div class="mb-5">
                                         <div class="w-full">
@@ -116,26 +151,26 @@
                                 </div>
                                 <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
                                     <div class="flex justify-between text-base font-medium text-gray-900">
-                                        <p>Subtotal</p>
-                                        <p>$262.00</p>
+                                        <p>Cena aj s poštovným</p>
+                                        <p>{{ subtotalPrice }} €</p>
                                     </div>
                                     <p class="text-sm text-gray-500">
                                         {{ selectedItemText }}
                                     </p>
                                     <div class="mt-6">
-                                        <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
+                                        <button @click="nextStep('step-5')" v-show="currentStep === 'step-4'"
                                                 class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
                                             Continue</button>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="step-4 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
-                                 v-show="currentStep === 'step-4'">
+                            <div class="step-5 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+                                 v-show="currentStep === 'step-5'">
                                 <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                                     <div class="flex items-start justify-between">
                                         <div class="mr-3 flex h-7 items-center">
-                                            <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-3')" v-show="currentStep === 'step-4'"></modal-close-button>
+                                            <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-4')" v-show="currentStep === 'step-5'"></modal-close-button>
                                         </div>
                                         <div class="ml-3 flex h-7 items-center">
                                             <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
@@ -171,8 +206,8 @@
                                 </div>
                                 <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
                                     <div class="flex justify-between text-base font-medium text-gray-900">
-                                        <p>Subtotal</p>
-                                        <p>$262.00</p>
+                                        <p>Cena aj s poštovným</p>
+                                        <p>{{ subtotalPrice }} €</p>
                                     </div>
                                     <p class="text-sm text-gray-500">
                                         {{ selectedItemText }}
@@ -245,7 +280,21 @@ export default {
             selectedItemText: '',
         }
     },
+    computed: {
+        // Define a computed property to calculate the subtotal based on selected item
+        subtotalPrice() {
+            // Define a mapping of item values to their prices in Euros
+            const itemPricesInEuros = {
+                item1: 50, // Price in Euros
+                item2: 20, // Price in Euros
+            };
 
+            // Get the price based on the selected item, default to 0 if not found
+            const priceInEuros = itemPricesInEuros[this.selectedItem] || 0;
+
+            return priceInEuros.toFixed(2); // Format the price as a string with 2 decimal places
+        },
+    },
     methods: {
         nextStep(step) {
             // You can add validation logic here if needed
@@ -270,10 +319,13 @@ export default {
         },
         updateSelectedItemText() {
             if (this.currentStep === 'step-2') {
-                // Display only the selected item in step-2
+                // Display text for step-2
                 this.selectedItemText = `Selected Item: ${this.selectedItem}`;
-            } else {
-                // In other steps, display a combined string
+            } else if (this.currentStep === 'step-3') {
+                // Display text for step-3
+                this.selectedItemText = `Selected Item: ${this.selectedItem}, Gender: ${this.genderItem}`;
+            } else if (this.currentStep === 'step-4' || this.currentStep === 'step-5') {
+                // Display text for step-4 and step-5
                 this.selectedItemText = `Selected Item: ${this.selectedItem}, Gender: ${this.genderItem}, Size: ${this.size}`;
             }
         },
