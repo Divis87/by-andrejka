@@ -30,14 +30,10 @@
                                 <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                                     <div class="flex items-start justify-between">
                                         <div class="mr-3 flex h-7 items-center">
-                                            <button @click="closeModal" class="relative -m-2 py-2 px-3 text-gray-400 hover:text-gray-500 transition-color duration-300">
-                                                <i class="fa-solid fa-arrow-left"></i>
-                                            </button>
+                                            <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal"></modal-close-button>
                                         </div>
                                         <div class="ml-3 flex h-7 items-center">
-                                            <button @click="closeModal" type="button" class="relative -m-2 py-2 px-3 text-gray-400 hover:text-gray-500 transition-color duration-300">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
+                                            <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                                         </div>
                                     </div>
                                     <div class="mt-5 mb-5">
@@ -69,7 +65,9 @@
                                         <p>Subtotal</p>
                                         <p>$262.00</p>
                                     </div>
-                                    <p class="text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                                    <p class="text-sm text-gray-500">
+                                        Tu bude nejaký text
+                                    </p>
                                     <div class="mt-6">
                                         <button @click="nextStep('step-3')" v-show="currentStep === 'step-2'"
                                                 class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
@@ -169,8 +167,13 @@
 
 <script>
 import axios from 'axios';
+import ModalCloseButton from '@/components/ModalIco.vue'; // Import the ModalCloseButton component
+
 
 export default {
+    components: {
+        ModalCloseButton,
+    },
     data() {
         return {
             currentStep: 'step-1',
@@ -184,7 +187,9 @@ export default {
             message: '',
             selectedItem: '',
             size: '',
-            genderItem: ''
+            genderItem: '',
+            closeIconClose: 'fa-solid fa-xmark text-md',
+            closeIconArrowLeft: 'fa-solid fa-arrow-left text-md',
         }
     },
 
