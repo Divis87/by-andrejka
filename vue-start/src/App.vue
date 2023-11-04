@@ -124,16 +124,13 @@
                                     </div>
                                     <div class="mt-5 mb-5">
                                         <h2 class="text-lg font-medium text-gray-900">
-                                            step-3
+                                            step-4
                                         </h2>
-                                    </div>
-                                    <div class="mb-5">
-                                        <button @click="previousStep('step-3')" v-show="currentStep === 'step-4'">Back</button>
                                     </div>
                                     <div class="mb-5">
                                         <div class="w-full">
                                             <div>
-                                                <img class="h-64 w-64 object-cover rounded-full mb-5" v-if="imageUrl" :src="imageUrl"/>
+                                                <img class="h-full w-full mb-5" v-if="imageUrl" :src="imageUrl"/>
                                             </div>
                                             <label class="block">
                                                 <span class="sr-only">Choose photo</span>
@@ -160,7 +157,8 @@
                                     <div class="mt-6">
                                         <button @click="nextStep('step-5')" v-show="currentStep === 'step-4'"
                                                 class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                                            Continue</button>
+                                            Continue
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -226,11 +224,8 @@
             </div>
         </div>
 
-    </div>
-
-    <!-- Success message -->
-    <div v-if="message" class="transition transform fixed z-100 bottom-0 inset-x-0 pb-2 sm:pb-5 opacity-100 scale-100 translate-y-0 ease-out duration-500">
-        <div class="max-w-screen-xl mx-auto px-2 sm:px-4">
+        <!-- Success message -->
+        <div v-if="message" class="transition fixed z-20 top-0 transform inset-x-0 px-4 py-6 sm:px-6">
             <div class="p-2 rounded-lg bg-gray-900 shadow-lg sm:p-3">
                 <div class="flex items-center justify-between flex-wrap">
                     <div class="w-0 flex-1 flex items-center">
@@ -339,22 +334,28 @@ export default {
             formData.append('image', this.image);
             formData.append('genderItem', this.genderItem);
 
-            axios.post('http://localhost:3000/upload', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            }).then(response => {
-                this.message = response.data.message;
-                console.log('File uploaded successfully.');
+            axios
+                .post('http://localhost:3000/upload', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                })
+                .then((response) => {
+                    this.message = response.data.message;
+                    console.log('File uploaded successfully.');
 
-                // Set a timer to automatically hide the message after 10 seconds
-                setTimeout(() => {
-                    this.message = '';
-                }, 10000);
-            }).catch(err => {
-                console.error(err);
-                this.message = 'An error occurred while uploading the file.';
-            });
+                    // Set a timer to automatically hide the message after 10 seconds
+                    setTimeout(() => {
+                        this.message = '';
+                    }, 10000);
+
+                    // Close the modal
+                    this.closeModal();
+                })
+                .catch((err) => {
+                    console.error(err);
+                    this.message = 'An error occurred while uploading the file.';
+                });
         },
         hideMessage() {
             this.message = '';
