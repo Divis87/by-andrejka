@@ -6,8 +6,8 @@
             <!-- Product info -->
             <div class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
                 <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-                        Basic Tee 6-Pack
+                    <h1 class="text-2xl font-bold tracking-tight text-orange sm:text-3xl">
+                        Objednajte si ručne maľované rifľové bundy, tričká a body pre deti. 🎨
                     </h1>
                 </div>
 
@@ -110,24 +110,54 @@
                 <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
                     <!-- Description and details -->
                     <div>
-                        <h3 class="sr-only">Description</h3>
-
-                        <div class="space-y-6">
-                            <p class="text-base text-gray-900">The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee has you covered.</p>
+                        <div class="space-y-6 text-lg text-gray-900">
+                            <p>
+                                Ak máte vlastný nápad na dizajn, môžete si ho jednoducho nahrať cez náš konfigurátor a ja ho pre vás ručne namaľujem na vybraný kus oblečenia.
+                                Máte na výber z viacerých farieb a veľkostí, takže si určite nájdete to, čo sa vám páči.
+                            </p>
                         </div>
                     </div>
 
                     <div class="mt-10">
-                        <h3 class="text-md font-medium text-gray-900">Highlights</h3>
+                        <h3 class="text-md font-medium text-orange">
+                            Objednávajte si u mňa a získajte tieto výhody:
+                        </h3>
 
-                        <div class="mt-4">
-                            <ul role="list" class="list-disc space-y-2 pl-4 text-md">
-                                <li class="text-gray-400"><span class="text-gray-600">Hand cut and sewn locally</span></li>
-                                <li class="text-gray-400"><span class="text-gray-600">Dyed with our proprietary colors</span></li>
-                                <li class="text-gray-400"><span class="text-gray-600">Pre-washed &amp; pre-shrunk</span></li>
-                                <li class="text-gray-400"><span class="text-gray-600">Ultra-soft 100% cotton</span></li>
+                        <div class="mt-4 mb-10">
+                            <ul role="list" class="list-none space-y-3 text-md text-gray-600">
+                                <li class="flex">
+                                    <span class="pr-3">🎨</span>
+                                    <span>
+                                        <span class="font-medium">Ručne maľované: </span> Každý kus je originál a jedinečný. Nie je to masová produkcia, ale umelecké dielo, ktoré vytváram s láskou a pozornosťou k detailom.
+                                    </span>
+                                </li>
+                                <li class="flex">
+                                    <span class="pr-3">🌈</span>
+                                    <span>
+                                        <span class="font-medium">Originálne a jedinečné oblečenie,</span> ktoré vám dodá štýl a osobnosť.
+                                    </span>
+                                </li>
+                                <li class="flex">
+                                    <span class="pr-3">👍</span>
+                                    <span>
+                                        <span class="font-medium">Kvalitné a trvanlivé materiály,</span> ktoré vydržia dlho a nevyblednú.
+                                    </span>
+                                </li>
+                                <li class="flex">
+                                    <span class="pr-3">🚚</span>
+                                    <span>
+                                        <span class="font-medium">Rýchla a bezpečná doprava,</span> vaše ručne maľované oblečenie priamo domov. Neplatíte žiadne poplatky ani dodatočné náklady.
+                                    </span>
+                                </li>
                             </ul>
                         </div>
+
+                        <p class="flex text-md text-gray-600">
+                            <span class="pr-3">💡</span>
+                            <span>
+                                Ak nemáte vlastný nápad, alebo chcete niečo originálne a kreatívne, <span class="font-medium">môžete si u mňa objednať aj službu navrhovania dizajnu za skvelú cenu.</span> Stačí nám napísať do poznámky v našom konfigurátory vašu predstavu a ja vám vytvorím niekoľko návrhov na výber.
+                            </span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -181,7 +211,7 @@
                         </div>
                     </div>
 
-                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                    <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
                         <div class="flex justify-between text-base font-medium text-gray-900">
                             <p>Cena:</p>
                             <p>{{ subtotalPrice }} €</p>
@@ -243,7 +273,7 @@
                         </div>
                     </div>
 
-                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                    <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
                         <div class="flex justify-between text-base font-medium text-gray-900">
                             <p>Cena:</p>
                             <p>{{ subtotalPrice }} €</p>
@@ -300,7 +330,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                    <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
                         <div class="flex justify-between text-base font-medium text-gray-900">
                             <p>Cena:</p>
                             <p>{{ subtotalPrice }} €</p>
@@ -365,7 +395,7 @@
                                 Potvrdiť</button>
                         </div>
                     </div>
-                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                    <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
                         <div class="flex justify-between text-base font-medium text-gray-900">
                             <p>Cena:</p>
                             <p>{{ subtotalPrice }} €</p>
