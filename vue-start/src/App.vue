@@ -333,41 +333,22 @@
                     <div class="mb-5">
                         <div>
                             <label for="color-item1">Biela</label>
-                            <input type="radio" id="color-item1" value="White" v-model="colorItem" @change="updateColorSizeFilled">
+                            <input type="radio" id="color-item1" value="White" v-model="colorItem" @change="updateColorFilled">
                         </div>
                         <div>
                             <label for="color-item2">Sivá</label>
-                            <input type="radio" id="color-item2" value="Gray" v-model="colorItem" @change="updateColorSizeFilled">
+                            <input type="radio" id="color-item2" value="Gray" v-model="colorItem" @change="updateColorFilled">
                         </div>
                         <div>
                             <label for="color-item3">Čierna</label>
-                            <input type="radio" id="color-item3" value="Black" v-model="colorItem" @change="updateColorSizeFilled">
-                        </div>
-                    </div>
-                    <h2 class="text-lg font-medium text-gray-900">
-                        Vyberte veľkosť
-                    </h2>
-                </div>
-                <div class="mb-5">
-                    <div class="mb-5">
-                        <div>
-                            <label for="color-item1">S</label>
-                            <input type="radio" id="size-item1" value="S" v-model="size" @change="updateColorSizeFilled">
-                        </div>
-                        <div>
-                            <label for="color-item2">M</label>
-                            <input type="radio" id="size-item2" value="M" v-model="size" @change="updateColorSizeFilled">
-                        </div>
-                        <div>
-                            <label for="color-item3">L</label>
-                            <input type="radio" id="size-item3" value="L" v-model="size" @change="updateColorSizeFilled">
+                            <input type="radio" id="color-item3" value="Black" v-model="colorItem" @change="updateColorFilled">
                         </div>
                     </div>
                 </div>
                 <div class="mb-5">
                     <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
-                            :disabled="!colorSizeFilled"
-                            :class="{ 'opacity-50 cursor-not-allowed': !colorSizeFilled }"
+                            :disabled="!colorFilled"
+                            :class="{ 'opacity-50 cursor-not-allowed': !colorFilled }"
                             class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
                         Continue
                     </button>
@@ -401,7 +382,79 @@
                 </div>
                 <div class="mt-5 mb-5">
                     <h2 class="text-lg font-medium text-gray-900">
-                        step-4
+                        Vyberte veľkosť
+                    </h2>
+                </div>
+                <div v-if="genderItem === 'Kids'">
+                    <div class="mb-5">
+                        <div>
+                            <label for="size-item1">122</label>
+                            <input type="radio" id="size-item1" value="122" v-model="size" @change="updateSizeFilled">
+                        </div>
+                        <div>
+                            <label for="size-item2">130</label>
+                            <input type="radio" id="size-item2" value="130" v-model="size" @change="updateSizeFilled">
+                        </div>
+                        <div>
+                            <label for="size-item3">136</label>
+                            <input type="radio" id="size-item3" value="136" v-model="size" @change="updateSizeFilled">
+                        </div>
+                    </div>
+                </div>
+                <div v-else>
+                    <div class="mb-5">
+                        <div>
+                            <label for="size-item1">S</label>
+                            <input type="radio" id="size-item1" value="S" v-model="size" @change="updateSizeFilled">
+                        </div>
+                        <div>
+                            <label for="size-item2">M</label>
+                            <input type="radio" id="size-item2" value="M" v-model="size" @change="updateSizeFilled">
+                        </div>
+                        <div>
+                            <label for="size-item3">L</label>
+                            <input type="radio" id="size-item3" value="L" v-model="size" @change="updateSizeFilled">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <button @click="nextStep('step-5')" v-show="currentStep === 'step-4'"
+                            :disabled="!sizeFilled"
+                            :class="{ 'opacity-50 cursor-not-allowed': !sizeFilled }"
+                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                        Continue
+                    </button>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
+                <div class="flex justify-between text-base font-medium text-gray-900">
+                    <p>Cena:</p>
+                    <p>{{ subtotalPrice }} €</p>
+                </div>
+                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                </p>
+                <p class="text-sm text-gray-500" v-html="selectedItemText">
+                </p>
+            </div>
+        </div>
+
+        <!-- step-5 -->
+        <div class="step-5 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+             v-show="currentStep === 'step-5'">
+            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                <div class="flex items-start justify-between">
+                    <div class="mr-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-4')" v-show="currentStep === 'step-5'"></modal-close-button>
+                    </div>
+                    <div class="ml-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
+                    </div>
+                </div>
+                <div class="mt-5 mb-5">
+                    <h2 class="text-lg font-medium text-gray-900">
+                        step-5
                     </h2>
                 </div>
                 <div class="mb-5">
@@ -423,7 +476,7 @@
                     </div>
                 </div>
                 <div class="mb-5">
-                    <button @click="nextStep('step-5')" v-show="currentStep === 'step-4'"
+                    <button @click="nextStep('step-6')" v-show="currentStep === 'step-5'"
                             :disabled="!imageUploaded"
                             :class="{ 'opacity-50 cursor-not-allowed': !imageUploaded }"
                             class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
@@ -444,13 +497,13 @@
             </div>
         </div>
 
-        <!-- step-5 -->
-        <div class="step-5 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
-             v-show="currentStep === 'step-5'">
+        <!-- step-6 -->
+        <div class="step-6 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+             v-show="currentStep === 'step-6'">
             <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                 <div class="flex items-start justify-between">
                     <div class="mr-3 flex h-7 items-center">
-                        <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-4')" v-show="currentStep === 'step-5'"></modal-close-button>
+                        <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-5')" v-show="currentStep === 'step-6'"></modal-close-button>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
@@ -509,11 +562,13 @@
             </div>
         </div>
 
-        <!-- step-6 -->
-        <div class="step-6 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
-             v-show="currentStep === 'step-6'">
+        <!-- step-7 -->
+        <div class="step-7 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+             v-show="currentStep === 'step-7'">
             <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                 <div class="flex items-start justify-between">
+                    <div class="ml-3 flex h-7 items-center">
+                    </div>
                     <div class="ml-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
@@ -594,7 +649,7 @@ export default {
             sizeFilled: false,
             contactFilled: false,
             imageUploaded: false,
-            colorSizeFilled: false,
+            colorFilled: false,
             item1SubtotalPrice: 50,
             item2SubtotalPrice: 20,
             item1Days: '1-3',
@@ -641,13 +696,20 @@ export default {
             } else if (this.currentStep === 'step-3') {
                 // Display text for step-3
                 this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}`;
-            } else if (this.currentStep === 'step-4' || this.currentStep === 'step-5') {
+            } else if (this.currentStep === 'step-4') {
+                // Display text for step-4 and step-5
+                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}, Farba: ${this.colorItem}`;
+            }
+            else if (this.currentStep === 'step-5') {
                 // Display text for step-4 and step-5
                 this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}, Farba: ${this.colorItem}, Veľkosť: ${this.size}`;
             }
         },
-        updateColorSizeFilled() {
-            this.colorSizeFilled = this.colorItem && this.size;
+        updateColorFilled() {
+            this.colorFilled = this.colorItem;
+        },
+        updateSizeFilled() {
+            this.sizeFilled = this.size;
         },
         updateContact() {
             this.contactFilled = this.name && this.email && this.text;
