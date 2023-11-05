@@ -1,19 +1,27 @@
-<div>
-    <button @click="openModal" class="bg-blue-500 text-white p-2">
-        Otvoriť modálne okno
-    </button>
-    <div v-if="showModal" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-        <div class="bg-white w-1/2 p-4 shadow-lg relative">
-            <button @click="closeModal" class="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full w-6 h-6 flex items-center justify-center">
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M3.293 4.293a1 1 0 011.414 0L10 8.586l5.293-5.293a1 1 0 111.414 1.414L11.414 10l5.293 5.293a1 1 0 01-1.414 1.414L10 11.414l-5.293 5.293a1 1 0 01-1.414-1.414L8.586 10 3.293 4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-            </button>
-            <h2 class="text-xl font-bold mb-4">Modálne okno</h2>
-            <p>Tu môže byť obsah vášho modálneho okna.</p>
-            <button @click="closeModal" class="bg-blue-500 text-white p-2 mt-4">Zavrieť</button>
+<div >
+<button @click="openModal2" class="bg-blue-500 text-white p-2">
+    Otvoriť modálne okno
+</button>
+<div v-if="showModal2" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+    <div class="bg-white w-1/2 p-4 shadow-lg relative">
+        <div class="flex items-start justify-between">
+            <div class="mr-3 flex h-7 items-center">
+                <h2 class="text-lg font-medium text-gray-900">
+                    Pre hoho to bude?
+                </h2>
+            </div>
+            <div class="ml-3 flex h-7 items-center">
+                <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal2"></modal-close-button>
+            </div>
+        </div>
+        <div class="mt-5 mb-5">
+            <h2 class="text-lg font-medium text-gray-900">
+                Pre hoho to bude?
+            </h2>
         </div>
     </div>
 </div>
+</div>
 <script setup>
+import ModalCloseButton from "@/components/ModalIco.vue";
 </script>

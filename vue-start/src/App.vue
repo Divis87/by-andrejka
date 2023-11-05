@@ -33,9 +33,9 @@
                         Máte na výber z viacerých farieb a veľkostí, takže si určite nájdete to, čo sa vám páči.
                     </p>
                     <div class="my-6 flex justify-center">
-                        <div class="relative rounded-full px-3 py-2 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                            💡 Nemáte vlastný design? <a href="#" class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko návrhov.</a>
-                        </div>
+                        <button @click="openModal2"  class="relative rounded-full px-3 py-2 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                            💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko návrhov.</span>
+                        </button>
                     </div>
                     <div class="mx-auto max-w-md">
                         <div class="step-1 mt-10">
@@ -139,252 +139,296 @@
         </div>
     </div>
 
+    <StepsModal :show="showModal2">
+        <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                <div class="flex items-start justify-between">
+                    <div class="mr-3 flex h-7 items-center">
+                        <h2 class="text-lg font-medium text-gray-900">
+                            <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal2"></modal-close-button>
+                        </h2>
+                    </div>
+                    <div class="ml-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal2"></modal-close-button>
+                    </div>
+                </div>
+                <div class="mt-5 mb-5 text-md text-gray-600">
+                    Ak nemáte vlastný nápad, alebo chcete niečo originálne a kreatívne, <span class="font-medium">môžete si u nás objednať aj službu navrhovania dizajnu za skvelú cenu.</span> Stačí nám napísať do poznámky v našom konfigurátory vašu predstavu a my vám vytvorím niekoľko návrhov na výber.
+
+                    <ul role="list" class="list-none space-y-3">
+                        <li class="flex">
+                            <span class="pr-3">🎨</span>
+                            <span>
+                            <span class="font-medium">Ručne maľované: </span> Každý kus je originál a jedinečný. Nie je to masová produkcia, ale umelecké dielo, ktoré vytváram s láskou a pozornosťou k detailom.
+                        </span>
+                        </li>
+                        <li class="flex">
+                            <span class="pr-3">🌈</span>
+                            <span>
+                            <span class="font-medium">Originálne a jedinečné oblečenie,</span> ktoré vám dodá štýl a osobnosť.
+                        </span>
+                        </li>
+                        <li class="flex">
+                            <span class="pr-3">👍</span>
+                            <span>
+                            <span class="font-medium">Kvalitné a trvanlivé materiály,</span> ktoré vydržia dlho a nevyblednú.
+                        </span>
+                        </li>
+                        <li class="flex">
+                            <span class="pr-3">🚚</span>
+                            <span>
+                            <span class="font-medium">Rýchla a bezpečná doprava,</span> vaše ručne maľované oblečenie priamo domov. Neplatíte žiadne poplatky ani dodatočné náklady.
+                        </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </StepsModal>
+
     <!-- Use the Modal component and pass the showModal as a prop -->
     <StepsModal :show="showModal">
-        <!-- Modal Content -->
-        <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full animate-slide-in duration-300">
-            <div class="pointer-events-auto w-screen max-w-md">
 
-                <!-- step-2 -->
-                <div class="step-2 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
-                     v-show="currentStep === 'step-2'">
-                    <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                        <div class="flex items-start justify-between">
-                            <div class="mr-3 flex h-7 items-center">
-                                <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal"></modal-close-button>
-                            </div>
-                            <div class="ml-3 flex h-7 items-center">
-                                <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
-                            </div>
-                        </div>
-                        <div class="mt-5 mb-5">
-                            <h2 class="text-lg font-medium text-gray-900">
-                                Pre hoho to bude?
-                            </h2>
-                        </div>
-                        <div class="mb-5">
-                            <div>
-                                <label for="gender-item1">Mužské</label>
-                                <input type="radio" id="gender-item1" value="Men" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
-                            </div>
-                            <div>
-                                <label for="gender-item2">Ženské</label>
-                                <input type="radio" id="gender-item2" value="Women" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
-                            </div>
-                            <div>
-                                <label for="gender-item3">Detské</label>
-                                <input type="radio" id="gender-item3" value="Kids" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
-                            </div>
-                        </div>
-                        <div class="mb-5">
-                            <button @click="nextStep('step-3')" v-show="currentStep === 'step-2'"
-                                    :disabled="!genderFilled"
-                                    :class="{ 'opacity-50 cursor-not-allowed': !genderFilled }"
-                                    class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                                Continue
-                            </button>
-                        </div>
+        <!-- step-2 -->
+        <div class="step-2 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+             v-show="currentStep === 'step-2'">
+            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                <div class="flex items-start justify-between">
+                    <div class="mr-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal"></modal-close-button>
                     </div>
-
-                    <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
-                        <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Cena:</p>
-                            <p>{{ subtotalPrice }} €</p>
-                        </div>
-                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
-                        </p>
-                        <p class="text-sm text-gray-500" v-html="selectedItemText">
-                        </p>
+                    <div class="ml-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
-
-                <!-- step-3 -->
-                <div class="step-3 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
-                     v-show="currentStep === 'step-3'">
-                    <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                        <div class="flex items-start justify-between">
-                            <div class="mr-3 flex h-7 items-center">
-                                <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-2')" v-show="currentStep === 'step-3'"></modal-close-button>
-                            </div>
-                            <div class="ml-3 flex h-7 items-center">
-                                <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
-                            </div>
-                        </div>
-                        <div class="mt-5 mb-5">
-                            <h2 class="text-lg font-medium text-gray-900">
-                                Vyberte si farbu
-                            </h2>
-                        </div>
-                        <div class="mt-5 mb-5">
-                            <div class="mb-5">
-                                <div>
-                                    <label for="color-item1">Biela</label>
-                                    <input type="radio" id="color-item1" value="White" v-model="colorItem" @change="updateColorSizeFilled">
-                                </div>
-                                <div>
-                                    <label for="color-item2">Sivá</label>
-                                    <input type="radio" id="color-item2" value="Gray" v-model="colorItem" @change="updateColorSizeFilled">
-                                </div>
-                                <div>
-                                    <label for="color-item3">Čierna</label>
-                                    <input type="radio" id="color-item3" value="Black" v-model="colorItem" @change="updateColorSizeFilled">
-                                </div>
-                            </div>
-                            <h2 class="text-lg font-medium text-gray-900">
-                                Vyberte veľkosť
-                            </h2>
-                        </div>
-                        <div class="mb-5">
-                            <input type="text" v-model="size" placeholder="Veľkosť" @change="updateColorSizeFilled">
-                        </div>
-                        <div class="mb-5">
-                            <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
-                                    :disabled="!colorSizeFilled"
-                                    :class="{ 'opacity-50 cursor-not-allowed': !colorSizeFilled }"
-                                    class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                                Continue
-                            </button>
-                        </div>
+                <div class="mt-5 mb-5">
+                    <h2 class="text-lg font-medium text-gray-900">
+                        Pre hoho to bude?
+                    </h2>
+                </div>
+                <div class="mb-5">
+                    <div>
+                        <label for="gender-item1">Mužské</label>
+                        <input type="radio" id="gender-item1" value="Men" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
                     </div>
-
-                    <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
-                        <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Cena:</p>
-                            <p>{{ subtotalPrice }} €</p>
-                        </div>
-                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
-                        </p>
-                        <p class="text-sm text-gray-500" v-html="selectedItemText">
-                        </p>
+                    <div>
+                        <label for="gender-item2">Ženské</label>
+                        <input type="radio" id="gender-item2" value="Women" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
+                    </div>
+                    <div>
+                        <label for="gender-item3">Detské</label>
+                        <input type="radio" id="gender-item3" value="Kids" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
                     </div>
                 </div>
+                <div class="mb-5">
+                    <button @click="nextStep('step-3')" v-show="currentStep === 'step-2'"
+                            :disabled="!genderFilled"
+                            :class="{ 'opacity-50 cursor-not-allowed': !genderFilled }"
+                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                        Continue
+                    </button>
+                </div>
+            </div>
 
-                <!-- step-4 -->
-                <div class="step-4 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
-                     v-show="currentStep === 'step-4'">
-                    <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                        <div class="flex items-start justify-between">
-                            <div class="mr-3 flex h-7 items-center">
-                                <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-3')" v-show="currentStep === 'step-4'"></modal-close-button>
-                            </div>
-                            <div class="ml-3 flex h-7 items-center">
-                                <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
-                            </div>
-                        </div>
-                        <div class="mt-5 mb-5">
-                            <h2 class="text-lg font-medium text-gray-900">
-                                step-4
-                            </h2>
-                        </div>
-                        <div class="mb-5">
-                            <div class="w-full">
-                                <div>
-                                    <img class="h-full w-full mb-5" v-if="imageUrl" :src="imageUrl"/>
-                                </div>
-                                <label class="block">
-                                    <span class="sr-only">Choose photo</span>
-                                    <input type="file" @change="onFileChange"
-                                           class="block w-full text-sm text-gray
-                                                file:mr-4 file:py-3 file:px-5
-                                                file:rounded-full file:border-0
-                                                file:text-sm file:font-semibold
-                                                file:bg-violet-50 file:text-gray
-                                                hover:file:bg-violet-100
-                                          "/>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="mb-5">
-                            <button @click="nextStep('step-5')" v-show="currentStep === 'step-4'"
-                                    :disabled="!imageUploaded"
-                                    :class="{ 'opacity-50 cursor-not-allowed': !imageUploaded }"
-                                    class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                                Continue
-                            </button>
-                        </div>
+            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
+                <div class="flex justify-between text-base font-medium text-gray-900">
+                    <p>Cena:</p>
+                    <p>{{ subtotalPrice }} €</p>
+                </div>
+                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                </p>
+                <p class="text-sm text-gray-500" v-html="selectedItemText">
+                </p>
+            </div>
+        </div>
+
+        <!-- step-3 -->
+        <div class="step-3 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+             v-show="currentStep === 'step-3'">
+            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                <div class="flex items-start justify-between">
+                    <div class="mr-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-2')" v-show="currentStep === 'step-3'"></modal-close-button>
                     </div>
-                    <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
-                        <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Cena:</p>
-                            <p>{{ subtotalPrice }} €</p>
-                        </div>
-                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
-                        </p>
-                        <p class="text-sm text-gray-500" v-html="selectedItemText">
-                        </p>
+                    <div class="ml-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
-
-                <!-- step-5 -->
-                <div class="step-5 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
-                     v-show="currentStep === 'step-5'">
-                    <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                        <div class="flex items-start justify-between">
-                            <div class="mr-3 flex h-7 items-center">
-                                <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-4')" v-show="currentStep === 'step-5'"></modal-close-button>
-                            </div>
-                            <div class="ml-3 flex h-7 items-center">
-                                <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
-                            </div>
+                <div class="mt-5 mb-5">
+                    <h2 class="text-lg font-medium text-gray-900">
+                        Vyberte si farbu
+                    </h2>
+                </div>
+                <div class="mt-5 mb-5">
+                    <div class="mb-5">
+                        <div>
+                            <label for="color-item1">Biela</label>
+                            <input type="radio" id="color-item1" value="White" v-model="colorItem" @change="updateColorSizeFilled">
                         </div>
-                        <div class="mt-5 mb-5">
-                            <h2 class="text-lg font-medium text-gray-900">
-                                Vaše kontaktné údaje
-                            </h2>
+                        <div>
+                            <label for="color-item2">Sivá</label>
+                            <input type="radio" id="color-item2" value="Gray" v-model="colorItem" @change="updateColorSizeFilled">
                         </div>
-                        <div class="mb-5">
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Vaše celé meno:</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                                    <i class="fa-regular fa-user text-gray-500"></i>
-                                </div>
-                                <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                                       v-model="name"
-                                       placeholder="Meno Priezvisko"
-                                       required
-                                       @change="updateContact">
-                            </div>
-                        </div>
-                        <div class="mb-5">
-                            <label for="mail" class="block mb-2 text-sm font-medium text-gray-900">E-mailová adresa:</label>
-                            <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                   v-model="email"
-                                   placeholder="mail@mail.sk"
-                                   required
-                                   @change="updateContact">
-                        </div>
-                        <div class="mb-5">
-                            <textarea v-model="text"
-                                      placeholder="Adresa"
-                                      @change="updateContact">
-                            </textarea>
-                        </div>
-                        <div class="mb-5">
-                            <button @click="upload"
-                                    :disabled="!contactFilled"
-                                    :class="{ 'opacity-50 cursor-not-allowed': !contactFilled }"
-                                    class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                                Potvrdiť</button>
+                        <div>
+                            <label for="color-item3">Čierna</label>
+                            <input type="radio" id="color-item3" value="Black" v-model="colorItem" @change="updateColorSizeFilled">
                         </div>
                     </div>
-                    <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
-                        <div class="flex justify-between text-base font-medium text-gray-900">
-                            <p>Cena:</p>
-                            <p>{{ subtotalPrice }} €</p>
-                        </div>
-                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
-                        </p>
-                        <p class="text-sm text-gray-500" v-html="selectedItemText">
-                        </p>
+                    <h2 class="text-lg font-medium text-gray-900">
+                        Vyberte veľkosť
+                    </h2>
+                </div>
+                <div class="mb-5">
+                    <input type="text" v-model="size" placeholder="Veľkosť" @change="updateColorSizeFilled">
+                </div>
+                <div class="mb-5">
+                    <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
+                            :disabled="!colorSizeFilled"
+                            :class="{ 'opacity-50 cursor-not-allowed': !colorSizeFilled }"
+                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                        Continue
+                    </button>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
+                <div class="flex justify-between text-base font-medium text-gray-900">
+                    <p>Cena:</p>
+                    <p>{{ subtotalPrice }} €</p>
+                </div>
+                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                </p>
+                <p class="text-sm text-gray-500" v-html="selectedItemText">
+                </p>
+            </div>
+        </div>
+
+        <!-- step-4 -->
+        <div class="step-4 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+             v-show="currentStep === 'step-4'">
+            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                <div class="flex items-start justify-between">
+                    <div class="mr-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-3')" v-show="currentStep === 'step-4'"></modal-close-button>
+                    </div>
+                    <div class="ml-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
+                <div class="mt-5 mb-5">
+                    <h2 class="text-lg font-medium text-gray-900">
+                        step-4
+                    </h2>
+                </div>
+                <div class="mb-5">
+                    <div class="w-full">
+                        <div>
+                            <img class="h-full w-full mb-5" v-if="imageUrl" :src="imageUrl"/>
+                        </div>
+                        <label class="block">
+                            <span class="sr-only">Choose photo</span>
+                            <input type="file" @change="onFileChange"
+                                   class="block w-full text-sm text-gray
+                                        file:mr-4 file:py-3 file:px-5
+                                        file:rounded-full file:border-0
+                                        file:text-sm file:font-semibold
+                                        file:bg-violet-50 file:text-gray
+                                        hover:file:bg-violet-100
+                                  "/>
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <button @click="nextStep('step-5')" v-show="currentStep === 'step-4'"
+                            :disabled="!imageUploaded"
+                            :class="{ 'opacity-50 cursor-not-allowed': !imageUploaded }"
+                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                        Continue
+                    </button>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
+                <div class="flex justify-between text-base font-medium text-gray-900">
+                    <p>Cena:</p>
+                    <p>{{ subtotalPrice }} €</p>
+                </div>
+                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                </p>
+                <p class="text-sm text-gray-500" v-html="selectedItemText">
+                </p>
+            </div>
+        </div>
 
-                <!-- step-6 -->
-                <div class="step-6 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+        <!-- step-5 -->
+        <div class="step-5 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+             v-show="currentStep === 'step-5'">
+            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                <div class="flex items-start justify-between">
+                    <div class="mr-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-4')" v-show="currentStep === 'step-5'"></modal-close-button>
+                    </div>
+                    <div class="ml-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
+                    </div>
+                </div>
+                <div class="mt-5 mb-5">
+                    <h2 class="text-lg font-medium text-gray-900">
+                        Vaše kontaktné údaje
+                    </h2>
+                </div>
+                <div class="mb-5">
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Vaše celé meno:</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                            <i class="fa-regular fa-user text-gray-500"></i>
+                        </div>
+                        <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                               v-model="name"
+                               placeholder="Meno Priezvisko"
+                               required
+                               @change="updateContact">
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <label for="mail" class="block mb-2 text-sm font-medium text-gray-900">E-mailová adresa:</label>
+                    <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                           v-model="email"
+                           placeholder="mail@mail.sk"
+                           required
+                           @change="updateContact">
+                </div>
+                <div class="mb-5">
+                    <textarea v-model="text"
+                              placeholder="Adresa"
+                              @change="updateContact">
+                    </textarea>
+                </div>
+                <div class="mb-5">
+                    <button @click="upload"
+                            :disabled="!contactFilled"
+                            :class="{ 'opacity-50 cursor-not-allowed': !contactFilled }"
+                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                        Potvrdiť</button>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
+                <div class="flex justify-between text-base font-medium text-gray-900">
+                    <p>Cena:</p>
+                    <p>{{ subtotalPrice }} €</p>
+                </div>
+                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                </p>
+                <p class="text-sm text-gray-500" v-html="selectedItemText">
+                </p>
+            </div>
+        </div>
+
+        <!-- step-6 -->
+        <div class="step-6 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
                      v-show="currentStep === 'step-6'">
                     <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                         <div class="flex items-start justify-between">
@@ -403,9 +447,6 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
-        </div>
     </StepsModal>
 
     <!-- Success message -->
@@ -445,6 +486,7 @@ export default {
         return {
             currentStep: 'step-1',
             showModal: false,
+            showModal2: false,
             name: '',
             password: '',
             text: '',
@@ -495,8 +537,14 @@ export default {
             this.showModal = true;
             this.updateSelectedItemText();
         },
+        openModal2() {
+            this.showModal2 = true;
+        },
         closeModal() {
             this.showModal = false;
+        },
+        closeModal2() {
+            this.showModal2 = false;
         },
         updateSelectedItemText() {
             if (this.currentStep === 'step-2') {
