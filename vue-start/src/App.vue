@@ -349,7 +349,20 @@
                     </h2>
                 </div>
                 <div class="mb-5">
-                    <input type="text" v-model="size" placeholder="Veľkosť" @change="updateColorSizeFilled">
+                    <div class="mb-5">
+                        <div>
+                            <label for="color-item1">S</label>
+                            <input type="radio" id="size-item1" value="S" v-model="size" @change="updateColorSizeFilled">
+                        </div>
+                        <div>
+                            <label for="color-item2">M</label>
+                            <input type="radio" id="size-item2" value="M" v-model="size" @change="updateColorSizeFilled">
+                        </div>
+                        <div>
+                            <label for="color-item3">L</label>
+                            <input type="radio" id="size-item3" value="L" v-model="size" @change="updateColorSizeFilled">
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-5">
                     <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
