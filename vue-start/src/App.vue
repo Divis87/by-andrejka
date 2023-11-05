@@ -139,7 +139,7 @@
         </div>
     </div>
 
-    <StepsModal :show="showModal">
+    <SidebarModal :show="showModal">
 
         <!-- step-2 -->
         <div class="step-2 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
@@ -381,27 +381,27 @@
 
         <!-- step-6 -->
         <div class="step-6 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
-                     v-show="currentStep === 'step-6'">
-                    <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                        <div class="flex items-start justify-between">
-                            <div class="ml-3 flex h-7 items-center">
-                                <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
-                            </div>
-                        </div>
-                        <div class="mt-5 mb-5">
-                            <h2 class="text-lg font-medium text-gray-900">
-                                Ďakujeme za objednávku.
-                            </h2>
-                        </div>
-
-                        <div class="mb-5">
-                            V najbližšej dobe Vám bude zaslaná faktúra na uvedený e-mail.
-                        </div>
+             v-show="currentStep === 'step-6'">
+            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                <div class="flex items-start justify-between">
+                    <div class="ml-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
-    </StepsModal>
+                <div class="mt-5 mb-5">
+                    <h2 class="text-lg font-medium text-gray-900">
+                        Ďakujeme za objednávku.
+                    </h2>
+                </div>
 
-    <StepsModal :show="showModal2">
+                <div class="mb-5">
+                    V najbližšej dobe Vám bude zaslaná faktúra na uvedený e-mail.
+                </div>
+            </div>
+        </div>
+    </SidebarModal>
+
+    <SidebarModal :show="showModal2">
         <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
             <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                 <div class="flex items-start justify-between">
@@ -446,7 +446,7 @@
                 </div>
             </div>
         </div>
-    </StepsModal>
+    </SidebarModal>
 
     <!-- Success message -->
     <div v-if="message" class="transition fixed z-20 bottom-0 transform inset-x-0 px-4 py-6 sm:px-6">
@@ -473,12 +473,12 @@
 
 <script>
 import axios from 'axios';
-import StepsModal from '@/components/StepsModal.vue';
+import SidebarModal from '@/components/SidebarModal.vue';
 import ModalCloseButton from '@/components/ModalIco.vue';
 
 export default {
     components: {
-        StepsModal,
+        SidebarModal,
         ModalCloseButton,
     },
     data() {
