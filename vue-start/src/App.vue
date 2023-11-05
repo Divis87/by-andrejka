@@ -18,7 +18,6 @@
                 </div>
             </nav>
         </header>
-
         <div class="relative isolate px-6 pt-14 lg:px-8">
             <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
                 <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
@@ -33,7 +32,7 @@
                         Máte na výber z viacerých farieb a veľkostí, takže si určite nájdete to, čo sa vám páči.
                     </p>
                     <div class="my-6 flex justify-center">
-                        <button @click="openModal2"  class="relative rounded-full px-3 py-2 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                        <button @click="openModal2"  class="relative rounded-full leading-snug px-5 py-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                             💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko návrhov.</span>
                         </button>
                     </div>
@@ -402,50 +401,7 @@
     </SidebarModal>
 
     <SidebarModal :show="showModal2">
-        <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                <div class="flex items-start justify-between">
-                    <div class="mr-3 flex h-7 items-center">
-                        <h2 class="text-lg font-medium text-gray-900">
-                            <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal2"></modal-close-button>
-                        </h2>
-                    </div>
-                    <div class="ml-3 flex h-7 items-center">
-                        <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal2"></modal-close-button>
-                    </div>
-                </div>
-                <div class="mt-5 mb-5 text-md text-gray-600">
-                    Ak nemáte vlastný nápad, alebo chcete niečo originálne a kreatívne, <span class="font-medium">môžete si u nás objednať aj službu navrhovania dizajnu za skvelú cenu.</span> Stačí nám napísať do poznámky v našom konfigurátory vašu predstavu a my vám vytvorím niekoľko návrhov na výber.
-
-                    <ul role="list" class="list-none space-y-3">
-                        <li class="flex">
-                            <span class="pr-3">🎨</span>
-                            <span>
-                            <span class="font-medium">Ručne maľované: </span> Každý kus je originál a jedinečný. Nie je to masová produkcia, ale umelecké dielo, ktoré vytváram s láskou a pozornosťou k detailom.
-                        </span>
-                        </li>
-                        <li class="flex">
-                            <span class="pr-3">🌈</span>
-                            <span>
-                            <span class="font-medium">Originálne a jedinečné oblečenie,</span> ktoré vám dodá štýl a osobnosť.
-                        </span>
-                        </li>
-                        <li class="flex">
-                            <span class="pr-3">👍</span>
-                            <span>
-                            <span class="font-medium">Kvalitné a trvanlivé materiály,</span> ktoré vydržia dlho a nevyblednú.
-                        </span>
-                        </li>
-                        <li class="flex">
-                            <span class="pr-3">🚚</span>
-                            <span>
-                            <span class="font-medium">Rýchla a bezpečná doprava,</span> vaše ručne maľované oblečenie priamo domov. Neplatíte žiadne poplatky ani dodatočné náklady.
-                        </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <BenefitsModal :show="showModal2" @close-modal="showModal2 = false" />
     </SidebarModal>
 
     <!-- Success message -->
@@ -475,11 +431,13 @@
 import axios from 'axios';
 import SidebarModal from '@/components/SidebarModal.vue';
 import ModalCloseButton from '@/components/ModalIco.vue';
+import BenefitsModal from '@/components/BenefitsModal.vue';
 
 export default {
     components: {
         SidebarModal,
         ModalCloseButton,
+        BenefitsModal,
     },
     data() {
         return {
