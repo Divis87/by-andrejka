@@ -125,7 +125,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
     }
   });
 
-  res.status(200).json({ message: 'Súbor úspešne nahraný!' });
+  res.status(200).json({ message: 'Skontrolujte si Váš e-mail.' });
 });
 
 app.listen(3000, () => console.log('Server beží na porte 3000.'));

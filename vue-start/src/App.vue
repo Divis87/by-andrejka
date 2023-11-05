@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white">
+    <div class="bg-white ">
         <header class="absolute inset-x-0 top-0">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1">
@@ -25,11 +25,11 @@
             <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
                 <div class="text-center">
                     <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                        Ručne maľované rifľové bundy, tričká a body pre deti.
+                        Ručne maľované rifľové bundy, tričká alebo body pre deti.
                     </h1>
                     <p class="mt-6 text-lg leading-8 text-gray-600">
                         Ak máte vlastný nápad na dizajn, môžete si ho jednoducho nahrať cez náš konfigurátor a mi vám ho pre vás ručne namaľujeme na vybraný kus oblečenia.
-                        Máte na výber z viacerých farieb a veľkostí, takže si určite nájdete to, čo sa vám páči.
+                        Máte&nbsp;na výber z viacerých farieb a veľkostí, takže si určite nájdete to, čo sa vám páči.
                     </p>
                     <div class="my-6 flex justify-center">
                         <button @click="openModal2"  class="relative rounded-full leading-snug px-5 py-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
@@ -42,7 +42,7 @@
                                 Máte záujem o:
                             </h2>
                             <ul>
-                                <li class="mb-5">
+                                <li class="mb-4">
                                     <input type="radio"
                                            id="item1"
                                            name="product"
@@ -81,7 +81,7 @@
                                         </div>
                                     </label>
                                 </li>
-                                <li class="mb-5">
+                                <li class="mb-4">
                                     <input
                                         type="radio"
                                         id="item2"
@@ -122,7 +122,7 @@
                                     </label>
                                 </li>
                             </ul>
-                            <button @click="openModal('step-2')"
+                            <button @click="openModal('step-1')"
                                     :disabled="!selectedItemFilled"
                                     :class="{ 'opacity-50 cursor-not-allowed': !selectedItemFilled }"
                                     class="flex items-center justify-center w-full rounded-md border border-transparent bg-green hover:bg-green-700 px-6 py-3 text-base font-medium text-white shadow-sm transition-background-color duration-300">
@@ -139,6 +139,128 @@
     </div>
 
     <SidebarModal :show="showModal">
+        <!-- step-1 -->
+        <div class="step-1 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+             v-show="currentStep === 'step-1'">
+            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                <div class="flex items-start justify-between">
+                    <div class="mr-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal"></modal-close-button>
+                    </div>
+                    <div class="ml-3 flex h-7">
+                        <h2 class="text-lg font-medium text-md text-gray-900">
+                            Pre hoho to bude?
+                        </h2>
+                    </div>
+                    <div class="ml-3 flex h-7 items-center">
+                        <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
+                    </div>
+                </div>
+                <div class="mt-5 mb-5">
+                    <ul>
+                        <li class="mb-5">
+                            <input type="radio"
+                                   id="item1"
+                                   name="product"
+                                   value="item1"
+                                   class="hidden peer"
+                                   v-model="selectedItem"
+                                   @change="selectedItemFilled = true; updateSelectedItemText">
+                            <label for="item1"
+                                   class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
+                                         peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
+                                <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
+                                    <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                         alt=""
+                                         class="h-full w-full object-cover object-center">
+                                </div>
+                                <div class="ml-4 flex flex-1 flex-col text-md leading-snug text-left">
+                                    <div>
+                                        <div class="flex font-medium text-gray-900">
+                                            <h3 class="-mt-1">
+                                                Ručne maľovaná riflová bunda
+                                            </h3>
+                                        </div>
+                                        <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
+                                            <i class="fa-solid fa-check mr-1"></i> Malujem {{ item1Days }} prac. dni
+                                            <br>
+                                            <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-1 items-end justify-between">
+                                        <div class="flex">
+                                            <div class="font-medium text-gray-900">
+                                                {{ item1SubtotalPrice }} €
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="mb-5">
+                            <input
+                                type="radio"
+                                id="item2"
+                                name="product"
+                                value="item2"
+                                class="hidden peer"
+                                v-model="selectedItem"
+                                @change="selectedItemFilled = true; updateSelectedItemText">
+                            <label for="item2"
+                                   class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
+                                         peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
+                                <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
+                                    <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                         alt=""
+                                         class="h-full w-full object-cover object-center">
+                                </div>
+                                <div class="ml-4 flex flex-1 flex-col text-md leading-snug text-left">
+                                    <div>
+                                        <div class="flex font-medium text-gray-900">
+                                            <h3 class="-mt-1">
+                                                Ručne maľované tričko
+                                            </h3>
+                                        </div>
+                                        <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
+                                            <i class="fa-solid fa-check mr-1"></i> Malujem {{ item2Days }} prac. dni
+                                            <br>
+                                            <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-1 items-end justify-between">
+                                        <div class="flex">
+                                            <div class="font-medium text-gray-900">
+                                                {{ item2SubtotalPrice }} €
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mb-5">
+                    <button @click="nextStep('step-2')" v-show="currentStep === 'step-1'"
+                            :disabled="!selectedItemFilled"
+                            :class="{ 'opacity-50 cursor-not-allowed': !selectedItemFilled }"
+                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                        Continue
+                    </button>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
+                <div class="flex justify-between text-base font-medium text-gray-900">
+                    <p>Cena:</p>
+                    <p>{{ subtotalPrice }} €</p>
+                </div>
+                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                </p>
+                <p class="text-sm text-gray-500" v-html="selectedItemText">
+                </p>
+            </div>
+        </div>
 
         <!-- step-2 -->
         <div class="step-2 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
