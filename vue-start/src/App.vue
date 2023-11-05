@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white ">
+    <div class="bg-white">
         <header class="absolute inset-x-0 top-0">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1">
@@ -130,6 +130,10 @@
                                     </label>
                                 </li>
                             </ul>
+                            <button @click="openModal('step-1')"
+                                    class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">
+                                Step 1
+                            </button>
                         </div>
                     </div>
                 </div>
