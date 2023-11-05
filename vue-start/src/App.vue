@@ -27,11 +27,11 @@
                     <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                         Ručne maľované rifľové bundy, tričká alebo body pre deti.
                     </h1>
-                    <p class="mt-6 text-lg leading-8 text-gray-600">
+                    <p class="mt-7 text-lg leading-8 text-gray-600">
                         Ak máte vlastný nápad na dizajn, môžete si ho jednoducho nahrať cez náš konfigurátor a mi vám ho pre vás ručne namaľujeme na vybraný kus oblečenia.
                         Máte&nbsp;na výber z viacerých farieb a veľkostí, takže si určite nájdete to, čo sa vám páči.
                     </p>
-                    <div class="my-6 flex justify-center">
+                    <div class="my-7 flex justify-center">
                         <button @click="openModal2"  class="relative rounded-full leading-snug px-5 py-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                             💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko návrhov.</span>
                         </button>
@@ -49,7 +49,8 @@
                                            value="item1"
                                            class="hidden peer"
                                            v-model="selectedItem"
-                                           @change="selectedItemFilled = true; updateSelectedItemText">
+                                           @change="updateSelectedItemText"
+                                           @click="openModal('step-2')">
                                     <label for="item1"
                                            class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
                                          peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
@@ -79,6 +80,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="ml-4 flex justify-center flex-3 flex-col text-md text-gray-500">
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </div>
                                     </label>
                                 </li>
                                 <li class="mb-4">
@@ -89,7 +93,8 @@
                                         value="item2"
                                         class="hidden peer"
                                         v-model="selectedItem"
-                                        @change="selectedItemFilled = true; updateSelectedItemText">
+                                        @change="updateSelectedItemText"
+                                        @click="openModal('step-2')">
                                     <label for="item2"
                                            class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
                                          peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
@@ -119,15 +124,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="ml-4 flex justify-center flex-3 flex-col text-md text-gray-500">
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </div>
                                     </label>
                                 </li>
                             </ul>
-                            <button @click="openModal('step-1')"
-                                    :disabled="!selectedItemFilled"
-                                    :class="{ 'opacity-50 cursor-not-allowed': !selectedItemFilled }"
-                                    class="flex items-center justify-center w-full rounded-md border border-transparent bg-green hover:bg-green-700 px-6 py-3 text-base font-medium text-white shadow-sm transition-background-color duration-300">
-                                Continue
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -165,7 +167,8 @@
                                    value="item1"
                                    class="hidden peer"
                                    v-model="selectedItem"
-                                   @change="selectedItemFilled = true; updateSelectedItemText">
+                                   @change="updateSelectedItemText"
+                                   @click="openModal('step-2')">
                             <label for="item1"
                                    class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
                                          peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
@@ -205,7 +208,8 @@
                                 value="item2"
                                 class="hidden peer"
                                 v-model="selectedItem"
-                                @change="selectedItemFilled = true; updateSelectedItemText">
+                                @change="updateSelectedItemText"
+                                @click="openModal('step-2')">
                             <label for="item2"
                                    class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
                                          peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
@@ -239,14 +243,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="mb-5">
-                    <button @click="nextStep('step-2')" v-show="currentStep === 'step-1'"
-                            :disabled="!selectedItemFilled"
-                            :class="{ 'opacity-50 cursor-not-allowed': !selectedItemFilled }"
-                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                        Continue
-                    </button>
-                </div>
             </div>
 
             <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
@@ -268,7 +264,7 @@
             <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                 <div class="flex items-start justify-between">
                     <div class="mr-3 flex h-7 items-center">
-                        <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal"></modal-close-button>
+                        <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-1')" v-show="currentStep === 'step-2'"></modal-close-button>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>

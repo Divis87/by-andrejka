@@ -1,3 +1,7 @@
+<button @click="openModal('step-1')"
+        class="flex items-center justify-center w-full rounded-md border border-transparent bg-green hover:bg-green-700 px-6 py-3 text-base font-medium text-white shadow-sm transition-background-color duration-300">
+Continue
+</button>
 <div class="bg-white">
 <div class="pt-6">
 
