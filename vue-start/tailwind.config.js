@@ -40,6 +40,7 @@ module.exports = {
       },
       animation: {
         'slide-in': 'slide-in 0.3s cubic-bezier(.8,.2,.48,1)',
+        'fade-in': 'fade-in 0.3s cubic-bezier(.8,.2,.48,1)',
       },
       keyframes: {
         'slide-in': {
@@ -48,6 +49,14 @@ module.exports = {
           },
           '100%': {
             transform: 'translateX(0)',
+          },
+        },
+        'fade-in': {
+          '0%': {
+            opacity: 0,
+          },
+          '100%': {
+            opacity: 1,
           },
         },
       },

@@ -44,6 +44,7 @@
                         </span>
                     </li>
                 </ul>
+                <br><br><br><br><br><br><br><br><br>
             </div>
         </div>
     </div>
@@ -70,6 +71,10 @@ export default {
         closeModal2() {
             this.showModal2 = false;
             this.$emit("close-modal");
+            this.enableBodyScroll();
+        },
+        enableBodyScroll() {
+            document.body.style.overflow = 'auto';
         },
     },
 };

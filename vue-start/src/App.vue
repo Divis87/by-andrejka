@@ -144,7 +144,9 @@
         </div>
     </div>
 
-    <SidebarModal :show="showModal">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <SidebarModal :show="showModal" @close-modal="showModal = false">
         <!-- step-1 -->
         <div class="step-1 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
              v-show="currentStep === 'step-1'">
@@ -590,7 +592,7 @@
         </div>
     </SidebarModal>
 
-    <SidebarModal :show="showModal2">
+    <SidebarModal :show="showModal2" @close-modal="showModal2 = false">
         <BenefitsModal :show="showModal2" @close-modal="showModal2 = false" />
     </SidebarModal>
 
@@ -683,15 +685,25 @@ export default {
             this.currentStep = step;
             this.showModal = true;
             this.updateSelectedItemText();
+            this.addBodyHidden();
         },
         openModal2() {
             this.showModal2 = true;
+            this.addBodyHidden();
+        },
+        addBodyHidden() {
+            document.body.style.overflow = 'hidden';
         },
         closeModal() {
             this.showModal = false;
+            this.enableBodyScroll();
         },
         closeModal2() {
             this.showModal2 = false;
+            this.enableBodyScroll();
+        },
+        enableBodyScroll() {
+            document.body.style.overflow = 'auto';
         },
         updateSelectedItemText() {
             if (this.currentStep === 'step-2') {
