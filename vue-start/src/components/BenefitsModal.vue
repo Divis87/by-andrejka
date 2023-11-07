@@ -1,7 +1,7 @@
 <template>
     <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
         <div class="flex-1 overflow-y-auto">
-            <div class="flex items-start justify-between p-4 bg-gray-100 sticky top-0">
+            <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
                 <div class="mr-3 flex h-7 items-center">
                     <h2 class="text-lg font-medium text-gray-900">
                         <ModalCloseButton :icon-class="closeIconArrowLeft" @custom-click="closeModal2"></ModalCloseButton>
@@ -14,7 +14,7 @@
                     <ModalCloseButton :icon-class="closeIconClose" @custom-click="closeModal2"></ModalCloseButton>
                 </div>
             </div>
-            <div class="text-md text-gray-600 p-4">
+            <div class="text-md text-gray-600 p-6">
                 Ak nemáte vlastný nápad, alebo chcete niečo originálne a kreatívne,
                 <span class="font-medium">môžete si u nás objednať aj službu navrhovania dizajnu za skvelú cenu.</span>
                 Stačí nám napísať do poznámky v našom konfigurátory vašu predstavu a my vám vytvorím niekoľko návrhov na výber.

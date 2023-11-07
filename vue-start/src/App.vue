@@ -33,7 +33,7 @@
                     </p>
                     <div class="my-7 flex justify-center">
                         <button @click="openModal2"  class="relative rounded-full w-full sm:w-auto leading-snug px-3 sm:px-5 py-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                            💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko jedinečných návrhov.</span>
+                            💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko návrhov za skvelú cenu.</span>
                         </button>
                     </div>
                     <div class="mx-auto sm:max-w-md">
@@ -145,45 +145,47 @@
         <!-- step-2 -->
         <div class="step-2 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
              v-show="currentStep === 'step-2'">
-            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                <div class="flex items-start justify-between">
+            <div class="flex-1 overflow-y-auto">
+                <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
                     <div class="mr-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal"></modal-close-button>
+                    </div>
+                    <div class="flex h-7 items-center">
+                        <h3 class="font-medium text-gray-600">
+                            Pre hoho to bude?
+                        </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
-                <div class="mt-5 mb-5">
-                    <h2 class="text-lg font-medium text-gray-900">
-                        Pre hoho to bude? (pohlavie)
-                    </h2>
-                </div>
-                <div class="mb-5">
-                    <div>
-                        <label for="gender-item1">Mužské</label>
-                        <input type="radio" id="gender-item1" value="Men" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
+                <div class="p-6">
+                    <div class="mb-5">
+                        <div>
+                            <label for="gender-item1">Mužské</label>
+                            <input type="radio" id="gender-item1" value="Men" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
+                        </div>
+                        <div>
+                            <label for="gender-item2">Ženské</label>
+                            <input type="radio" id="gender-item2" value="Women" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
+                        </div>
+                        <div>
+                            <label for="gender-item3">Detské</label>
+                            <input type="radio" id="gender-item3" value="Kids" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
+                        </div>
                     </div>
                     <div>
-                        <label for="gender-item2">Ženské</label>
-                        <input type="radio" id="gender-item2" value="Women" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
+                        <button @click="nextStep('step-3')" v-show="currentStep === 'step-2'"
+                                :disabled="!genderFilled"
+                                :class="{ 'opacity-50 cursor-not-allowed': !genderFilled }"
+                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                            Continue
+                        </button>
                     </div>
-                    <div>
-                        <label for="gender-item3">Detské</label>
-                        <input type="radio" id="gender-item3" value="Kids" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
-                    </div>
-                </div>
-                <div class="mb-5">
-                    <button @click="nextStep('step-3')" v-show="currentStep === 'step-2'"
-                            :disabled="!genderFilled"
-                            :class="{ 'opacity-50 cursor-not-allowed': !genderFilled }"
-                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                        Continue
-                    </button>
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
+            <div class="border-t border-gray-200 p-6 pt-4">
                 <div class="flex justify-between text-base font-medium text-gray-900">
                     <p>Cena:</p>
                     <p>{{ subtotalPrice }} €</p>
@@ -199,21 +201,21 @@
         <!-- step-3 -->
         <div class="step-3 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
              v-show="currentStep === 'step-3'">
-            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                <div class="flex items-start justify-between">
+            <div class="flex-1 overflow-y-auto">
+                <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
                     <div class="mr-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-2')" v-show="currentStep === 'step-3'"></modal-close-button>
+                    </div>
+                    <div class="flex h-7 items-center">
+                        <h3 class="font-medium text-gray-600">
+                            XXX
+                        </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
-                <div class="mt-5 mb-5">
-                    <h2 class="text-lg font-medium text-gray-900">
-                        Vyberte si farbu
-                    </h2>
-                </div>
-                <div class="mt-5 mb-5">
+                <div class="p-6">
                     <div class="mb-5">
                         <div>
                             <label for="color-item1">Biela</label>
@@ -228,18 +230,18 @@
                             <input type="radio" id="color-item3" value="Black" v-model="colorItem" @change="updateColorFilled">
                         </div>
                     </div>
-                </div>
-                <div class="mb-5">
-                    <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
-                            :disabled="!colorFilled"
-                            :class="{ 'opacity-50 cursor-not-allowed': !colorFilled }"
-                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                        Continue
-                    </button>
+                    <div>
+                        <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
+                                :disabled="!colorFilled"
+                                :class="{ 'opacity-50 cursor-not-allowed': !colorFilled }"
+                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                            Continue
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
+            <div class="border-t border-gray-200 p-6 pt-4">
                 <div class="flex justify-between text-base font-medium text-gray-900">
                     <p>Cena:</p>
                     <p>{{ subtotalPrice }} €</p>
@@ -255,63 +257,65 @@
         <!-- step-4 -->
         <div class="step-4 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
              v-show="currentStep === 'step-4'">
-            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                <div class="flex items-start justify-between">
+            <div class="flex-1 overflow-y-auto">
+                <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
                     <div class="mr-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-3')" v-show="currentStep === 'step-4'"></modal-close-button>
+                    </div>
+                    <div class="flex h-7 items-center">
+                        <h3 class="font-medium text-gray-600">
+                            XXX
+                        </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
-                <div class="mt-5 mb-5">
-                    <h2 class="text-lg font-medium text-gray-900">
-                        Vyberte veľkosť
-                    </h2>
-                </div>
-                <div v-if="genderItem === 'Kids'">
-                    <div class="mb-5">
-                        <div>
-                            <label for="size-item1">122</label>
-                            <input type="radio" id="size-item1" value="122" v-model="size" @change="updateSizeFilled">
-                        </div>
-                        <div>
-                            <label for="size-item2">130</label>
-                            <input type="radio" id="size-item2" value="130" v-model="size" @change="updateSizeFilled">
-                        </div>
-                        <div>
-                            <label for="size-item3">136</label>
-                            <input type="radio" id="size-item3" value="136" v-model="size" @change="updateSizeFilled">
+                <div class="p-6">
+                    <div v-if="genderItem === 'Kids'">
+                        <div class="mb-5">
+                            <div>
+                                <label for="size-item1">122</label>
+                                <input type="radio" id="size-item1" value="122" v-model="size" @change="updateSizeFilled">
+                            </div>
+                            <div>
+                                <label for="size-item2">130</label>
+                                <input type="radio" id="size-item2" value="130" v-model="size" @change="updateSizeFilled">
+                            </div>
+                            <div>
+                                <label for="size-item3">136</label>
+                                <input type="radio" id="size-item3" value="136" v-model="size" @change="updateSizeFilled">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div v-else>
-                    <div class="mb-5">
-                        <div>
-                            <label for="size-item1">S</label>
-                            <input type="radio" id="size-item1" value="S" v-model="size" @change="updateSizeFilled">
-                        </div>
-                        <div>
-                            <label for="size-item2">M</label>
-                            <input type="radio" id="size-item2" value="M" v-model="size" @change="updateSizeFilled">
-                        </div>
-                        <div>
-                            <label for="size-item3">L</label>
-                            <input type="radio" id="size-item3" value="L" v-model="size" @change="updateSizeFilled">
+                    <div v-else>
+                        <div class="mb-5">
+                            <div>
+                                <label for="size-item1">S</label>
+                                <input type="radio" id="size-item1" value="S" v-model="size" @change="updateSizeFilled">
+                            </div>
+                            <div>
+                                <label for="size-item2">M</label>
+                                <input type="radio" id="size-item2" value="M" v-model="size" @change="updateSizeFilled">
+                            </div>
+                            <div>
+                                <label for="size-item3">L</label>
+                                <input type="radio" id="size-item3" value="L" v-model="size" @change="updateSizeFilled">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="mb-5">
-                    <button @click="nextStep('step-5')" v-show="currentStep === 'step-4'"
-                            :disabled="!sizeFilled"
-                            :class="{ 'opacity-50 cursor-not-allowed': !sizeFilled }"
-                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                        Continue
-                    </button>
+                    <div>
+                        <button @click="nextStep('step-5')" v-show="currentStep === 'step-4'"
+                                :disabled="!sizeFilled"
+                                :class="{ 'opacity-50 cursor-not-allowed': !sizeFilled }"
+                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                            Continue
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
+            <div class="border-t border-gray-200 p-6 pt-4">
                 <div class="flex justify-between text-base font-medium text-gray-900">
                     <p>Cena:</p>
                     <p>{{ subtotalPrice }} €</p>
@@ -327,48 +331,50 @@
         <!-- step-5 -->
         <div class="step-5 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
              v-show="currentStep === 'step-5'">
-            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                <div class="flex items-start justify-between">
+            <div class="flex-1 overflow-y-auto">
+                <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
                     <div class="mr-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-4')" v-show="currentStep === 'step-5'"></modal-close-button>
+                    </div>
+                    <div class="flex h-7 items-center">
+                        <h3 class="font-medium text-gray-600">
+                            XXX
+                        </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
-                <div class="mt-5 mb-5">
-                    <h2 class="text-lg font-medium text-gray-900">
-                        step-5
-                    </h2>
-                </div>
-                <div class="mb-5">
-                    <div class="w-full">
-                        <div>
-                            <img class="h-full w-full mb-5" v-if="imageUrl" :src="imageUrl"/>
+                <div class="p-6">
+                    <div class="mb-5">
+                        <div class="w-full">
+                            <div>
+                                <img class="h-full w-full mb-5" v-if="imageUrl" :src="imageUrl"/>
+                            </div>
+                            <label class="block">
+                                <span class="sr-only">Choose photo</span>
+                                <input type="file" @change="onFileChange"
+                                       class="block w-full text-sm text-gray
+                                            file:mr-4 file:py-3 file:px-5
+                                            file:rounded-full file:border-0
+                                            file:text-sm file:font-semibold
+                                            file:bg-violet-50 file:text-gray
+                                            hover:file:bg-violet-100
+                                      "/>
+                            </label>
                         </div>
-                        <label class="block">
-                            <span class="sr-only">Choose photo</span>
-                            <input type="file" @change="onFileChange"
-                                   class="block w-full text-sm text-gray
-                                        file:mr-4 file:py-3 file:px-5
-                                        file:rounded-full file:border-0
-                                        file:text-sm file:font-semibold
-                                        file:bg-violet-50 file:text-gray
-                                        hover:file:bg-violet-100
-                                  "/>
-                        </label>
+                    </div>
+                    <div>
+                        <button @click="nextStep('step-6')" v-show="currentStep === 'step-5'"
+                                :disabled="!imageUploaded"
+                                :class="{ 'opacity-50 cursor-not-allowed': !imageUploaded }"
+                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                            Continue
+                        </button>
                     </div>
                 </div>
-                <div class="mb-5">
-                    <button @click="nextStep('step-6')" v-show="currentStep === 'step-5'"
-                            :disabled="!imageUploaded"
-                            :class="{ 'opacity-50 cursor-not-allowed': !imageUploaded }"
-                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                        Continue
-                    </button>
-                </div>
             </div>
-            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
+            <div class="border-t border-gray-200 p-6 pt-4">
                 <div class="flex justify-between text-base font-medium text-gray-900">
                     <p>Cena:</p>
                     <p>{{ subtotalPrice }} €</p>
@@ -384,56 +390,58 @@
         <!-- step-6 -->
         <div class="step-6 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
              v-show="currentStep === 'step-6'">
-            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                <div class="flex items-start justify-between">
+            <div class="flex-1 overflow-y-auto">
+                <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
                     <div class="mr-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-5')" v-show="currentStep === 'step-6'"></modal-close-button>
+                    </div>
+                    <div class="flex h-7 items-center">
+                        <h3 class="font-medium text-gray-600">
+                            XXX
+                        </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
-                <div class="mt-5 mb-5">
-                    <h2 class="text-lg font-medium text-gray-900">
-                        Vaše kontaktné údaje
-                    </h2>
-                </div>
-                <div class="mb-5">
-                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Vaše celé meno:</label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                            <i class="fa-regular fa-user text-gray-500"></i>
+                <div class="p-6">
+                    <div class="mb-5">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Vaše celé meno:</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                                <i class="fa-regular fa-user text-gray-500"></i>
+                            </div>
+                            <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                                   v-model="name"
+                                   placeholder="Meno Priezvisko"
+                                   required
+                                   @change="updateContact">
                         </div>
-                        <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                               v-model="name"
-                               placeholder="Meno Priezvisko"
+                    </div>
+                    <div class="mb-5">
+                        <label for="mail" class="block mb-2 text-sm font-medium text-gray-900">E-mailová adresa:</label>
+                        <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                               v-model="email"
+                               placeholder="mail@mail.sk"
                                required
                                @change="updateContact">
                     </div>
-                </div>
-                <div class="mb-5">
-                    <label for="mail" class="block mb-2 text-sm font-medium text-gray-900">E-mailová adresa:</label>
-                    <input type="email" id="mail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                           v-model="email"
-                           placeholder="mail@mail.sk"
-                           required
-                           @change="updateContact">
-                </div>
-                <div class="mb-5">
-                    <textarea v-model="text"
-                              placeholder="Adresa"
-                              @change="updateContact">
-                    </textarea>
-                </div>
-                <div class="mb-5">
-                    <button @click="upload"
-                            :disabled="!contactFilled"
-                            :class="{ 'opacity-50 cursor-not-allowed': !contactFilled }"
-                            class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                        Potvrdiť</button>
+                    <div class="mb-5">
+                        <textarea v-model="text"
+                                  placeholder="Adresa"
+                                  @change="updateContact">
+                        </textarea>
+                    </div>
+                    <div>
+                        <button @click="upload"
+                                :disabled="!contactFilled"
+                                :class="{ 'opacity-50 cursor-not-allowed': !contactFilled }"
+                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                            Potvrdiť</button>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
+            <div class="border-t border-gray-200 p-6 pt-4">
                 <div class="flex justify-between text-base font-medium text-gray-900">
                     <p>Cena:</p>
                     <p>{{ subtotalPrice }} €</p>
@@ -449,22 +457,23 @@
         <!-- step-7 -->
         <div class="step-7 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
              v-show="currentStep === 'step-7'">
-            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                <div class="flex items-start justify-between">
+            <div class="flex-1 overflow-y-auto">
+                <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
                     <div class="ml-3 flex h-7 items-center">
+                    </div>
+                    <div class="flex h-7 items-center">
+                        <h3 class="font-medium text-gray-600">
+                            Ďakujeme za objednávku.
+                        </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
-                <div class="mt-5 mb-5">
-                    <h2 class="text-lg font-medium text-gray-900">
-                        Ďakujeme za objednávku.
-                    </h2>
-                </div>
-
-                <div class="mb-5">
-                    V najbližšej dobe Vám bude zaslaná faktúra na uvedený e-mail.
+                <div class="p-6 text-green text-lg">
+                    <p>
+                        V najbližšej dobe Vám bude zaslaná faktúra na uvedený e-mail.
+                    </p>
                 </div>
             </div>
         </div>
