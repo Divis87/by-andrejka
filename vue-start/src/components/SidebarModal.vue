@@ -14,22 +14,7 @@ export default {
     props: {
         show: Boolean,
     },
-    computed: {
-        // Define a computed property to calculate the overall subtotal price based on the selected item
-        subtotalPrice() {
-            return this.selectedItem === 'item1' ? this.item1SubtotalPrice : this.item2SubtotalPrice;
-        },
-        subtotalDays() {
-            return this.selectedItem === 'item1' ? this.item1Days : this.item2Days;
-        },
-    },
     methods: {
-        openModal(step) {
-            this.currentStep = step;
-            this.showModal = true;
-            this.updateSelectedItemText();
-            this.addBodyHidden();
-        },
         closeModal() {
             this.$emit('close-modal');
             this.enableBodyScroll();
