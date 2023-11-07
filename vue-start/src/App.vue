@@ -130,10 +130,6 @@
                                     </label>
                                 </li>
                             </ul>
-                            <button @click="openModal('step-1')"
-                                    class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">
-                                Step 1
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -145,122 +141,6 @@
     </div>
 
     <SidebarModal :show="showModal" @close-modal="showModal = false">
-        <!-- step-1 -->
-        <div class="step-1 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
-             v-show="currentStep === 'step-1'">
-            <div class="flex-1 overflow-y-auto">
-                <div class="flex items-start justify-between p-4 bg-gray-100 sticky top-0">
-                    <div class="mr-3 flex h-7 items-center">
-                        <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal"></modal-close-button>
-                    </div>
-                    <div class="ml-3 flex h-7">
-                        <h3 class="font-medium text-gray-600">
-                            Máte záujem o:
-                        </h3>
-                    </div>
-                    <div class="ml-3 flex h-7 items-center">
-                        <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
-                    </div>
-                </div>
-                <div class="p-4">
-                    <ul>
-                        <li class="mb-4">
-                            <input type="radio"
-                                   id="item1"
-                                   name="product"
-                                   value="item1"
-                                   class="hidden peer"
-                                   v-model="selectedItem"
-                                   @change="updateSelectedItemText"
-                                   @click="openModal('step-2')">
-                            <label for="item1"
-                                   class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
-                                         peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
-                                <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
-                                    <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                                         alt=""
-                                         class="h-full w-full object-cover object-center">
-                                </div>
-                                <div class="ml-4 flex flex-1 flex-col text-md leading-snug text-left">
-                                    <div>
-                                        <div class="flex font-medium text-gray-900">
-                                            <h3 class="-mt-1">
-                                                Ručne maľovaná riflová bunda
-                                            </h3>
-                                        </div>
-                                        <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
-                                            <i class="fa-solid fa-check mr-1"></i> Malujem {{ item1Days }} prac. dni
-                                            <br>
-                                            <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
-                                        </p>
-                                    </div>
-                                    <div class="flex flex-1 items-end justify-between">
-                                        <div class="flex">
-                                            <div class="font-medium text-gray-900">
-                                                {{ item1SubtotalPrice }} €
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </label>
-                        </li>
-                        <li>
-                            <input
-                                type="radio"
-                                id="item2"
-                                name="product"
-                                value="item2"
-                                class="hidden peer"
-                                v-model="selectedItem"
-                                @change="updateSelectedItemText"
-                                @click="openModal('step-2')">
-                            <label for="item2"
-                                   class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
-                                         peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
-                                <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
-                                    <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                                         alt=""
-                                         class="h-full w-full object-cover object-center">
-                                </div>
-                                <div class="ml-4 flex flex-1 flex-col text-md leading-snug text-left">
-                                    <div>
-                                        <div class="flex font-medium text-gray-900">
-                                            <h3 class="-mt-1">
-                                                Ručne maľované tričko
-                                            </h3>
-                                        </div>
-                                        <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
-                                            <i class="fa-solid fa-check mr-1"></i> Malujem {{ item2Days }} prac. dni
-                                            <br>
-                                            <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
-                                        </p>
-                                    </div>
-                                    <div class="flex flex-1 items-end justify-between">
-                                        <div class="flex">
-                                            <div class="font-medium text-gray-900">
-                                                {{ item2SubtotalPrice }} €
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-200 px-4 py-4 sm:px-6 sm:py-6">
-                <div class="flex justify-between text-base font-medium text-gray-900">
-                    <p>Cena:</p>
-                    <p>{{ subtotalPrice }} €</p>
-                </div>
-                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
-                </p>
-                <p class="text-sm text-gray-500" v-html="selectedItemText">
-                </p>
-            </div>
-        </div>
 
         <!-- step-2 -->
         <div class="step-2 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
@@ -268,7 +148,7 @@
             <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                 <div class="flex items-start justify-between">
                     <div class="mr-3 flex h-7 items-center">
-                        <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-1')" v-show="currentStep === 'step-2'"></modal-close-button>
+                        <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal"></modal-close-button>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
