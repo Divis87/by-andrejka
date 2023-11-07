@@ -148,23 +148,23 @@
         <!-- step-1 -->
         <div class="step-1 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
              v-show="currentStep === 'step-1'">
-            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                <div class="flex items-start justify-between">
+            <div class="flex-1 overflow-y-auto">
+                <div class="flex items-start justify-between p-4 bg-gray-100 sticky top-0">
                     <div class="mr-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal"></modal-close-button>
                     </div>
                     <div class="ml-3 flex h-7">
-                        <h2 class="text-lg font-medium text-md text-gray-900">
-                            Pre hoho to bude?
-                        </h2>
+                        <h3 class="font-medium text-gray-600">
+                            Máte záujem o:
+                        </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
-                <div class="mt-5 mb-5">
+                <div class="p-4">
                     <ul>
-                        <li class="mb-5">
+                        <li class="mb-4">
                             <input type="radio"
                                    id="item1"
                                    name="product"
@@ -204,7 +204,7 @@
                                 </div>
                             </label>
                         </li>
-                        <li class="mb-5">
+                        <li>
                             <input
                                 type="radio"
                                 id="item2"
@@ -276,7 +276,7 @@
                 </div>
                 <div class="mt-5 mb-5">
                     <h2 class="text-lg font-medium text-gray-900">
-                        Pre hoho to bude?
+                        Pre hoho to bude? (pohlavie)
                     </h2>
                 </div>
                 <div class="mb-5">
@@ -614,6 +614,8 @@
                 </div>
             </div>
         </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </template>
 
