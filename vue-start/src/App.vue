@@ -561,6 +561,12 @@ export default {
             return this.selectedItem === 'item1' ? this.item1Days : this.item2Days;
         },
     },
+    mounted() {
+        document.addEventListener('keydown', this.onEscKeyPressed);
+    },
+    beforeUnmount() {
+        document.removeEventListener('keydown', this.onEscKeyPressed);
+    },
     methods: {
         nextStep(step) {
             // You can add validation logic here if needed
@@ -594,6 +600,15 @@ export default {
         },
         enableBodyScroll() {
             document.body.style.overflow = 'auto';
+        },
+        onEscKeyPressed(event) {
+            if (event.key === 'Escape') {
+                if (this.showModal2) {
+                    this.closeModal2();
+                } else if (this.showModal) {
+                    this.closeModal();
+                }
+            }
         },
         updateSelectedItemText() {
             if (this.currentStep === 'step-2') {
