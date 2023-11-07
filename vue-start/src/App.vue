@@ -24,19 +24,19 @@
             </div>
             <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
                 <div class="text-center">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900">
                         Ručne maľované rifľové bundy, tričká alebo body pre deti.
                     </h1>
-                    <p class="mt-7 text-lg leading-8 text-gray-600">
+                    <p class="mt-7 text-md sm:text-lg leading-7 sm:leading-8 text-gray-600">
                         Ak máte vlastný nápad na dizajn, môžete si ho jednoducho nahrať cez náš konfigurátor a mi vám ho pre vás ručne namaľujeme na vybraný kus oblečenia.
                         Máte&nbsp;na výber z viacerých farieb a veľkostí, takže si určite nájdete to, čo sa vám páči.
                     </p>
                     <div class="my-7 flex justify-center">
-                        <button @click="openModal2"  class="relative rounded-full leading-snug px-5 py-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                            💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko návrhov.</span>
+                        <button @click="openModal2"  class="relative rounded-full w-full sm:w-auto leading-snug px-3 sm:px-5 py-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                            💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko jedinečných návrhov.</span>
                         </button>
                     </div>
-                    <div class="mx-auto max-w-md">
+                    <div class="mx-auto sm:max-w-md">
                         <div class="step-1 mt-10">
                             <h2 class="text-lg font-medium text-gray-900 mb-7">
                                 Máte záujem o:
