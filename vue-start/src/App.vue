@@ -470,10 +470,11 @@
                         <modal-close-button :icon-class="closeIconClose" @custom-click="closeModal"></modal-close-button>
                     </div>
                 </div>
-                <div class="p-6 text-green text-lg">
+                <div class="p-6 text-green text-lg font-bold">
                     <p>
                         V najbližšej dobe Vám bude zaslaná faktúra na uvedený e-mail.
                     </p>
+                    <br><br><br><br><br>
                 </div>
             </div>
         </div>
@@ -651,7 +652,7 @@ export default {
                     }, 10000);
 
                     // Display the success message in step-6
-                    this.currentStep = 'step-6';
+                    this.currentStep = 'step-7';
                 })
                 .catch((err) => {
                     console.error(err);
