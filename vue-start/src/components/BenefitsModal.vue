@@ -1,6 +1,6 @@
 <template>
     <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-        <div class="flex-1 overflow-y-auto">
+        <div class="flex-1 overflow-y-auto min-w-[320px]">
             <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
                 <div class="mr-3 flex h-7 items-center">
                     <h2 class="text-lg font-medium text-gray-900">

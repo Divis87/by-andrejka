@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white">
+    <div class="bg-white min-w-[320px]">
         <header class="absolute inset-x-0 top-0">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1">
@@ -143,7 +143,7 @@
     <SidebarModal :show="showModal" @close-modal="showModal = false">
 
         <!-- step-2 -->
-        <div class="step-2 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+        <div class="step-2 flex h-full flex-col overflow-y-scroll bg-white shadow-xl min-w-[320px]"
              v-show="currentStep === 'step-2'">
             <div class="flex-1 overflow-y-auto">
                 <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
@@ -199,7 +199,7 @@
         </div>
 
         <!-- step-3 -->
-        <div class="step-3 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+        <div class="step-3 flex h-full flex-col overflow-y-scroll bg-white shadow-xl min-w-[320px]"
              v-show="currentStep === 'step-3'">
             <div class="flex-1 overflow-y-auto">
                 <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
@@ -255,7 +255,7 @@
         </div>
 
         <!-- step-4 -->
-        <div class="step-4 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+        <div class="step-4 flex h-full flex-col overflow-y-scroll bg-white shadow-xl min-w-[320px]"
              v-show="currentStep === 'step-4'">
             <div class="flex-1 overflow-y-auto">
                 <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
@@ -329,7 +329,7 @@
         </div>
 
         <!-- step-5 -->
-        <div class="step-5 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+        <div class="step-5 flex h-full flex-col overflow-y-scroll bg-white shadow-xl min-w-[320px]"
              v-show="currentStep === 'step-5'">
             <div class="flex-1 overflow-y-auto">
                 <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
@@ -388,7 +388,7 @@
         </div>
 
         <!-- step-6 -->
-        <div class="step-6 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+        <div class="step-6 flex h-full flex-col overflow-y-scroll bg-white shadow-xl min-w-[320px]"
              v-show="currentStep === 'step-6'">
             <div class="flex-1 overflow-y-auto">
                 <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
@@ -455,7 +455,7 @@
         </div>
 
         <!-- step-7 -->
-        <div class="step-7 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
+        <div class="step-7 flex h-full flex-col overflow-y-scroll bg-white shadow-xl min-w-[320px]"
              v-show="currentStep === 'step-7'">
             <div class="flex-1 overflow-y-auto">
                 <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
