@@ -7,6 +7,9 @@
                         <ModalCloseButton :icon-class="closeIconArrowLeft" @custom-click="closeModal2"></ModalCloseButton>
                     </h2>
                 </div>
+                <div class="flex h-7 items-center">
+                    <h3 class="font-medium text-gray-600">Nemáte vlastný nápad?</h3>
+                </div>
                 <div class="ml-3 flex h-7 items-center">
                     <ModalCloseButton :icon-class="closeIconClose" @custom-click="closeModal2"></ModalCloseButton>
                 </div>

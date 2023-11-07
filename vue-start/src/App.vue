@@ -144,8 +144,6 @@
         </div>
     </div>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
     <SidebarModal :show="showModal" @close-modal="showModal = false">
         <!-- step-1 -->
         <div class="step-1 flex h-full flex-col overflow-y-scroll bg-white shadow-xl"
