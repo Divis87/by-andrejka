@@ -67,7 +67,7 @@
                                                     </h3>
                                                 </div>
                                                 <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
-                                                    <i class="fa-solid fa-check mr-1"></i> Malujem {{ item1Days }} prac. dni
+                                                    <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item1Days }} prac. dni
                                                     <br>
                                                     <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
                                                 </p>
@@ -111,7 +111,7 @@
                                                     </h3>
                                                 </div>
                                                 <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
-                                                    <i class="fa-solid fa-check mr-1"></i> Malujem {{ item2Days }} prac. dni
+                                                    <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item2Days }} prac. dni
                                                     <br>
                                                     <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
                                                 </p>
