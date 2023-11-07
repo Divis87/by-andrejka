@@ -379,11 +379,18 @@
                     <p>Cena:</p>
                     <p>{{ subtotalPrice }} €</p>
                 </div>
-                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
-                </p>
-                <p class="text-sm text-gray-500" v-html="selectedItemText">
-                </p>
+                <div class="flex items-center">
+                    <div v-if="imageUrl" class="w-12 rounded-md overflow-hidden mr-3 border border-2 border-gray-200 mt-2">
+                        <img class="object-center" v-if="imageUrl" :src="imageUrl"/>
+                    </div>
+                    <div>
+                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                        </p>
+                        <p class="text-sm text-gray-500" v-html="selectedItemText">
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -446,11 +453,18 @@
                     <p>Cena:</p>
                     <p>{{ subtotalPrice }} €</p>
                 </div>
-                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
-                </p>
-                <p class="text-sm text-gray-500" v-html="selectedItemText">
-                </p>
+                <div class="flex items-center">
+                    <div v-if="imageUrl" class="w-12 rounded-md overflow-hidden mr-3 border border-2 border-gray-200 mt-2">
+                        <img class="object-center" v-if="imageUrl" :src="imageUrl"/>
+                    </div>
+                    <div>
+                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                        </p>
+                        <p class="text-sm text-gray-500" v-html="selectedItemText">
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -475,6 +489,24 @@
                         V najbližšej dobe Vám bude zaslaná faktúra na uvedený e-mail.
                     </p>
                     <br><br><br><br><br>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 p-6 pt-4">
+                <div class="flex justify-between text-base font-medium text-gray-900">
+                    <p>Cena:</p>
+                    <p>{{ subtotalPrice }} €</p>
+                </div>
+                <div class="flex items-center">
+                    <div v-if="imageUrl" class="w-12 rounded-md overflow-hidden mr-3 border border-2 border-gray-200 mt-2">
+                        <img class="object-center" v-if="imageUrl" :src="imageUrl"/>
+                    </div>
+                    <div>
+                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                        </p>
+                        <p class="text-sm text-gray-500" v-html="selectedItemText">
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
