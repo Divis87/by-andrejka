@@ -162,15 +162,15 @@
                 <div class="mb-5">
                     <div>
                         <label for="gender-item1">Mužské</label>
-                        <input type="radio" id="gender-item1" value="Men" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
+                        <input type="radio" id="gender-item1" value="Men" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
                     </div>
                     <div>
                         <label for="gender-item2">Ženské</label>
-                        <input type="radio" id="gender-item2" value="Women" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
+                        <input type="radio" id="gender-item2" value="Women" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
                     </div>
                     <div>
                         <label for="gender-item3">Detské</label>
-                        <input type="radio" id="gender-item3" value="Kids" v-model="genderItem" @change="genderFilled = true; updateSelectedGender">
+                        <input type="radio" id="gender-item3" value="Kids" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
                     </div>
                 </div>
                 <div class="mb-5">
