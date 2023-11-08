@@ -45,7 +45,7 @@
                                 <input type="radio"
                                        id="item1"
                                        name="product"
-                                       value="item1"
+                                       value="Ručne maľovaná riflová bunda"
                                        class="hidden peer"
                                        v-model="selectedItem"
                                        @change="updateSelectedItemText"
@@ -89,7 +89,7 @@
                                     type="radio"
                                     id="item2"
                                     name="product"
-                                    value="item2"
+                                    value="Ručne maľované tričko"
                                     class="hidden peer"
                                     v-model="selectedItem"
                                     @change="updateSelectedItemText"
@@ -163,11 +163,11 @@
                             <RadioItem
                                 id="gender-item1"
                                 label="Mužské"
-                                value="Man"
-                                :selectedValue="genderMan"
+                                value="Mužské"
                                 img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                                v-model="genderItem"
-                                @change="genderFilled = true; updateSelectedItemText"
+                                :name="genderItem"
+                                :selectedValue="genderItem"
+                                @update:selectedValue="genderItem = $event; genderFilled = true; updateSelectedItemText"
                             ></RadioItem>
                         </ul>
                         <div>
