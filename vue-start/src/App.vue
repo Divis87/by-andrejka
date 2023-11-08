@@ -1,10 +1,27 @@
 <template>
-
+    <header class="absolute inset-x-0 top-0">
+        <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <div class="flex lg:flex-1">
+                <a href="#" class="-m-1.5 p-1.5">
+                    <span class="sr-only">Your Company</span>
+                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+                </a>
+            </div>
+            <div class="flex gap-x-8 lg:gap-x-12">
+                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Product</a>
+                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
+                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
+            </div>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                instagram
+            </div>
+        </nav>
+    </header>
     <div class="relative isolate px-6 pt-14 lg:px-8">
         <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
             <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
         </div>
-        <div class="mx-auto max-w-2xl pt-32">
+        <div class="mx-auto max-w-2xl py-32">
             <div class="text-center">
                 <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900">
                     Ručne maľované rifľové bundy, tričká alebo body pre deti.
@@ -142,10 +159,34 @@
                 </div>
                 <div class="p-6">
                     <div class="mb-5">
-                        <div>
-                            <label for="gender-item1">Mužské</label>
-                            <input type="radio" id="gender-item1" value="Men" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
-                        </div>
+                        <ul>
+                            <li class="mb-4">
+                                <input type="radio"
+                                       value="Muzske"
+                                       id="gender-item1"
+                                       class="hidden peer"
+                                       v-model="genderItem"
+                                       @change="genderFilled = true; updateSelectedItemText">
+                                <label for="gender-item1"
+                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
+                                     peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
+                                    <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
+                                        <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                             alt="Mužské"
+                                             class="h-full w-full object-cover object-center">
+                                    </div>
+                                    <div class="ml-4 flex items-center text-md leading-snug text-left">
+                                        <div>
+                                            <div class="flex font-medium text-gray-900">
+                                                <h3 class="-mt-1">
+                                                    Mužské
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
                         <div>
                             <label for="gender-item2">Ženské</label>
                             <input type="radio" id="gender-item2" value="Women" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
