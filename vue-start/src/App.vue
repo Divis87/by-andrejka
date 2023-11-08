@@ -160,32 +160,15 @@
                 <div class="p-6">
                     <div class="mb-5">
                         <ul>
-                            <li class="mb-4">
-                                <input type="radio"
-                                       value="Muzske"
-                                       id="gender-item1"
-                                       class="hidden peer"
-                                       v-model="genderItem"
-                                       @change="genderFilled = true; updateSelectedItemText">
-                                <label for="gender-item1"
-                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
-                                     peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
-                                    <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
-                                        <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                                             alt="Mužské"
-                                             class="h-full w-full object-cover object-center">
-                                    </div>
-                                    <div class="ml-4 flex items-center text-md leading-snug text-left">
-                                        <div>
-                                            <div class="flex font-medium text-gray-900">
-                                                <h3 class="-mt-1">
-                                                    Mužské
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </label>
-                            </li>
+                            <RadioItem
+                                id="gender-item1"
+                                label="Mužské"
+                                value="Man"
+                                :selectedValue="genderMan"
+                                img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                v-model="genderItem"
+                                @change="genderFilled = true; updateSelectedItemText"
+                            ></RadioItem>
                         </ul>
                         <div>
                             <label for="gender-item2">Ženské</label>
@@ -566,12 +549,14 @@ import axios from 'axios';
 import SidebarModal from '@/components/SidebarModal.vue';
 import ModalCloseButton from '@/components/ModalIco.vue';
 import BenefitsModal from '@/components/BenefitsModal.vue';
+import RadioItem from "@/components/RadioItem.vue";
 
 export default {
     components: {
         SidebarModal,
         ModalCloseButton,
         BenefitsModal,
+        RadioItem,
     },
     data() {
         return {
