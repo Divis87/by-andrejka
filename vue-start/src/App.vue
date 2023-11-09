@@ -525,29 +525,9 @@
         <h3 class="text-3xl mb-8 font-bold tracking-tight text-gray-900 text-center">
             Často kladené otázky
         </h3>
-        <details class="leading-7 text-gray-700">
-            <summary @click="toggleDetails(1)" class="font-semibold py-5 border-0 border-b-2 border-gray-200 text-lg cursor-pointer list-none flex justify-between items-center transition hover:text-orange">
-                <span>Ako funguje náš online konfigurátor na webe?</span>
-                <i class="fas fa-chevron-down text-medium ml-3 transform transition-transform" :class="{ 'rotate-180': faq1isOpen }"></i>
-            </summary>
-            <div class="py-4">
-                <p>
-                    Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný tričko alebo riflovú bundu. Môžete si vybrať pohlavie, farbu a veľkosť produktu. Potom už len nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte.
-                </p>
-            </div>
-        </details>
-
-        <details class="leading-7 text-gray-700">
-            <summary @click="toggleDetails(2)" class="font-semibold py-5 border-0 border-b-2 border-gray-200 text-lg cursor-pointer list-none flex justify-between items-center transition hover:text-orange">
-                <span>Ako funguje ďalší online konfigurátor na webe?</span>
-                <i class="fas fa-chevron-down text-medium ml-3 transform transition-transform" :class="{ 'rotate-180': faq2isOpen }"></i>
-            </summary>
-            <div class="py-4">
-                <p>
-                    Ďalšia odpoveď na iný dôležitý dotaz. Tu môžeš poskytnúť viac informácií alebo detailov o inom aspekte tvojej služby alebo produktu.
-                </p>
-            </div>
-        </details>
+        <div>
+            <FaqList :faqItems="faqItems" @toggleDetails="handleToggleDetails" />
+        </div>
 
 
         <!--        Ako funguje konfigurátor na webe? Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný produkt. Môžete si vybrať pohlavie, farbu a veľkosť produktu. Potom už len nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte.-->
@@ -594,6 +574,7 @@ import SidebarModal from '@/components/SidebarModal.vue';
 import ModalCloseButton from '@/components/ModalIco.vue';
 import BenefitsModal from '@/components/BenefitsModal.vue';
 import RadioItem from "@/components/RadioItem.vue";
+import FaqList from '@/components/FaqList.vue';
 
 export default {
     components: {
@@ -601,6 +582,7 @@ export default {
         ModalCloseButton,
         BenefitsModal,
         RadioItem,
+        FaqList,
     },
     data() {
         return {
@@ -631,8 +613,10 @@ export default {
             item2SubtotalPrice: 20,
             item1Days: '1-3',
             item2Days: '1-2',
-            faq1isOpen: false,
-            faq2isOpen: false,
+            faqItems: [
+                { isOpen: false, question: "Ako funguje náš online konfigurátor na webe?", answer: "Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný tričko alebo riflovú bundu. Môžete si vybrať pohlavie, farbu a veľkosť produktu. Potom už len nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte." },
+                { isOpen: false, question: "Ako funguje ďalší online konfigurátor na webe?", answer: "Ďalšia odpoveď na iný dôležitý dotaz. Tu môžeš poskytnúť viac informácií alebo detailov o inom aspekte tvojej služby alebo produktu." },
+            ],
         }
     },
     computed: {
@@ -723,8 +707,8 @@ export default {
             this.imageUrl = URL.createObjectURL(this.image);
             this.imageUploaded = true; // Image has been uploaded
         },
-        toggleDetails(faqNumber) {
-            this['faq' + faqNumber + 'isOpen'] = !this['faq' + faqNumber + 'isOpen'];
+        handleToggleDetails(index) {
+            this.faqItems[index].isOpen = !this.faqItems[index].isOpen;
         },
         upload() {
             let formData = new FormData();
