@@ -184,7 +184,7 @@
                                 :disabled="!genderFilled"
                                 :class="{ 'opacity-50 cursor-not-allowed': !genderFilled }"
                                 class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">
-                            Pokračovať
+                            Pokračovať na ďalší krok
                         </button>
                     </div>
                 </div>
