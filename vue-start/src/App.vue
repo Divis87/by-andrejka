@@ -521,6 +521,25 @@
         <BenefitsModal :show="showModal2" @close-modal="showModal2 = false" />
     </SidebarModal>
 
+    <div class="">
+        <div class="w-full mx-auto lg:max-w-xl">
+            <h3 class="text-3xl mb-8 font-bold tracking-tight text-gray-900 text-center">
+                Často kladené otázky
+            </h3>
+            <details class="rounded-lg">
+                <summary @click="toggleDetails" class="font-semibold py-5 border-0 border-b-2 border-gray-200 text-lg cursor-pointer list-none flex justify-between items-center transition hover:text-orange">
+                    <span>Who is using TailwindCSS in production?</span>
+                    <i class="fas fa-chevron-down text-medium transform transition-transform" :class="{ 'rotate-180': FaqisOpen }"></i>
+                </summary>
+                <div>
+                    <p class="leading-6 py-4 text-gray-800">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint inventore dolore autem libero numquam. Cupiditate provident, quae eos accusamus dolor ea optio quia voluptate distinctio eligendi repudiandae officia doloremque nesciunt?
+                    </p>
+                </div>
+            </details>
+        </div>
+    </div>
+
     <!-- Success message -->
     <div v-if="message" class="transition fixed z-20 bottom-0 transform inset-x-0 px-4 py-6 sm:px-6">
             <div class="p-2 rounded-lg bg-green shadow-lg sm:p-3">
@@ -587,6 +606,7 @@ export default {
             item2SubtotalPrice: 20,
             item1Days: '1-3',
             item2Days: '1-2',
+            FaqisOpen: false,
         }
     },
     computed: {
@@ -676,6 +696,9 @@ export default {
             this.image = e.target.files[0];
             this.imageUrl = URL.createObjectURL(this.image);
             this.imageUploaded = true; // Image has been uploaded
+        },
+        toggleDetails() {
+            this.FaqisOpen = !this.FaqisOpen;
         },
         upload() {
             let formData = new FormData();
