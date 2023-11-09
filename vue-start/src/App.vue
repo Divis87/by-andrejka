@@ -26,12 +26,12 @@
                 <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900">
                     Ručne maľované rifľové bundy, tričká alebo body pre deti.
                 </h1>
-                <p class="mt-7 text-md sm:text-lg leading-7 sm:leading-8 text-gray-600">
+                <p class="mt-7 text-md sm:text-lg leading-7 sm:leading-8 text-gray-700">
                     Ak máte vlastný nápad na dizajn, môžete si ho jednoducho nahrať cez náš konfigurátor a mi vám ho pre vás ručne namaľujeme na vybraný kus oblečenia.
                     Máte&nbsp;na výber z viacerých farieb a veľkostí, takže si určite nájdete to, čo sa vám páči.
                 </p>
                 <div class="my-7 flex justify-center">
-                    <button @click="openModal2"  class="relative rounded-full w-full sm:w-auto leading-snug px-3 sm:px-5 py-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                    <button @click="openModal2"  class="relative rounded-full w-full sm:w-auto leading-snug px-3 sm:px-5 py-3 text-sm leading-6 text-gray-700 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                         💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko návrhov za skvelú cenu.</span>
                     </button>
                 </div>
@@ -51,7 +51,7 @@
                                        @change="updateSelectedItemText"
                                        @click="openModal('step-2')">
                                 <label for="item1"
-                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
+                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition duration-300
                                      peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
                                     <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
                                         <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
@@ -95,7 +95,7 @@
                                     @change="updateSelectedItemText"
                                     @click="openModal('step-2')">
                                 <label for="item2"
-                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-600 hover:bg-gray-100 hover:border-gray-300 transition duration-300
+                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition duration-300
                                      peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
                                     <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
                                         <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
@@ -149,7 +149,7 @@
                         <modal-close-button :icon-class="closeIconArrowLeft" @custom-click="closeModal"></modal-close-button>
                     </div>
                     <div class="flex h-7 items-center">
-                        <h3 class="font-medium text-gray-600">
+                        <h3 class="font-medium text-gray-700">
                             Pre hoho to bude?
                         </h3>
                     </div>
@@ -212,7 +212,7 @@
                         <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-2')" v-show="currentStep === 'step-3'"></modal-close-button>
                     </div>
                     <div class="flex h-7 items-center">
-                        <h3 class="font-medium text-gray-600">
+                        <h3 class="font-medium text-gray-700">
                             XXX
                         </h3>
                     </div>
@@ -268,7 +268,7 @@
                         <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-3')" v-show="currentStep === 'step-4'"></modal-close-button>
                     </div>
                     <div class="flex h-7 items-center">
-                        <h3 class="font-medium text-gray-600">
+                        <h3 class="font-medium text-gray-700">
                             XXX
                         </h3>
                     </div>
@@ -342,7 +342,7 @@
                         <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-4')" v-show="currentStep === 'step-5'"></modal-close-button>
                     </div>
                     <div class="flex h-7 items-center">
-                        <h3 class="font-medium text-gray-600">
+                        <h3 class="font-medium text-gray-700">
                             XXX
                         </h3>
                     </div>
@@ -408,7 +408,7 @@
                         <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-5')" v-show="currentStep === 'step-6'"></modal-close-button>
                     </div>
                     <div class="flex h-7 items-center">
-                        <h3 class="font-medium text-gray-600">
+                        <h3 class="font-medium text-gray-700">
                             XXX
                         </h3>
                     </div>
@@ -481,7 +481,7 @@
                     <div class="ml-3 flex h-7 items-center">
                     </div>
                     <div class="flex h-7 items-center">
-                        <h3 class="font-medium text-gray-600">
+                        <h3 class="font-medium text-gray-700">
                             Ďakujeme za objednávku.
                         </h3>
                     </div>
@@ -521,23 +521,48 @@
         <BenefitsModal :show="showModal2" @close-modal="showModal2 = false" />
     </SidebarModal>
 
-    <div class="">
-        <div class="w-full mx-auto lg:max-w-xl">
-            <h3 class="text-3xl mb-8 font-bold tracking-tight text-gray-900 text-center">
-                Často kladené otázky
-            </h3>
-            <details class="rounded-lg">
-                <summary @click="toggleDetails" class="font-semibold py-5 border-0 border-b-2 border-gray-200 text-lg cursor-pointer list-none flex justify-between items-center transition hover:text-orange">
-                    <span>Who is using TailwindCSS in production?</span>
-                    <i class="fas fa-chevron-down text-medium transform transition-transform" :class="{ 'rotate-180': FaqisOpen }"></i>
-                </summary>
-                <div>
-                    <p class="leading-6 py-4 text-gray-800">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint inventore dolore autem libero numquam. Cupiditate provident, quae eos accusamus dolor ea optio quia voluptate distinctio eligendi repudiandae officia doloremque nesciunt?
-                    </p>
-                </div>
-            </details>
-        </div>
+    <div class="w-full mx-auto mx-auto max-w-2xl px-6 py-32">
+        <h3 class="text-3xl mb-8 font-bold tracking-tight text-gray-900 text-center">
+            Často kladené otázky
+        </h3>
+        <details class="leading-7 text-gray-700">
+            <summary @click="toggleDetails(1)" class="font-semibold py-5 border-0 border-b-2 border-gray-200 text-lg cursor-pointer list-none flex justify-between items-center transition hover:text-orange">
+                <span>Ako funguje náš online konfigurátor na webe?</span>
+                <i class="fas fa-chevron-down text-medium ml-3 transform transition-transform" :class="{ 'rotate-180': faq1isOpen }"></i>
+            </summary>
+            <div class="py-4">
+                <p>
+                    Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný tričko alebo riflovú bundu. Môžete si vybrať pohlavie, farbu a veľkosť produktu. Potom už len nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte.
+                </p>
+            </div>
+        </details>
+
+        <details class="leading-7 text-gray-700">
+            <summary @click="toggleDetails(2)" class="font-semibold py-5 border-0 border-b-2 border-gray-200 text-lg cursor-pointer list-none flex justify-between items-center transition hover:text-orange">
+                <span>Ako funguje ďalší online konfigurátor na webe?</span>
+                <i class="fas fa-chevron-down text-medium ml-3 transform transition-transform" :class="{ 'rotate-180': faq2isOpen }"></i>
+            </summary>
+            <div class="py-4">
+                <p>
+                    Ďalšia odpoveď na iný dôležitý dotaz. Tu môžeš poskytnúť viac informácií alebo detailov o inom aspekte tvojej služby alebo produktu.
+                </p>
+            </div>
+        </details>
+
+
+        <!--        Ako funguje konfigurátor na webe? Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný produkt. Môžete si vybrať pohlavie, farbu a veľkosť produktu. Potom už len nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte.-->
+
+<!--        Kde budú maľby na produktoch? Maľby na rifľových bundách sú na chrbte a na tričkách na prednej strane.-->
+
+<!--        Aký je časový rámec pre maľovanie a odoslanie produktu? Produkt odosielame hneď po namalovaní. Pri každom produkte je predpokladaná doba maľovania.-->
+
+<!--        Aké sú náklady na balné a dopravu? Balné a doprava sú zdarma.-->
+
+<!--        Ako sa staráte o produkty? Všetky naše produkty sú ručne maľované a vyrobené s najväčšou starostlivosťou.-->
+
+<!--        Aké sú možnosti platby? (Doplniť podľa platobných možností, ktoré ponúkate)-->
+
+<!--        Aké sú možnosti vrátenia tovaru? (Doplniť podľa politiky vrátenia tovaru, ktorú ponúkate)-->
     </div>
 
     <!-- Success message -->
@@ -606,7 +631,8 @@ export default {
             item2SubtotalPrice: 20,
             item1Days: '1-3',
             item2Days: '1-2',
-            FaqisOpen: false,
+            faq1isOpen: false,
+            faq2isOpen: false,
         }
     },
     computed: {
@@ -697,8 +723,8 @@ export default {
             this.imageUrl = URL.createObjectURL(this.image);
             this.imageUploaded = true; // Image has been uploaded
         },
-        toggleDetails() {
-            this.FaqisOpen = !this.FaqisOpen;
+        toggleDetails(faqNumber) {
+            this['faq' + faqNumber + 'isOpen'] = !this['faq' + faqNumber + 'isOpen'];
         },
         upload() {
             let formData = new FormData();
