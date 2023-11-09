@@ -37,7 +37,7 @@
                 </div>
                 <div class="mx-auto sm:max-w-md">
                     <div class="step-1 mt-10">
-                        <h2 class="text-lg font-medium text-gray-900 mb-7">
+                        <h2 class="text-2xl mb-8 font-bold tracking-tight text-gray-900 text-center">
                             Máte záujem o:
                         </h2>
                         <ul>
