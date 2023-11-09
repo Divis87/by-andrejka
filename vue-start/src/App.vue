@@ -183,8 +183,8 @@
                         <button @click="nextStep('step-3')" v-show="currentStep === 'step-2'"
                                 :disabled="!genderFilled"
                                 :class="{ 'opacity-50 cursor-not-allowed': !genderFilled }"
-                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                            Continue
+                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">
+                            Pokračovať
                         </button>
                     </div>
                 </div>
