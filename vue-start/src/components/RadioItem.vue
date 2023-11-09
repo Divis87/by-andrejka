@@ -1,5 +1,5 @@
 <template>
-    <li class="mb-4">
+    <li class="mb-3">
         <input
             type="radio"
             :id="id"

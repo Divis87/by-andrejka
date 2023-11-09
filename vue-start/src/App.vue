@@ -68,7 +68,7 @@
                                             <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
                                                 <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item1Days }} prac. dni
                                                 <br>
-                                                <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
+                                                <i class="fa-solid fa-check mr-1"></i> Dopravu a balné máte zdarma
                                             </p>
                                         </div>
                                         <div class="flex flex-1 items-end justify-between">
@@ -112,7 +112,7 @@
                                             <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
                                                 <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item2Days }} prac. dni
                                                 <br>
-                                                <i class="fa-solid fa-check mr-1"></i> Dopravu máte zdarma
+                                                <i class="fa-solid fa-check mr-1"></i> Dopravu a balné máte zdarma
                                             </p>
                                         </div>
                                         <div class="flex flex-1 items-end justify-between">
@@ -162,22 +162,32 @@
                         <ul>
                             <RadioItem
                                 id="gender-item1"
-                                label="Mužské"
-                                value="Mužské"
+                                label="Pánske"
+                                value="Pánske"
+                                img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                :name="genderItem"
+                                :selectedValue="genderItem"
+                                @update:selectedValue="genderItem = $event; genderFilled = true; updateSelectedItemText"
+                            ></RadioItem>
+                            <RadioItem
+                                id="gender-item2"
+                                label="Dámske"
+                                value="Dámske"
+                                img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                :name="genderItem"
+                                :selectedValue="genderItem"
+                                @update:selectedValue="genderItem = $event; genderFilled = true; updateSelectedItemText"
+                            ></RadioItem>
+                            <RadioItem
+                                id="gender-item3"
+                                label="Detské"
+                                value="Detské"
                                 img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
                                 :name="genderItem"
                                 :selectedValue="genderItem"
                                 @update:selectedValue="genderItem = $event; genderFilled = true; updateSelectedItemText"
                             ></RadioItem>
                         </ul>
-                        <div>
-                            <label for="gender-item2">Ženské</label>
-                            <input type="radio" id="gender-item2" value="Women" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
-                        </div>
-                        <div>
-                            <label for="gender-item3">Detské</label>
-                            <input type="radio" id="gender-item3" value="Kids" v-model="genderItem" @change="genderFilled = true; updateSelectedItemText">
-                        </div>
                     </div>
                     <div>
                         <button @click="nextStep('step-3')" v-show="currentStep === 'step-2'"
@@ -196,7 +206,7 @@
                     <p>{{ subtotalPrice }} €</p>
                 </div>
                 <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                 </p>
                 <p class="text-sm text-gray-500" v-html="selectedItemText">
                 </p>
@@ -252,7 +262,7 @@
                     <p>{{ subtotalPrice }} €</p>
                 </div>
                 <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                 </p>
                 <p class="text-sm text-gray-500" v-html="selectedItemText">
                 </p>
@@ -364,7 +374,7 @@
                     <p>{{ subtotalPrice }} €</p>
                 </div>
                 <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                    <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                 </p>
                 <p class="text-sm text-gray-500" v-html="selectedItemText">
                 </p>
@@ -428,7 +438,7 @@
                     </div>
                     <div>
                         <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                         </p>
                         <p class="text-sm text-gray-500" v-html="selectedItemText">
                         </p>
@@ -502,7 +512,7 @@
                     </div>
                     <div>
                         <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                         </p>
                         <p class="text-sm text-gray-500" v-html="selectedItemText">
                         </p>
@@ -545,7 +555,7 @@
                     </div>
                     <div>
                         <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
-                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni a dopravu máte zdarma
+                            <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                         </p>
                         <p class="text-sm text-gray-500" v-html="selectedItemText">
                         </p>
