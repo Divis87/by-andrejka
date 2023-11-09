@@ -295,18 +295,56 @@
                     </div>
                     <div v-else>
                         <div class="mb-5">
-                            <div>
-                                <label for="size-item1">S</label>
-                                <input type="radio" id="size-item1" value="S" v-model="size" @change="updateSizeFilled">
-                            </div>
-                            <div>
-                                <label for="size-item2">M</label>
-                                <input type="radio" id="size-item2" value="M" v-model="size" @change="updateSizeFilled">
-                            </div>
-                            <div>
-                                <label for="size-item3">L</label>
-                                <input type="radio" id="size-item3" value="L" v-model="size" @change="updateSizeFilled">
-                            </div>
+                            <ul class="grid grid-cols-4 gap-4">
+                                <RadioSizeItem
+                                    id="size-item-xs"
+                                    label="XS"
+                                    value="XS"
+                                    :name="size"
+                                    :selectedValue="size"
+                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                ></RadioSizeItem>
+                                <RadioSizeItem
+                                    id="size-item-s"
+                                    label="S"
+                                    value="S"
+                                    :name="size"
+                                    :selectedValue="size"
+                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                ></RadioSizeItem>
+                                <RadioSizeItem
+                                    id="size-item-m"
+                                    label="M"
+                                    value="M"
+                                    :name="size"
+                                    :selectedValue="size"
+                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                ></RadioSizeItem>
+                                <RadioSizeItem
+                                    id="size-item-l"
+                                    label="L"
+                                    value="L"
+                                    :name="size"
+                                    :selectedValue="size"
+                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                ></RadioSizeItem>
+                                <RadioSizeItem
+                                    id="size-item-xl"
+                                    label="XL"
+                                    value="XL"
+                                    :name="size"
+                                    :selectedValue="size"
+                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                ></RadioSizeItem>
+                                <RadioSizeItem
+                                    id="size-item-xxl"
+                                    label="XXL"
+                                    value="XXL"
+                                    :name="size"
+                                    :selectedValue="size"
+                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                ></RadioSizeItem>
+                            </ul>
                         </div>
                     </div>
                     <div>
@@ -585,6 +623,7 @@ import ModalCloseButton from '@/components/ModalIco.vue';
 import BenefitsModal from '@/components/BenefitsModal.vue';
 import RadioItem from "@/components/RadioItem.vue";
 import FaqList from '@/components/FaqList.vue';
+import RadioSizeItem from "@/components/RadioSizeItem.vue";
 
 export default {
     components: {
@@ -593,6 +632,7 @@ export default {
         BenefitsModal,
         RadioItem,
         FaqList,
+        RadioSizeItem,
     },
     data() {
         return {
