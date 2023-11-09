@@ -530,19 +530,29 @@
         </div>
 
 
-        <!--        Ako funguje konfigurátor na webe? Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný produkt. Môžete si vybrať pohlavie, farbu a veľkosť produktu. Potom už len nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte.-->
+        <!--        Ako funguje konfigurátor na webe? Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný produkt. Môžete si vybrať pohlavie, farbu a veľkosť produktu. Potom už len nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte. -->
 
-<!--        Kde budú maľby na produktoch? Maľby na rifľových bundách sú na chrbte a na tričkách na prednej strane.-->
+<!--        Kde budú maľby na produktoch? Maľby na rifľových bundách sú na chrbte a na tričkách a iných produktoch sú na prednej strane.-->
 
 <!--        Aký je časový rámec pre maľovanie a odoslanie produktu? Produkt odosielame hneď po namalovaní. Pri každom produkte je predpokladaná doba maľovania.-->
 
-<!--        Aké sú náklady na balné a dopravu? Balné a doprava sú zdarma.-->
+<!--        Aké sú náklady na balné a dopravu? Balné a doprava sú zdarma. -->
+
+<!--        Platí sa dodatočne za tričko alebo riflovú bundu? Nie, všetko je už zahrnuté v cene. Ponúkame len kvalitné materiály.-->
 
 <!--        Ako sa staráte o produkty? Všetky naše produkty sú ručne maľované a vyrobené s najväčšou starostlivosťou.-->
 
-<!--        Aké sú možnosti platby? (Doplniť podľa platobných možností, ktoré ponúkate)-->
+<!--        Aké sú možnosti platby? Všetky informácie o platbe dostanete po objednaní e-mailom. Začíname maľovať až po prijatí platby na náš účet. Priamo na stánke nemáme zatial žiadnu platobnú bránu.-->
 
 <!--        Aké sú možnosti vrátenia tovaru? (Doplniť podľa politiky vrátenia tovaru, ktorú ponúkate)-->
+
+<!--        Čo znamená “Ručne maľované”? Každý kus je originál a jedinečný. Nie je to masová produkcia, ale umelecké dielo, ktoré vytváram s láskou a pozornosťou k detailom.-->
+
+<!--        Aké sú výhody ručne maľovaného oblečenia? Ponúkame originálne a jedinečné oblečenie, ktoré vám dodá štýl a osobnosť. Používame kvalitné a trvanlivé materiály, ktoré vydržia dlho a nevyblednú.-->
+
+<!--        Platí sa dodatočne za tričko alebo riflovú bundu? Nie, všetko je už zahrnuté v cene. Ponúkame len kvalitné materiály.-->
+
+<!--        Ako prebieha doprava? Poskytujeme rýchlu a bezpečnú dopravu. Vaše ručne maľované oblečenie doručíme priamo domov. Neplatíte žiadne poplatky ani dodatočné náklady.-->
     </div>
 
     <!-- Success message -->
