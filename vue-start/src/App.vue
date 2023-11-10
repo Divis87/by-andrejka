@@ -570,6 +570,8 @@
         <BenefitsModal :show="showModal2" @close-modal="showModal2 = false" />
     </SidebarModal>
 
+    <div class="elfsight-app-a213085d-300c-4ade-a8c6-78c653a577d3" data-elfsight-app-lazy></div>
+
     <div class="mx-auto max-w-4xl mt-16 sm:mt-20 lg:mt-24 leading-8">
         <h3 class="text-3xl mb-16 font-bold tracking-tight text-center">
             Objednávajte si jedinečný kúsok a získajte tieto výhody:
@@ -717,6 +719,12 @@ export default {
     },
     mounted() {
         document.addEventListener('keydown', this.onEscKeyPressed);
+        const script = document.createElement('script');
+        script.src = 'https://static.elfsight.com/platform/platform.js';
+        script.setAttribute('data-use-service-core', '');
+        script.defer = true;
+
+        document.head.appendChild(script);
     },
     beforeUnmount() {
         document.removeEventListener('keydown', this.onEscKeyPressed);
