@@ -35,6 +35,7 @@
                         💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko návrhov za skvelú cenu.</span>
                     </button>
                 </div>
+
                 <div class="mx-auto sm:max-w-md">
                     <div class="step-1 mt-10">
                         <h2 class="text-2xl mb-8 font-bold tracking-tight text-gray-900 text-center">
@@ -569,8 +570,34 @@
         <BenefitsModal :show="showModal2" @close-modal="showModal2 = false" />
     </SidebarModal>
 
+    <div class="mx-auto max-w-4xl mt-16 sm:mt-20 lg:mt-24 leading-8">
+        <h3 class="text-3xl mb-16 font-bold tracking-tight text-center">
+            Objednávajte si jedinečný kúsok a získajte tieto výhody:
+        </h3>
+        <ul role="list" class="list-none space-y-5 mx-auto max-w-2xl text-gray-700">
+            <li class="flex items-center">
+                <span class="pr-7 text-2xl">🎨</span>
+                <span>
+                    <span class="font-medium">Ručne maľované: </span> Každý kus je originál a jedinečný, ktorý vám dodá štýl a osobnosť. Nie je to masová produkcia, ale umelecké dielo, ktoré vytváram s láskou a pozornosťou k detailom.
+                </span>
+            </li>
+            <li class="flex items-center">
+                <span class="pr-7 text-2xl">🌈</span>
+                <span>
+                  <span class="font-medium">Kvalitné farby na textil a trvanlivé materiály,</span> ktoré vyrždia dlho a nevyblednú.
+                </span>
+            </li>
+            <li class="flex items-center">
+                <span class="pr-7 text-2xl">🚚</span>
+                <span>
+                    <span class="font-medium">Vaše ručne maľované oblečenie priamo domov.</span> Neplatíte žiadne poplatky ani dodatočné náklady za balné a dopravu.
+                </span>
+            </li>
+        </ul>
+    </div>
+
     <div class="w-full mx-auto mx-auto max-w-2xl px-6 py-32">
-        <h3 class="text-3xl mb-8 font-bold tracking-tight text-gray-900 text-center">
+        <h3 class="text-3xl mb-12 font-bold tracking-tight text-gray-900 text-center">
             Často kladené otázky
         </h3>
         <div>
@@ -666,7 +693,7 @@ export default {
             selectedItemFilled: false,
             genderFilled: false,
             sizeFilled: false,
-            contactFilled: false,
+            contactFilled: true,
             imageUploaded: false,
             colorFilled: false,
             item1SubtotalPrice: 50,

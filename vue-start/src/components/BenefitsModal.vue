@@ -18,36 +18,6 @@
                 Ak nemáte vlastný nápad, alebo chcete niečo originálne a kreatívne,
                 <span class="font-medium">môžete si u nás objednať aj službu navrhovania dizajnu za skvelú cenu.</span>
                 Stačí nám napísať do poznámky v našom konfigurátory vašu predstavu a my vám vytvorím niekoľko návrhov na výber.
-                <h3 class="text-md font-medium text-orange mt-8 mb-4">
-                    Objednávajte si jedinečný kúsok od by-andrejka a získajte tieto výhody:
-                </h3>
-                <ul role="list" class="list-none space-y-3">
-                    <li class="flex">
-                        <span class="pr-3">🎨</span>
-                        <span>
-                          <span class="font-medium">Ručne maľované: </span> Každý kus je originál a jedinečný. Nie je to masová produkcia, ale umelecké dielo, ktoré vytváram s láskou a pozornosťou k detailom.
-                        </span>
-                    </li>
-                    <li class="flex">
-                        <span class="pr-3">🌈</span>
-                        <span>
-                          <span class="font-medium">Originálne a jedinečné oblečenie,</span> ktoré vám dodá štýl a osobnosť.
-                        </span>
-                    </li>
-                    <li class="flex">
-                        <span class="pr-3">👍</span>
-                        <span>
-                          <span class="font-medium">Kvalitné a trvanlivé materiály,</span> ktoré vyrždia dlho a nevyblednú.
-                        </span>
-                    </li>
-                    <li class="flex">
-                        <span class="pr-3">🚚</span>
-                        <span>
-                          <span class="font-medium">Rýchla a bezpečná doprava,</span> vaše ručne maľované oblečenie priamo domov. Neplatíte žiadne poplatky ani dodatočné náklady.
-                        </span>
-                    </li>
-                </ul>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
         </div>
     </div>
