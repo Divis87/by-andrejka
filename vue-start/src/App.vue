@@ -38,9 +38,10 @@
 
                 <div class="mx-auto sm:max-w-md">
                     <div class="step-1 mt-10">
-                        <h2 class="text-2xl mb-8 font-bold tracking-tight text-gray-900 text-center">
+                        <h2 class="text-2xl mb-3 font-bold tracking-tight text-gray-900 text-center">
                             Máte záujem o:
                         </h2>
+                        <p class="space-y-5 mx-auto text-gray-700 mb-8">Kliknite nižšie a vytvorte si vlastný design na tričko</p>
                         <ul>
 <!--                            <li class="mb-4">-->
 <!--                                <input type="radio"-->
