@@ -4,7 +4,7 @@
             <div class="flex lg:flex-1">
                 <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Your Company</span>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="by andrejka">
                 </a>
             </div>
             <div class="flex gap-x-8 lg:gap-x-12">
@@ -42,49 +42,49 @@
                             Máte záujem o:
                         </h2>
                         <ul>
-                            <li class="mb-4">
-                                <input type="radio"
-                                       id="item1"
-                                       name="product"
-                                       value="Ručne maľovaná riflová bunda"
-                                       class="hidden peer"
-                                       v-model="selectedItem"
-                                       @change="updateSelectedItemText"
-                                       @click="openModal('step-2')">
-                                <label for="item1"
-                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition duration-300
-                                     peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
-                                    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
-                                        <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                                             alt=""
-                                             class="h-full w-full object-cover object-center">
-                                    </div>
-                                    <div class="ml-4 flex flex-1 flex-col text-md leading-snug text-left">
-                                        <div>
-                                            <div class="flex font-medium text-gray-900">
-                                                <h3 class="-mt-1">
-                                                    Ručne maľovaná riflová bunda
-                                                </h3>
-                                            </div>
-                                            <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
-                                                <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item1Days }} prac. dni
-                                                <br>
-                                                <i class="fa-solid fa-check mr-1"></i> Dopravu a balné máte zdarma
-                                            </p>
-                                        </div>
-                                        <div class="flex flex-1 items-end justify-between">
-                                            <div class="flex">
-                                                <div class="font-medium text-gray-900">
-                                                    {{ item1SubtotalPrice }} €
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="ml-4 flex justify-center flex-3 flex-col text-md text-gray-500">
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </div>
-                                </label>
-                            </li>
+<!--                            <li class="mb-4">-->
+<!--                                <input type="radio"-->
+<!--                                       id="item1"-->
+<!--                                       name="product"-->
+<!--                                       value="Ručne maľovaná riflová bunda"-->
+<!--                                       class="hidden peer"-->
+<!--                                       v-model="selectedItem"-->
+<!--                                       @change="updateSelectedItemText"-->
+<!--                                       @click="openModal('step-2')">-->
+<!--                                <label for="item1"-->
+<!--                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition duration-300-->
+<!--                                     peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">-->
+<!--                                    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">-->
+<!--                                        <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"-->
+<!--                                             alt=""-->
+<!--                                             class="h-full w-full object-cover object-center">-->
+<!--                                    </div>-->
+<!--                                    <div class="ml-4 flex flex-1 flex-col text-md leading-snug text-left">-->
+<!--                                        <div>-->
+<!--                                            <div class="flex font-medium text-gray-900">-->
+<!--                                                <h3 class="-mt-1">-->
+<!--                                                    Ručne maľovaná riflová bunda-->
+<!--                                                </h3>-->
+<!--                                            </div>-->
+<!--                                            <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">-->
+<!--                                                <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item1Days }} prac. dni-->
+<!--                                                <br>-->
+<!--                                                <i class="fa-solid fa-check mr-1"></i> Dopravu a balné máte zdarma-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                        <div class="flex flex-1 items-end justify-between">-->
+<!--                                            <div class="flex">-->
+<!--                                                <div class="font-medium text-gray-900">-->
+<!--                                                    {{ item1SubtotalPrice }} €-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="ml-4 flex justify-center flex-3 flex-col text-md text-gray-500">-->
+<!--                                        <i class="fa-solid fa-arrow-right"></i>-->
+<!--                                    </div>-->
+<!--                                </label>-->
+<!--                            </li>-->
                             <li class="mb-4">
                                 <input
                                     type="radio"
@@ -233,25 +233,42 @@
                 </div>
                 <div class="p-6">
                     <div class="mb-5">
-                        <div>
-                            <label for="color-item1">Biela</label>
-                            <input type="radio" id="color-item1" value="White" v-model="colorItem" @change="updateColorFilled">
-                        </div>
-                        <div>
-                            <label for="color-item2">Sivá</label>
-                            <input type="radio" id="color-item2" value="Gray" v-model="colorItem" @change="updateColorFilled">
-                        </div>
-                        <div>
-                            <label for="color-item3">Čierna</label>
-                            <input type="radio" id="color-item3" value="Black" v-model="colorItem" @change="updateColorFilled">
-                        </div>
+                      <ul>
+                        <RadioItem
+                          id="color-item1"
+                          label="Biela"
+                          value="Biela"
+                          img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                          :name="colorItem"
+                          :selectedValue="colorItem"
+                          @update:selectedValue="colorItem = $event; colorFilled = true; updateColorFilled"
+                        ></RadioItem>
+                        <RadioItem
+                          id="color-item2"
+                          label="Sivá"
+                          value="Sivá"
+                          img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                          :name="colorItem"
+                          :selectedValue="colorItem"
+                          @update:selectedValue="colorItem = $event; colorFilled = true; updateColorFilled"
+                        ></RadioItem>
+                        <RadioItem
+                          id="color-item3"
+                          label="Čierna"
+                          value="Čierna"
+                          img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                          :name="colorItem"
+                          :selectedValue="colorItem"
+                          @update:selectedValue="colorItem = $event; colorFilled = true; updateColorFilled"
+                        ></RadioItem>
+                      </ul>
                     </div>
                     <div>
                         <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
                                 :disabled="!colorFilled"
                                 :class="{ 'opacity-50 cursor-not-allowed': !colorFilled }"
-                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                            Continue
+                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">
+                          Pokračovať
                         </button>
                     </div>
                 </div>
@@ -280,7 +297,7 @@
                     </div>
                     <div class="flex h-7 items-center">
                         <h3 class="font-medium text-gray-700">
-                            XXX
+                            Vyberte veľkosť
                         </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
@@ -288,7 +305,7 @@
                     </div>
                 </div>
                 <div class="p-6">
-                    <div v-if="genderItem === 'Kids'">
+                    <div v-if="genderItem === 'Detské'">
                         <div class="mb-5">
                             <div>
                                 <label for="size-item1">122</label>
@@ -303,6 +320,11 @@
                                 <input type="radio" id="size-item3" value="136" v-model="size" @change="updateSizeFilled">
                             </div>
                         </div>
+                      <div class="my-5">
+                        <button @click="openModal3"  class="relative w-full sm:w-auto leading-snug text-sm leading-6 text-gray-700">
+                          💡 <span class="font-semibold text-orange"><u>Orientačná tabuľka veľkostí detských tričiek</u></span>
+                        </button>
+                      </div>
                     </div>
                     <div v-else>
                         <div class="mb-5">
@@ -362,8 +384,8 @@
                         <button @click="nextStep('step-5')" v-show="currentStep === 'step-4'"
                                 :disabled="!sizeFilled"
                                 :class="{ 'opacity-50 cursor-not-allowed': !sizeFilled }"
-                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                            Continue
+                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">
+                            Pokračovať
                         </button>
                     </div>
                 </div>
@@ -412,8 +434,8 @@
                                             file:mr-4 file:py-3 file:px-5
                                             file:rounded-full file:border-0
                                             file:text-sm file:font-semibold
-                                            file:bg-violet-50 file:text-gray
-                                            hover:file:bg-violet-100
+                                            file:bg-gray-50 file:text-gray
+                                            hover:file:bg-gray-100 cursor-pointer
                                       "/>
                             </label>
                         </div>
@@ -422,8 +444,8 @@
                         <button @click="nextStep('step-6')" v-show="currentStep === 'step-5'"
                                 :disabled="!imageUploaded"
                                 :class="{ 'opacity-50 cursor-not-allowed': !imageUploaded }"
-                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
-                            Continue
+                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">
+                            Pokračovať
                         </button>
                     </div>
                 </div>
@@ -488,7 +510,7 @@
                                @change="updateContact">
                     </div>
                     <div class="mb-5">
-                        <textarea v-model="text"
+                        <textarea v-model="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 min-h-[100px]"
                                   placeholder="Adresa"
                                   @change="updateContact">
                         </textarea>
@@ -497,7 +519,7 @@
                         <button @click="upload"
                                 :disabled="!contactFilled"
                                 :class="{ 'opacity-50 cursor-not-allowed': !contactFilled }"
-                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-background-color duration-300">
+                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">
                             Potvrdiť</button>
                     </div>
                 </div>
@@ -569,6 +591,10 @@
     <SidebarModal :show="showModal2" @close-modal="showModal2 = false">
         <BenefitsModal :show="showModal2" @close-modal="showModal2 = false" />
     </SidebarModal>
+
+  <SidebarModal :show="showModal3" @close-modal="showModal3 = false">
+    <KidsModal :show="showModal3" @close-modal="showModal3 = false" />
+  </SidebarModal>
 
     <div class="elfsight-app-a213085d-300c-4ade-a8c6-78c653a577d3" data-elfsight-app-lazy></div>
 
@@ -660,6 +686,7 @@ import axios from 'axios';
 import SidebarModal from '@/components/SidebarModal.vue';
 import ModalCloseButton from '@/components/ModalIco.vue';
 import BenefitsModal from '@/components/BenefitsModal.vue';
+import KidsModal from '@/components/KidsModal.vue';
 import RadioItem from "@/components/RadioItem.vue";
 import FaqList from '@/components/FaqList.vue';
 import RadioSizeItem from "@/components/RadioSizeItem.vue";
@@ -669,6 +696,7 @@ export default {
         SidebarModal,
         ModalCloseButton,
         BenefitsModal,
+        KidsModal,
         RadioItem,
         FaqList,
         RadioSizeItem,
@@ -678,6 +706,7 @@ export default {
             currentStep: 'step-1',
             showModal: false,
             showModal2: false,
+            showModal3: false,
             name: '',
             password: '',
             text: '',
@@ -747,6 +776,10 @@ export default {
         },
         openModal2() {
             this.showModal2 = true;
+            this.addBodyHidden();
+        },
+        openModal3() {
+            this.showModal3 = true;
             this.addBodyHidden();
         },
         addBodyHidden() {
