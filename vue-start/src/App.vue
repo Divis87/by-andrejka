@@ -244,35 +244,50 @@
                 </div>
                 <div class="p-6">
                     <div class="mb-5">
-                      <ul>
-                        <RadioItem
-                          id="color-item1"
-                          label="Biela farba"
-                          value="Biela farba"
-                          img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                          :name="colorItem"
-                          :selectedValue="colorItem"
-                          @update:selectedValue="colorItem = $event; colorFilled = true; updateColorFilled"
-                        ></RadioItem>
-                        <RadioItem
-                          id="color-item2"
-                          label="Sivá farba"
-                          value="Sivá farba"
-                          img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                          :name="colorItem"
-                          :selectedValue="colorItem"
-                          @update:selectedValue="colorItem = $event; colorFilled = true; updateColorFilled"
-                        ></RadioItem>
-                        <RadioItem
-                          id="color-item3"
-                          label="Čierna farba"
-                          value="Čierna farba"
-                          img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                          :name="colorItem"
-                          :selectedValue="colorItem"
-                          @update:selectedValue="colorItem = $event; colorFilled = true; updateColorFilled"
-                        ></RadioItem>
-                      </ul>
+                      <div v-if="Tricko === selectedItem">
+                        <ul>
+                          <RadioItem
+                            id="color-item1"
+                            label="Biela farba"
+                            value="Biela farba"
+                            img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                            :name="colorItem"
+                            :selectedValue="colorItem"
+                            @update:selectedValue="colorItem = $event; colorFilled = true; updateColorFilled"
+                          ></RadioItem>
+                          <RadioItem
+                            id="color-item2"
+                            label="Sivá farba"
+                            value="Sivá farba"
+                            img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                            :name="colorItem"
+                            :selectedValue="colorItem"
+                            @update:selectedValue="colorItem = $event; colorFilled = true; updateColorFilled"
+                          ></RadioItem>
+                          <RadioItem
+                            id="color-item3"
+                            label="Čierna farba"
+                            value="Čierna farba"
+                            img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                            :name="colorItem"
+                            :selectedValue="colorItem"
+                            @update:selectedValue="colorItem = $event; colorFilled = true; updateColorFilled"
+                          ></RadioItem>
+                        </ul>
+                      </div>
+                      <div v-else-if="Vankus === selectedItem">
+                        <ul>
+                          <RadioItem
+                            id="color-item1"
+                            label="Biely vankúš"
+                            value="Biely vankúš"
+                            img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-03.jpg"
+                            :name="colorItem"
+                            :selectedValue="colorItem"
+                            @update:selectedValue="colorItem = $event; colorFilled = true; updateColorFilled"
+                          ></RadioItem>
+                        </ul>
+                      </div>
                     </div>
                     <div>
                         <button @click="nextStep('step-4')" v-show="currentStep === 'step-3'"
@@ -395,7 +410,7 @@
                     </div>
                     <div v-else-if="Vankus === selectedItem">
                         <div class="mb-5">
-                          <ul class="grid grid-cols-4 gap-4">
+                          <ul class="grid grid-cols-3 gap-4">
                             <RadioSizeItem
                               id="size-item-40"
                               label="40x40cm"
@@ -857,17 +872,17 @@ export default {
             } else if (this.currentStep === 'step-4') {
                 // Display text for step-4 and step-5
               if (this.selectedItem === this.Vankus) {
-                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, Farba: ${this.colorItem}`;
+                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.colorItem}`;
               } else {
-                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}, Farba: ${this.colorItem}`;
+                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}, ${this.colorItem}`;
               }
             }
             else if (this.currentStep === 'step-5') {
                 // Display text for step-4 and step-5
               if (this.selectedItem === this.Vankus) {
-                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, Farba: ${this.colorItem}, Veľkosť: ${this.size}`;
+                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.colorItem}, Veľkosť: ${this.size}`;
               } else {
-                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}, Farba: ${this.colorItem}, Veľkosť: ${this.size}`;
+                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}, ${this.colorItem}, Veľkosť: ${this.size}`;
               }
             }
         },
