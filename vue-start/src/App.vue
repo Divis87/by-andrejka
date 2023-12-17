@@ -41,7 +41,9 @@
                         <h2 class="text-2xl mb-3 font-bold tracking-tight text-gray-900 text-center">
                             Máte záujem o:
                         </h2>
-                        <p class="space-y-5 mx-auto text-gray-700 mb-8">Kliknite nižšie a vytvorte si vlastný design na tričko</p>
+                        <p class="space-y-5 mx-auto text-gray-700 mb-8">
+                          Kliknite nižšie a vytvorte si vlastný design na tričko
+                        </p>
                         <ul>
 <!--                            <li class="mb-4">-->
 <!--                                <input type="radio"-->
@@ -97,14 +99,14 @@
                                     @change="updateSelectedItemText"
                                     @click="openModal('step-2')">
                                 <label for="item2"
-                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition duration-300
+                                       class="block sm:flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition duration-300
                                      peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
-                                    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">
+                                    <div class="h-24 w-full flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200 bg-white">
                                         <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
                                              alt=""
-                                             class="h-full w-full object-cover object-center">
+                                             class="h-full sm:w-full sm:object-cover sm:object-center m-auto">
                                     </div>
-                                    <div class="ml-4 flex flex-1 flex-col text-md leading-snug text-left">
+                                    <div class="mt-4 sm:mt-0 sm:ml-4 flex flex-1 flex-col text-md leading-snug text-left">
                                         <div>
                                             <div class="flex font-medium text-gray-900">
                                                 <h3 class="-mt-1">
@@ -118,14 +120,17 @@
                                             </p>
                                         </div>
                                         <div class="flex flex-1 items-end justify-between">
-                                            <div class="flex">
+                                            <div class="flex justify-between w-full">
                                                 <div class="font-medium text-gray-900">
-                                                    {{ item2SubtotalPrice }} €
+                                                    Cena: {{ item2SubtotalPrice }} €
                                                 </div>
+                                              <div class="font-medium text-green sm:hidden">
+                                                Pokračovať <i class="fa-solid fa-arrow-right text-sm ml-1"></i>
+                                              </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="ml-4 flex justify-center flex-3 flex-col text-md text-gray-500">
+                                    <div class="ml-4 hidden sm:flex justify-center flex-3 flex-col text-md text-gray-500">
                                         <i class="fa-solid fa-arrow-right"></i>
                                     </div>
                                 </label>
@@ -599,25 +604,25 @@
 
     <div class="elfsight-app-a213085d-300c-4ade-a8c6-78c653a577d3" data-elfsight-app-lazy></div>
 
-    <div class="mx-auto max-w-4xl mt-16 sm:mt-20 lg:mt-24 leading-8">
+    <div class="mx-auto max-w-4xl mt-16 sm:mt-20 lg:mt-24 leading-8 px-6">
         <h3 class="text-3xl mb-16 font-bold tracking-tight text-center">
             Objednávajte si jedinečný kúsok a získajte tieto výhody:
         </h3>
         <ul role="list" class="list-none space-y-5 mx-auto max-w-2xl text-gray-700">
             <li class="flex items-center">
-                <span class="pr-7 text-2xl">🎨</span>
+                <span class="pr-5 sm:pr-7 text-xl">🎨</span>
                 <span>
                     <span class="font-medium">Ručne maľované: </span> Každý kus je originál a jedinečný, ktorý vám dodá štýl a osobnosť. Nie je to masová produkcia, ale umelecké dielo, ktoré vytváram s láskou a pozornosťou k detailom.
                 </span>
             </li>
             <li class="flex items-center">
-                <span class="pr-7 text-2xl">🌈</span>
+                <span class="pr-5 sm:pr-7 text-xl">🌈</span>
                 <span>
                   <span class="font-medium">Kvalitné farby na textil a trvanlivé materiály,</span> ktoré vyrždia dlho a nevyblednú.
                 </span>
             </li>
             <li class="flex items-center">
-                <span class="pr-7 text-2xl">🚚</span>
+                <span class="pr-5 sm:pr-7 text-xl">🚚</span>
                 <span>
                     <span class="font-medium">Vaše ručne maľované oblečenie priamo domov.</span> Neplatíte žiadne poplatky ani dodatočné náklady za balné a dopravu.
                 </span>
