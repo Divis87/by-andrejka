@@ -30,7 +30,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post('/upload', upload.single('image'), (req, res) => {
-  const { name, password, email, text, selectedItem, size, genderItem, colorItem } = req.body;
+  const { name, email, text, selectedItem, size, genderItem, colorItem } = req.body;
 
   // Načítajte obsah hlavičky a päty zo súborov
   const headerContent = fs.readFileSync('header.html', 'utf8');
@@ -45,8 +45,8 @@ app.post('/upload', upload.single('image'), (req, res) => {
       <p>${text}</p>
       <p>Selected Item: ${selectedItem}</p>
       <p>Farba: ${colorItem}</p>
-      <p>Pohlavie: ${genderItem}</p>
       <p>Size: ${size}</p>
+      ${genderItem ? `<p>Pohlavie: ${genderItem}</p>` : ''}
       <img src="cid:unique@by-andrejka.sk" alt="Nahraný obrázok" style="max-width: 560px; color: gray; font-size: 10px; line-height: 10px" />
       <p>S pozdravom,</p>
       <p>Váš tím by-andrejka</p>
@@ -63,8 +63,8 @@ app.post('/upload', upload.single('image'), (req, res) => {
       <p>${text}</p>
       <p>Selected Item: ${selectedItem}</p>
       <p>Farba: ${colorItem}</p>
-      <p>Pohlavie: ${genderItem}</p>
       <p>Size: ${size}</p>
+      ${genderItem ? `<p>Pohlavie: ${genderItem}</p>` : ''}
       <img src="cid:unique@by-andrejka.sk" alt="Nahraný obrázok" style="max-width: 560px; color: gray; font-size: 10px; line-height: 10px" />
       <p>S pozdravom,</p>
       <p>Váš tím by-andrejka</p>

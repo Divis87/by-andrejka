@@ -45,63 +45,20 @@
                           Kliknite nižšie a vytvorte si vlastný design na tričko
                         </p>
                         <ul>
-<!--                            <li class="mb-4">-->
-<!--                                <input type="radio"-->
-<!--                                       id="item1"-->
-<!--                                       name="product"-->
-<!--                                       value="Ručne maľovaná riflová bunda"-->
-<!--                                       class="hidden peer"-->
-<!--                                       v-model="selectedItem"-->
-<!--                                       @change="updateSelectedItemText"-->
-<!--                                       @click="openModal('step-2')">-->
-<!--                                <label for="item1"-->
-<!--                                       class="flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition duration-300-->
-<!--                                     peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">-->
-<!--                                    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200">-->
-<!--                                        <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"-->
-<!--                                             alt=""-->
-<!--                                             class="h-full w-full object-cover object-center">-->
-<!--                                    </div>-->
-<!--                                    <div class="ml-4 flex flex-1 flex-col text-md leading-snug text-left">-->
-<!--                                        <div>-->
-<!--                                            <div class="flex font-medium text-gray-900">-->
-<!--                                                <h3 class="-mt-1">-->
-<!--                                                    Ručne maľovaná riflová bunda-->
-<!--                                                </h3>-->
-<!--                                            </div>-->
-<!--                                            <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">-->
-<!--                                                <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item1Days }} prac. dni-->
-<!--                                                <br>-->
-<!--                                                <i class="fa-solid fa-check mr-1"></i> Dopravu a balné máte zdarma-->
-<!--                                            </p>-->
-<!--                                        </div>-->
-<!--                                        <div class="flex flex-1 items-end justify-between">-->
-<!--                                            <div class="flex">-->
-<!--                                                <div class="font-medium text-gray-900">-->
-<!--                                                    {{ item1SubtotalPrice }} €-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="ml-4 flex justify-center flex-3 flex-col text-md text-gray-500">-->
-<!--                                        <i class="fa-solid fa-arrow-right"></i>-->
-<!--                                    </div>-->
-<!--                                </label>-->
-<!--                            </li>-->
                             <li class="mb-4">
                                 <input
                                     type="radio"
-                                    id="item2"
+                                    id="item-tricko"
                                     name="product"
-                                    value="Ručne maľované tričko"
+                                    :value="Tricko"
                                     class="hidden peer"
                                     v-model="selectedItem"
                                     @change="updateSelectedItemText"
                                     @click="openModal('step-2')">
-                                <label for="item2"
+                                <label for="item-tricko"
                                        class="block sm:flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition duration-300
                                      peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
-                                    <div class="h-24 w-full flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200 bg-white">
+                                    <div class="h-24 w-full sm:w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200 bg-white">
                                         <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
                                              alt=""
                                              class="h-full sm:w-full sm:object-cover sm:object-center m-auto">
@@ -110,11 +67,11 @@
                                         <div>
                                             <div class="flex font-medium text-gray-900">
                                                 <h3 class="-mt-1">
-                                                    Ručne maľované tričko
+                                                  {{ Tricko }}
                                                 </h3>
                                             </div>
                                             <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
-                                                <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item2Days }} prac. dni
+                                                <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item1Days }} prac. dni
                                                 <br>
                                                 <i class="fa-solid fa-check mr-1"></i> Dopravu a balné máte zdarma
                                             </p>
@@ -122,7 +79,7 @@
                                         <div class="flex flex-1 items-end justify-between">
                                             <div class="flex justify-between w-full">
                                                 <div class="font-medium text-gray-900">
-                                                    Cena: {{ item2SubtotalPrice }} €
+                                                    Cena: {{ item1SubtotalPrice }} €
                                                 </div>
                                               <div class="font-medium text-green sm:hidden">
                                                 Pokračovať <i class="fa-solid fa-arrow-right text-sm ml-1"></i>
@@ -135,6 +92,53 @@
                                     </div>
                                 </label>
                             </li>
+                          <li class="mb-4">
+                            <input
+                              type="radio"
+                              id="item-vankus"
+                              name="product"
+                              :value="Vankus"
+                              class="hidden peer"
+                              v-model="selectedItem"
+                              @change="updateSelectedItemText"
+                              @click="openModal('step-3')">
+                            <label for="item-vankus"
+                                   class="block sm:flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition duration-300
+                                     peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
+                              <div class="h-24 w-full sm:w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200 bg-white">
+                                <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                     alt=""
+                                     class="h-full sm:w-full sm:object-cover sm:object-center m-auto">
+                              </div>
+                              <div class="mt-4 sm:mt-0 sm:ml-4 flex flex-1 flex-col text-md leading-snug text-left">
+                                <div>
+                                  <div class="flex font-medium text-gray-900">
+                                    <h3 class="-mt-1">
+                                      {{ Vankus }}
+                                    </h3>
+                                  </div>
+                                  <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
+                                    <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item2Days }} prac. dni
+                                    <br>
+                                    <i class="fa-solid fa-check mr-1"></i> Dopravu a balné máte zdarma
+                                  </p>
+                                </div>
+                                <div class="flex flex-1 items-end justify-between">
+                                  <div class="flex justify-between w-full">
+                                    <div class="font-medium text-gray-900">
+                                      Cena: {{ item2SubtotalPrice }} €
+                                    </div>
+                                    <div class="font-medium text-green sm:hidden">
+                                      Pokračovať <i class="fa-solid fa-arrow-right text-sm ml-1"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="ml-4 hidden sm:flex justify-center flex-3 flex-col text-md text-gray-500">
+                                <i class="fa-solid fa-arrow-right"></i>
+                              </div>
+                            </label>
+                          </li>
                         </ul>
                     </div>
                 </div>
@@ -226,11 +230,12 @@
             <div class="flex-1 overflow-y-auto">
                 <div class="flex items-start justify-between py-4 px-6 bg-gray-100 sticky top-0">
                     <div class="mr-3 flex h-7 items-center">
-                        <modal-close-button :icon-class="closeIconArrowLeft" @click="previousStep('step-2')" v-show="currentStep === 'step-3'"></modal-close-button>
+                        <modal-close-button v-if="Tricko === selectedItem" :icon-class="closeIconArrowLeft" @click="previousStep('step-2')" v-show="currentStep === 'step-3'"></modal-close-button>
+                        <modal-close-button v-if="Vankus === selectedItem" :icon-class="closeIconArrowLeft" @custom-click="closeModal"></modal-close-button>
                     </div>
                     <div class="flex h-7 items-center">
                         <h3 class="font-medium text-gray-700">
-                            XXX
+                            Vyberte si farebnú variantu
                         </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
@@ -242,8 +247,8 @@
                       <ul>
                         <RadioItem
                           id="color-item1"
-                          label="Biela"
-                          value="Biela"
+                          label="Biela farba"
+                          value="Biela farba"
                           img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
                           :name="colorItem"
                           :selectedValue="colorItem"
@@ -251,8 +256,8 @@
                         ></RadioItem>
                         <RadioItem
                           id="color-item2"
-                          label="Sivá"
-                          value="Sivá"
+                          label="Sivá farba"
+                          value="Sivá farba"
                           img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
                           :name="colorItem"
                           :selectedValue="colorItem"
@@ -260,8 +265,8 @@
                         ></RadioItem>
                         <RadioItem
                           id="color-item3"
-                          label="Čierna"
-                          value="Čierna"
+                          label="Čierna farba"
+                          value="Čierna farba"
                           img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
                           :name="colorItem"
                           :selectedValue="colorItem"
@@ -311,79 +316,103 @@
                     </div>
                 </div>
                 <div class="p-6">
-                    <div v-if="genderItem === 'Detské'">
-                        <div class="mb-5">
-                            <div>
-                                <label for="size-item1">122</label>
-                                <input type="radio" id="size-item1" value="122" v-model="size" @change="updateSizeFilled">
-                            </div>
-                            <div>
-                                <label for="size-item2">130</label>
-                                <input type="radio" id="size-item2" value="130" v-model="size" @change="updateSizeFilled">
-                            </div>
-                            <div>
-                                <label for="size-item3">136</label>
-                                <input type="radio" id="size-item3" value="136" v-model="size" @change="updateSizeFilled">
-                            </div>
+                    <div v-if="Tricko === selectedItem">
+                      <div v-if="genderItem === 'Detské'">
+                          <div class="mb-5">
+                              <div>
+                                  <label for="size-item1">122</label>
+                                  <input type="radio" id="size-item1" value="122" v-model="size" @change="updateSizeFilled">
+                              </div>
+                              <div>
+                                  <label for="size-item2">130</label>
+                                  <input type="radio" id="size-item2" value="130" v-model="size" @change="updateSizeFilled">
+                              </div>
+                              <div>
+                                  <label for="size-item3">136</label>
+                                  <input type="radio" id="size-item3" value="136" v-model="size" @change="updateSizeFilled">
+                              </div>
+                          </div>
+                        <div class="my-5">
+                          <button @click="openModal3"  class="relative w-full sm:w-auto leading-snug text-sm leading-6 text-gray-700">
+                            💡 <span class="font-semibold text-orange"><u>Orientačná tabuľka veľkostí detských tričiek</u></span>
+                          </button>
                         </div>
-                      <div class="my-5">
-                        <button @click="openModal3"  class="relative w-full sm:w-auto leading-snug text-sm leading-6 text-gray-700">
-                          💡 <span class="font-semibold text-orange"><u>Orientačná tabuľka veľkostí detských tričiek</u></span>
-                        </button>
+                      </div>
+                      <div v-else>
+                          <div class="mb-5">
+                              <ul class="grid grid-cols-4 gap-4">
+                                  <RadioSizeItem
+                                      id="size-item-xs"
+                                      label="XS"
+                                      value="XS"
+                                      :name="size"
+                                      :selectedValue="size"
+                                      @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                  ></RadioSizeItem>
+                                  <RadioSizeItem
+                                      id="size-item-s"
+                                      label="S"
+                                      value="S"
+                                      :name="size"
+                                      :selectedValue="size"
+                                      @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                  ></RadioSizeItem>
+                                  <RadioSizeItem
+                                      id="size-item-m"
+                                      label="M"
+                                      value="M"
+                                      :name="size"
+                                      :selectedValue="size"
+                                      @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                  ></RadioSizeItem>
+                                  <RadioSizeItem
+                                      id="size-item-l"
+                                      label="L"
+                                      value="L"
+                                      :name="size"
+                                      :selectedValue="size"
+                                      @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                  ></RadioSizeItem>
+                                  <RadioSizeItem
+                                      id="size-item-xl"
+                                      label="XL"
+                                      value="XL"
+                                      :name="size"
+                                      :selectedValue="size"
+                                      @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                  ></RadioSizeItem>
+                                  <RadioSizeItem
+                                      id="size-item-xxl"
+                                      label="XXL"
+                                      value="XXL"
+                                      :name="size"
+                                      :selectedValue="size"
+                                      @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                                  ></RadioSizeItem>
+                              </ul>
+                          </div>
                       </div>
                     </div>
-                    <div v-else>
+                    <div v-else-if="Vankus === selectedItem">
                         <div class="mb-5">
-                            <ul class="grid grid-cols-4 gap-4">
-                                <RadioSizeItem
-                                    id="size-item-xs"
-                                    label="XS"
-                                    value="XS"
-                                    :name="size"
-                                    :selectedValue="size"
-                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
-                                ></RadioSizeItem>
-                                <RadioSizeItem
-                                    id="size-item-s"
-                                    label="S"
-                                    value="S"
-                                    :name="size"
-                                    :selectedValue="size"
-                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
-                                ></RadioSizeItem>
-                                <RadioSizeItem
-                                    id="size-item-m"
-                                    label="M"
-                                    value="M"
-                                    :name="size"
-                                    :selectedValue="size"
-                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
-                                ></RadioSizeItem>
-                                <RadioSizeItem
-                                    id="size-item-l"
-                                    label="L"
-                                    value="L"
-                                    :name="size"
-                                    :selectedValue="size"
-                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
-                                ></RadioSizeItem>
-                                <RadioSizeItem
-                                    id="size-item-xl"
-                                    label="XL"
-                                    value="XL"
-                                    :name="size"
-                                    :selectedValue="size"
-                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
-                                ></RadioSizeItem>
-                                <RadioSizeItem
-                                    id="size-item-xxl"
-                                    label="XXL"
-                                    value="XXL"
-                                    :name="size"
-                                    :selectedValue="size"
-                                    @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
-                                ></RadioSizeItem>
-                            </ul>
+                          <ul class="grid grid-cols-4 gap-4">
+                            <RadioSizeItem
+                              id="size-item-40"
+                              label="40x40cm"
+                              value="40x40cm"
+                              :name="size"
+                              :selectedValue="size"
+                              @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                            ></RadioSizeItem>
+                            <RadioSizeItem
+                              id="size-item-50"
+                              label="50x50cm"
+                              value="50x50cm"
+                              :name="size"
+                              :selectedValue="size"
+                              @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                            ></RadioSizeItem>
+                          </ul>
                         </div>
                     </div>
                     <div>
@@ -734,6 +763,8 @@ export default {
             imageUploaded: false,
             colorFilled: false,
             item1SubtotalPrice: 50,
+            Tricko: 'Ručne maľované tričko',
+            Vankus: 'Ručne maľovaný vankúš',
             item2SubtotalPrice: 20,
             item1Days: '1-3',
             item2Days: '1-2',
@@ -746,10 +777,10 @@ export default {
     computed: {
         // Define a computed property to calculate the overall subtotal price based on the selected item
         subtotalPrice() {
-            return this.selectedItem === 'item1' ? this.item1SubtotalPrice : this.item2SubtotalPrice;
+          return this.selectedItem === 'Ručne maľované tričko' ? this.item1SubtotalPrice : this.item2SubtotalPrice;
         },
         subtotalDays() {
-            return this.selectedItem === 'item1' ? this.item1Days : this.item2Days;
+            return this.selectedItem === 'Ručne maľované tričko' ? this.item1Days : this.item2Days;
         },
     },
     mounted() {
@@ -817,14 +848,27 @@ export default {
                 this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}`;
             } else if (this.currentStep === 'step-3') {
                 // Display text for step-3
+              // Display text for step-3
+              if (this.selectedItem === this.Vankus) {
+                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}`;
+              } else {
                 this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}`;
+              }
             } else if (this.currentStep === 'step-4') {
                 // Display text for step-4 and step-5
+              if (this.selectedItem === this.Vankus) {
+                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, Farba: ${this.colorItem}`;
+              } else {
                 this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}, Farba: ${this.colorItem}`;
+              }
             }
             else if (this.currentStep === 'step-5') {
                 // Display text for step-4 and step-5
+              if (this.selectedItem === this.Vankus) {
+                this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, Farba: ${this.colorItem}, Veľkosť: ${this.size}`;
+              } else {
                 this.selectedItemText = `Súhrn objednávky: ${this.selectedItem}, ${this.genderItem}, Farba: ${this.colorItem}, Veľkosť: ${this.size}`;
+              }
             }
         },
         updateColorFilled() {
