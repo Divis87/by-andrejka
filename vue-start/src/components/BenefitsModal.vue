@@ -17,7 +17,14 @@
             <div class="text-md text-gray-600 p-6">
                 Ak nemáte vlastný nápad, alebo chcete niečo originálne a kreatívne,
                 <span class="font-medium">môžete si u nás objednať aj službu navrhovania dizajnu za skvelú cenu.</span>
-                Stačí nám napísať do poznámky v našom konfigurátory vašu predstavu a my vám vytvorím niekoľko návrhov na výber.
+                Stačí nám napísať na náš <a href="https://www.instagram.com/by_andrejka/" target="_blank" title="instagram" class="font-medium text-orange"><u>instagram @by_andrejka</u></a> a vašu predstavu a my vám vytvorím niekoľko návrhov na výber.
+                Následne si môžete vybrať ten, ktorý sa vám najviac páči.
+              <br><br>
+              Otvorení sme aj pre spoluprácu s firmami, ktoré by si chceli objednať väčšie množstvo tričiek s vlastným logom.
+              <br><br>
+              <a href="https://www.instagram.com/by_andrejka/" target="_blank" title="instagram" class="font-medium text-orange flex">
+                <i class="fa-brands fa-instagram text-xl mr-2"></i> by_andrejka
+              </a>
             </div>
         </div>
     </div>
