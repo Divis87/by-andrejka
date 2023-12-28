@@ -622,8 +622,8 @@
                     </div>
                     <div>
                         <button @click="upload"
-                                :disabled="!contactFilled"
-                                :class="{ 'opacity-50 cursor-not-allowed': !contactFilled }"
+                                :disabled="continueButtonDisabled"
+                                :class="{ 'opacity-50 cursor-not-allowed': continueButtonDisabled }"
                                 class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">
                             Potvrdiť</button>
                     </div>
@@ -820,6 +820,7 @@ export default {
             item2SubtotalPrice: 20,
             item1Days: '1-3',
             item2Days: '1-2',
+            continueButtonDisabled: true,
             faqItems: [
                 { isOpen: false, question: "Ako funguje náš online konfigurátor na webe?", answer: "Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný tričko alebo vankúš. Nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte." },
                 { isOpen: false, question: "Aký je časový rámec pre maľovanie a odoslanie produktu?", answer: "Produkt odosielame hneď po namalovaní. Pri každom produkte je predpokladaná doba maľovania." },
@@ -938,6 +939,7 @@ export default {
         },
         updateContact() {
             this.contactFilled = this.name && this.email && this.text;
+            this.continueButtonDisabled = !this.contactFilled;
         },
         onFileChange(e) {
             this.image = e.target.files[0];
