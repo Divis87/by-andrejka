@@ -23,26 +23,28 @@
         </div>
         <div class="mx-auto max-w-2xl py-32">
             <div class="text-center">
-                <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900">
-                    Ručne maľované tričká alebo vankúše
+                <h1 class="text-4xl font-bold tracking-tight text-gray-900 leading-snug">
+                    Ručne maľované tričko alebo vankúš s vlastným dizajnom
                 </h1>
-                <p class="mt-7 text-md sm:text-lg leading-7 sm:leading-8 text-gray-700">
-                    Ak máte vlastný nápad na dizajn, môžete si ho jednoducho nahrať cez náš konfigurátor a mi vám ho pre vás ručne namaľujeme na vybraný kus oblečenia alebo na vankúš.
-                    Máte&nbsp;na výber z viacerých farieb a veľkostí, takže si určite nájdete to, čo sa vám páči.
-                </p>
+                <h2 class="mt-7 text-md sm:text-lg leading-7 sm:leading-8 text-gray-700">
+                    Ak máte vlastný nápad na dizajn, môžete si ho jednoducho nahrať cez náš konfigurátor a mi vám ho pre vás ručne namaľujeme na tričko alebo na vankúš.
+                    <strong>Nechajte nás ručne vytvoriť váš jedinečný dizajn</strong> a vyjadrite sa prostredníctvom štýlu, ktorý je len váš.
+                </h2>
+                <h3 class="mt-5 text-gray-500 text-md text-green leading-loose">
+                    <i class="fa-solid fa-gift mr-2"></i> <strong>Skvelý darček:</strong> prekvapenie pre tých, ktorých ľúbite
+                </h3>
                 <div class="my-7 flex justify-center">
                     <button @click="openModal2"  class="relative rounded-full w-full sm:w-auto leading-snug px-3 sm:px-5 py-3 text-sm leading-6 text-gray-700 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                        💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko návrhov za skvelú cenu.</span>
+                        💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko návrhov za skvelú cenu</span>
                     </button>
                 </div>
-
                 <div class="mx-auto sm:max-w-md">
                     <div class="step-1 mt-10">
                         <h2 class="text-2xl mb-3 font-bold tracking-tight text-gray-900 text-center">
                             Máte záujem o:
                         </h2>
                         <p class="space-y-5 mx-auto text-gray-700 mb-8">
-                          Kliknite nižšie a vytvorte si vlastný design na tričko alebo vankúš
+                          Kliknite nižšie a vytvorte si vlastný tričko alebo vankúš s vlastným dizajnom.
                         </p>
                         <ul>
                             <li class="mb-4">
@@ -175,7 +177,7 @@
                                 id="gender-item1"
                                 label="Pánske"
                                 value="Pánske"
-                                img="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                img="./icon/man.jpg"
                                 :name="genderItem"
                                 :selectedValue="genderItem"
                                 @update:selectedValue="genderItem = $event; genderFilled = true; updateSelectedItemText"
@@ -516,7 +518,7 @@
                     </div>
                     <div class="flex h-7 items-center">
                         <h3 class="font-medium text-gray-700">
-                            Kontaktné údaje
+                            Nahrajte obrázok
                         </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
@@ -530,7 +532,7 @@
                                 <img class="h-full w-full mb-5" v-if="imageUrl" :src="imageUrl"/>
                             </div>
                             <label class="block">
-                                <span class="sr-only">Choose photo</span>
+                                <span class="sr-only">Nahrajte obrázok</span>
                                 <input type="file" @change="onFileChange"
                                        class="block w-full text-sm text-gray
                                             file:mr-4 file:py-3 file:px-5
@@ -582,7 +584,7 @@
                     </div>
                     <div class="flex h-7 items-center">
                         <h3 class="font-medium text-gray-700">
-                            XXX
+                            Kontaktné údaje
                         </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
@@ -625,6 +627,13 @@
                                 class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">
                             Potvrdiť</button>
                     </div>
+<!--                    <div>-->
+<!--                        <button @click="upload"-->
+<!--                                :disabled="!contactFilled"-->
+<!--                                :class="{ 'opacity-50 cursor-not-allowed': !contactFilled }"-->
+<!--                                class="flex items-center justify-center w-full rounded-md border border-transparent bg-green px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 transition-background-color duration-300">-->
+<!--                            Potvrdiť</button>-->
+<!--                    </div>-->
                 </div>
             </div>
             <div class="border-t border-gray-200 p-6 pt-4">
@@ -812,7 +821,7 @@ export default {
             item1Days: '1-3',
             item2Days: '1-2',
             faqItems: [
-                { isOpen: false, question: "Ako funguje náš online konfigurátor na webe?", answer: "Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný tričko alebo riflovú bundu. Môžete si vybrať pohlavie, farbu a veľkosť produktu. Potom už len nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte." },
+                { isOpen: false, question: "Ako funguje náš online konfigurátor na webe?", answer: "Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný tričko alebo vankúš. Nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte." },
                 { isOpen: false, question: "Aký je časový rámec pre maľovanie a odoslanie produktu?", answer: "Produkt odosielame hneď po namalovaní. Pri každom produkte je predpokladaná doba maľovania." },
                 { isOpen: false, question: "Aké sú náklady na balné a dopravu?", answer: "Balné a doprava sú zdarma." },
                 { isOpen: false, question: "Aký je časový rámec pre maľovanie a odoslanie produktu?", answer: "Produkt odosielame hneď po namalovaní. Pri každom produkte je predpokladaná doba maľovania." },
@@ -820,7 +829,7 @@ export default {
                 { isOpen: false, question: "Aké sú možnosti platby?", answer: "Všetky informácie o platbe dostanete po objednaní e-mailom. Začíname maľovať až po prijatí platby na náš účet. Priamo na stánke nemáme zatial žiadnu platobnú bránu." },
                 { isOpen: false, question: "Čo znamená “Ručne maľované”?", answer: "Každý kus je originál a jedinečný. Nie je to masová produkcia, ale umelecké dielo, ktoré vytváram s láskou a pozornosťou k detailom." },
                 { isOpen: false, question: "Aké sú výhody ručne maľovaného oblečenia?", answer: "Ponúkame originálne a jedinečné oblečenie, ktoré vám dodá štýl a osobnosť. Používame kvalitné a trvanlivé materiály, ktoré vydržia dlho a nevyblednú." },
-                { isOpen: false, question: "Ako prebieha doprava?", answer: "Poskytujeme rýchlu a bezpečnú dopravu. Vaše ručne maľované oblečenie doručíme priamo domov. Neplatíte žiadne poplatky ani dodatočné náklady." },
+                { isOpen: false, question: "Ako prebieha doprava?", answer: "Poskytujeme rýchlu a bezpečnú dopravu. Vaše ručne maľovaný produkt Vám doručíme priamo domov. Neplatíte žiadne poplatky ani dodatočné náklady." },
             ],
         }
     },
