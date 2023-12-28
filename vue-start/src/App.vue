@@ -23,7 +23,7 @@
         </div>
         <div class="mx-auto max-w-2xl py-32">
             <div class="text-center">
-                <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900">
+                <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900">
                     Ručne maľované tričká alebo vankúše
                 </h1>
                 <p class="mt-7 text-md sm:text-lg leading-7 sm:leading-8 text-gray-700">
@@ -333,20 +333,72 @@
                 <div class="p-6">
                     <div v-if="Tricko === selectedItem">
                       <div v-if="genderItem === 'Detské'">
-                          <div class="mb-5">
-                              <div>
-                                  <label for="size-item1">122</label>
-                                  <input type="radio" id="size-item1" value="122" v-model="size" @change="updateSizeFilled">
-                              </div>
-                              <div>
-                                  <label for="size-item2">130</label>
-                                  <input type="radio" id="size-item2" value="130" v-model="size" @change="updateSizeFilled">
-                              </div>
-                              <div>
-                                  <label for="size-item3">136</label>
-                                  <input type="radio" id="size-item3" value="136" v-model="size" @change="updateSizeFilled">
-                              </div>
-                          </div>
+                          <ul class="grid grid-cols-4 gap-4">
+                              <RadioSizeItem
+                                  id="size-item-98"
+                                  label="98"
+                                  value="98"
+                                  :name="size"
+                                  :selectedValue="size"
+                                  @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                              ></RadioSizeItem>
+                              <RadioSizeItem
+                                  id="size-item-104"
+                                  label="104"
+                                  value="104"
+                                  :name="size"
+                                  :selectedValue="size"
+                                  @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                              ></RadioSizeItem>
+                              <RadioSizeItem
+                                  id="size-item-110"
+                                  label="110"
+                                  value="110"
+                                  :name="size"
+                                  :selectedValue="size"
+                                  @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                              ></RadioSizeItem>
+                              <RadioSizeItem
+                                  id="size-item-116"
+                                  label="116"
+                                  value="116"
+                                  :name="size"
+                                  :selectedValue="size"
+                                  @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                              ></RadioSizeItem>
+                              <RadioSizeItem
+                                  id="size-item-122"
+                                  label="122"
+                                  value="122"
+                                  :name="size"
+                                  :selectedValue="size"
+                                  @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                              ></RadioSizeItem>
+                              <RadioSizeItem
+                                  id="size-item-128"
+                                  label="128"
+                                  value="128"
+                                  :name="size"
+                                  :selectedValue="size"
+                                  @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                              ></RadioSizeItem>
+                              <RadioSizeItem
+                                  id="size-item-134"
+                                  label="134"
+                                  value="134"
+                                  :name="size"
+                                  :selectedValue="size"
+                                  @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                              ></RadioSizeItem>
+                              <RadioSizeItem
+                                  id="size-item-140"
+                                  label="140"
+                                  value="140"
+                                  :name="size"
+                                  :selectedValue="size"
+                                  @update:selectedValue="size = $event; sizeFilled = true; updateSizeFilled"
+                              ></RadioSizeItem>
+                          </ul>
                         <div class="my-5">
                           <button @click="openModal3"  class="relative w-full sm:w-auto leading-snug text-sm leading-6 text-gray-700">
                             💡 <span class="font-semibold text-orange"><u>Orientačná tabuľka veľkostí detských tričiek</u></span>
@@ -464,7 +516,7 @@
                     </div>
                     <div class="flex h-7 items-center">
                         <h3 class="font-medium text-gray-700">
-                            XXX
+                            Kontaktné údaje
                         </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
@@ -560,6 +612,7 @@
                                @change="updateContact">
                     </div>
                     <div class="mb-5">
+                        <div class="block mb-2 text-sm font-medium text-gray-900">Adresa:</div>
                         <textarea v-model="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 min-h-[100px]"
                                   placeholder="Adresa"
                                   @change="updateContact">
@@ -681,31 +734,6 @@
         <div>
             <FaqList :faqItems="faqItems" @toggleDetails="handleToggleDetails" />
         </div>
-
-
-        <!--        Ako funguje konfigurátor na webe? Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný produkt. Môžete si vybrať pohlavie, farbu a veľkosť produktu. Potom už len nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte. -->
-
-<!--        Kde budú maľby na produktoch? Maľby na rifľových bundách sú na chrbte a na tričkách a iných produktoch sú na prednej strane.-->
-
-<!--        Aký je časový rámec pre maľovanie a odoslanie produktu? Produkt odosielame hneď po namalovaní. Pri každom produkte je predpokladaná doba maľovania.-->
-
-<!--        Aké sú náklady na balné a dopravu? Balné a doprava sú zdarma. -->
-
-<!--        Platí sa dodatočne za tričko alebo riflovú bundu? Nie, všetko je už zahrnuté v cene. Ponúkame len kvalitné materiály.-->
-
-<!--        Ako sa staráte o produkty? Všetky naše produkty sú ručne maľované a vyrobené s najväčšou starostlivosťou.-->
-
-<!--        Aké sú možnosti platby? Všetky informácie o platbe dostanete po objednaní e-mailom. Začíname maľovať až po prijatí platby na náš účet. Priamo na stánke nemáme zatial žiadnu platobnú bránu.-->
-
-<!--        Aké sú možnosti vrátenia tovaru? (Doplniť podľa politiky vrátenia tovaru, ktorú ponúkate)-->
-
-<!--        Čo znamená “Ručne maľované”? Každý kus je originál a jedinečný. Nie je to masová produkcia, ale umelecké dielo, ktoré vytváram s láskou a pozornosťou k detailom.-->
-
-<!--        Aké sú výhody ručne maľovaného oblečenia? Ponúkame originálne a jedinečné oblečenie, ktoré vám dodá štýl a osobnosť. Používame kvalitné a trvanlivé materiály, ktoré vydržia dlho a nevyblednú.-->
-
-<!--        Platí sa dodatočne za tričko alebo riflovú bundu? Nie, všetko je už zahrnuté v cene. Ponúkame len kvalitné materiály.-->
-
-<!--        Ako prebieha doprava? Poskytujeme rýchlu a bezpečnú dopravu. Vaše ručne maľované oblečenie doručíme priamo domov. Neplatíte žiadne poplatky ani dodatočné náklady.-->
     </div>
 
     <!-- Success message -->
@@ -785,7 +813,14 @@ export default {
             item2Days: '1-2',
             faqItems: [
                 { isOpen: false, question: "Ako funguje náš online konfigurátor na webe?", answer: "Konfigurátor je nástroj, ktorý vám umožní vytvoriť vlastný tričko alebo riflovú bundu. Môžete si vybrať pohlavie, farbu a veľkosť produktu. Potom už len nahrajete obrázok, fotku alebo čokoľvek, čo chcete mať namaľované na produkte." },
-                { isOpen: false, question: "Ako funguje ďalší online konfigurátor na webe?", answer: "Ďalšia odpoveď na iný dôležitý dotaz. Tu môžeš poskytnúť viac informácií alebo detailov o inom aspekte tvojej služby alebo produktu." },
+                { isOpen: false, question: "Aký je časový rámec pre maľovanie a odoslanie produktu?", answer: "Produkt odosielame hneď po namalovaní. Pri každom produkte je predpokladaná doba maľovania." },
+                { isOpen: false, question: "Aké sú náklady na balné a dopravu?", answer: "Balné a doprava sú zdarma." },
+                { isOpen: false, question: "Aký je časový rámec pre maľovanie a odoslanie produktu?", answer: "Produkt odosielame hneď po namalovaní. Pri každom produkte je predpokladaná doba maľovania." },
+                { isOpen: false, question: "Platí sa dodatočne za tričko alebo vankúš?", answer: "Nie, všetko je už zahrnuté v cene. Ponúkame len kvalitné materiály." },
+                { isOpen: false, question: "Aké sú možnosti platby?", answer: "Všetky informácie o platbe dostanete po objednaní e-mailom. Začíname maľovať až po prijatí platby na náš účet. Priamo na stánke nemáme zatial žiadnu platobnú bránu." },
+                { isOpen: false, question: "Čo znamená “Ručne maľované”?", answer: "Každý kus je originál a jedinečný. Nie je to masová produkcia, ale umelecké dielo, ktoré vytváram s láskou a pozornosťou k detailom." },
+                { isOpen: false, question: "Aké sú výhody ručne maľovaného oblečenia?", answer: "Ponúkame originálne a jedinečné oblečenie, ktoré vám dodá štýl a osobnosť. Používame kvalitné a trvanlivé materiály, ktoré vydržia dlho a nevyblednú." },
+                { isOpen: false, question: "Ako prebieha doprava?", answer: "Poskytujeme rýchlu a bezpečnú dopravu. Vaše ručne maľované oblečenie doručíme priamo domov. Neplatíte žiadne poplatky ani dodatočné náklady." },
             ],
         }
     },
