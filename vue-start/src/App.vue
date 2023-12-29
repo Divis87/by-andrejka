@@ -149,7 +149,7 @@
                     </div>
                     <div class="flex h-7 items-center">
                         <h3 class="font-medium text-gray-700">
-                            Pre hoho to bude?
+                            Pre koho to bude?
                         </h3>
                     </div>
                     <div class="ml-3 flex h-7 items-center">
