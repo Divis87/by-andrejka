@@ -6,33 +6,33 @@
         <a href="https://www.instagram.com/by_andrejka/" target="_blank" title="@by_andrejka" class="flex flex-1 justify-end text-orange p-6">
             <i class="fa-brands fa-instagram text-xl mr-2"></i> <strong>by_andrejka</strong>
         </a>
-        <div class="mx-auto max-w-2xl pt-8 pb-24">
+        <div class="mx-auto max-w-5xl pt-2 pb-24">
             <div class="text-center">
-                <img class="h-32 md:h-36 w-auto mx-auto mix-blend-multiply" src="by_andrejka.jpg" alt="by andrejka">
+                <img class="h-32 md:h-40 w-auto mx-auto mix-blend-multiply" src="by_andrejka.jpg" alt="by andrejka">
                 <h1 class="mt-8 text-4xl font-bold tracking-tight text-gray-900 leading-snug">
                     Ručne maľované tričko alebo vankúš s vlastným dizajnom
                 </h1>
                 <h2 class="mt-7 text-md sm:text-lg leading-7 sm:leading-8 text-gray-700">
-                    Ak máte vlastný nápad na dizajn, môžete si ho jednoducho nahrať cez náš konfigurátor a mi vám ho pre vás ručne namaľujeme na tričko alebo na vankúš.
+                    Ak máte vlastný nápad na dizajn, môžete si ho jednoducho nahrať cez náš konfigurátor a mi vám ho ručne namaľujeme na tričko alebo na vankúš.
                     <strong>Nechajte nás ručne vytvoriť váš jedinečný dizajn</strong> a vyjadrite sa prostredníctvom štýlu, ktorý je len váš.
                 </h2>
                 <h3 class="mt-5 text-gray-500 text-md text-green leading-loose">
-                    <i class="fa-solid fa-gift mr-2"></i> <strong>Skvelý darček:</strong> prekvapenie pre tých, ktorých ľúbite
+                    <i class="fa-solid fa-gift mr-2"></i> <strong>Skvelý darček:</strong> prekvapenie pre tých, ktorých ľúbite.
                 </h3>
                 <div class="my-7 flex justify-center">
-                    <button @click="openModal2"  class="relative rounded-full w-full sm:w-auto leading-snug px-3 sm:px-5 py-3 text-sm leading-6 text-gray-700 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                        💡 Nemáte vlastný design? <span class="font-semibold text-orange"><span class="absolute inset-0" aria-hidden="true"></span>Navrhneme Vám niekoľko návrhov za skvelú cenu</span>
+                    <button @click="openModal2"  class="relative rounded-full w-full sm:w-auto leading-snug px-3 sm:px-5 py-3 text-md leading-6 text-gray-700 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                        💡 <span class="font-semibold text-orange">Nemáte vlastný design? </span> Navrhneme Vám niekoľko návrhov za skvelú cenu.
                     </button>
                 </div>
-                <div class="mx-auto sm:max-w-md">
-                    <div class="step-1 mt-10">
+                <div class="mx-auto sm:max-w-md lg:max-w-4xl">
+                    <div class="step-1 mt-12">
                         <h2 class="text-2xl mb-3 font-bold tracking-tight text-gray-900 text-center">
                             Máte záujem o:
                         </h2>
-                        <p class="space-y-5 mx-auto text-gray-700 mb-8">
+                        <p class="space-y-5 mx-auto text-gray-700 mb-10">
                           Kliknite nižšie a vytvorte si vlastný tričko alebo vankúš s vlastným dizajnom.
                         </p>
-                        <ul>
+                        <ul class="lg:grid lg:grid-cols-2 lg:gap-4">
                             <li class="mb-4">
                                 <input
                                     type="radio"
@@ -58,7 +58,7 @@
                                                   {{ Tricko }}
                                                 </h3>
                                             </div>
-                                            <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
+                                            <p class="mt-2 mb-2 text-gray-500 text-sm text-green leading-relaxed">
                                                 <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item1Days }} prac. dni
                                                 <br>
                                                 <i class="fa-solid fa-check mr-1"></i> Dopravu a balné máte zdarma
@@ -80,53 +80,53 @@
                                     </div>
                                 </label>
                             </li>
-                          <li class="mb-4">
-                            <input
-                              type="radio"
-                              id="item-vankus"
-                              name="product"
-                              :value="Vankus"
-                              class="hidden peer"
-                              v-model="selectedItem"
-                              @change="updateSelectedItemText"
-                              @click="openModal('step-3')">
-                            <label for="item-vankus"
-                                   class="block sm:flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition duration-300
-                                     peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
-                              <div class="h-24 w-full sm:w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200 bg-white">
-                                <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                                     alt=""
-                                     class="h-full sm:w-full sm:object-cover sm:object-center m-auto">
+                            <li class="mb-4">
+                        <input
+                          type="radio"
+                          id="item-vankus"
+                          name="product"
+                          :value="Vankus"
+                          class="hidden peer"
+                          v-model="selectedItem"
+                          @change="updateSelectedItemText"
+                          @click="openModal('step-3')">
+                        <label for="item-vankus"
+                               class="block sm:flex w-full p-5 text-gray-500 bg-white border border-2 border-gray-200 rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 hover:border-gray-300 transition duration-300
+                                 peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
+                          <div class="h-24 w-full sm:w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200 bg-white">
+                            <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                 alt=""
+                                 class="h-full sm:w-full sm:object-cover sm:object-center m-auto">
+                          </div>
+                          <div class="mt-4 sm:mt-0 sm:ml-4 flex flex-1 flex-col text-md leading-snug text-left">
+                            <div>
+                              <div class="flex font-medium text-gray-900">
+                                <h3 class="-mt-1">
+                                  {{ Vankus }}
+                                </h3>
                               </div>
-                              <div class="mt-4 sm:mt-0 sm:ml-4 flex flex-1 flex-col text-md leading-snug text-left">
-                                <div>
-                                  <div class="flex font-medium text-gray-900">
-                                    <h3 class="-mt-1">
-                                      {{ Vankus }}
-                                    </h3>
-                                  </div>
-                                  <p class="mt-1 mb-2 text-gray-500 text-sm text-green leading-relaxed">
-                                    <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item2Days }} prac. dni
-                                    <br>
-                                    <i class="fa-solid fa-check mr-1"></i> Dopravu a balné máte zdarma
-                                  </p>
+                              <p class="mt-2 mb-2 text-gray-500 text-sm text-green leading-relaxed">
+                                <i class="fa-solid fa-check mr-1"></i> Malovanie trvá {{ item2Days }} prac. dni
+                                <br>
+                                <i class="fa-solid fa-check mr-1"></i> Dopravu a balné máte zdarma
+                              </p>
+                            </div>
+                            <div class="flex flex-1 items-end justify-between">
+                              <div class="flex justify-between w-full">
+                                <div class="font-medium text-gray-900">
+                                  Cena: {{ item2SubtotalPrice }} €
                                 </div>
-                                <div class="flex flex-1 items-end justify-between">
-                                  <div class="flex justify-between w-full">
-                                    <div class="font-medium text-gray-900">
-                                      Cena: {{ item2SubtotalPrice }} €
-                                    </div>
-                                    <div class="font-medium text-green sm:hidden">
-                                      Pokračovať <i class="fa-solid fa-arrow-right text-sm ml-1"></i>
-                                    </div>
-                                  </div>
+                                <div class="font-medium text-green sm:hidden">
+                                  Pokračovať <i class="fa-solid fa-arrow-right text-sm ml-1"></i>
                                 </div>
                               </div>
-                              <div class="ml-4 hidden sm:flex justify-center flex-3 flex-col text-md text-gray-500">
-                                <i class="fa-solid fa-arrow-right"></i>
-                              </div>
-                            </label>
-                          </li>
+                            </div>
+                          </div>
+                          <div class="ml-4 hidden sm:flex justify-center flex-3 flex-col text-md text-gray-500">
+                            <i class="fa-solid fa-arrow-right"></i>
+                          </div>
+                        </label>
+                      </li>
                         </ul>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
                     <p>Cena:</p>
                     <p>{{ subtotalPrice }} €</p>
                 </div>
-                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                <p class="mt-2 mb-2 text-gray-500 text-sm text-green leading-relaxed">
                     <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                 </p>
                 <p class="text-sm text-gray-500" v-html="selectedItemText">
@@ -293,7 +293,7 @@
                     <p>Cena:</p>
                     <p>{{ subtotalPrice }} €</p>
                 </div>
-                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                <p class="mt-2 mb-2 text-gray-500 text-sm text-green leading-relaxed">
                     <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                 </p>
                 <p class="text-sm text-gray-500" v-html="selectedItemText">
@@ -486,7 +486,7 @@
                     <p>Cena:</p>
                     <p>{{ subtotalPrice }} €</p>
                 </div>
-                <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                <p class="mt-2 mb-2 text-gray-500 text-sm text-green leading-relaxed">
                     <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                 </p>
                 <p class="text-sm text-gray-500" v-html="selectedItemText">
@@ -524,8 +524,8 @@
                                             file:mr-4 file:py-3 file:px-5
                                             file:rounded-full file:border-0
                                             file:text-sm file:font-semibold
-                                            file:bg-gray-50 file:text-gray
-                                            hover:file:bg-gray-100 cursor-pointer
+                                            file:bg-gray-100 file:text-gray
+                                            hover:file:bg-gray-200 cursor-pointer
                                       "/>
                             </label>
                         </div>
@@ -550,7 +550,7 @@
                         <img class="object-center" v-if="imageUrl" :src="imageUrl"/>
                     </div>
                     <div>
-                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                        <p class="mt-2 mb-2 text-gray-500 text-sm text-green leading-relaxed">
                             <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                         </p>
                         <p class="text-sm text-gray-500" v-html="selectedItemText">
@@ -632,7 +632,7 @@
                         <img class="object-center" v-if="imageUrl" :src="imageUrl"/>
                     </div>
                     <div>
-                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                        <p class="mt-2 mb-2 text-gray-500 text-sm text-green leading-relaxed">
                             <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                         </p>
                         <p class="text-sm text-gray-500" v-html="selectedItemText">
@@ -675,7 +675,7 @@
                         <img class="object-center" v-if="imageUrl" :src="imageUrl"/>
                     </div>
                     <div>
-                        <p class="mt-1 mb-1 text-gray-500 text-sm text-green leading-relaxed">
+                        <p class="mt-2 mb-2 text-gray-500 text-sm text-green leading-relaxed">
                             <i class="fa-solid fa-check mr-1"></i> {{ subtotalDays }} prac. dni, dopravu a balné máte zdarma
                         </p>
                         <p class="text-sm text-gray-500" v-html="selectedItemText">
