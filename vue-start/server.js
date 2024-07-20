@@ -61,7 +61,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
       <h1>Nové nahrávanie</h1>
       <p>Vážení ${name} (${email}).</p>
       <p>${text}</p>
-      <p>Selected Item: ${selectedItem}</p>
+      <p><strong>${selectedItem}</strong></p>
       <p>Farba: ${colorItem}</p>
       <p>Size: ${size}</p>
       ${genderItem ? `<p>Pohlavie: ${genderItem}</p>` : ''}

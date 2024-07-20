@@ -9,21 +9,16 @@
         <div class="mx-auto max-w-5xl pt-2 pb-24">
             <div class="text-center">
                 <img class="h-32 md:h-40 w-auto mx-auto mix-blend-multiply" src="by_andrejka.jpg" alt="by andrejka">
-                <h1 class="mt-8 text-4xl font-bold tracking-tight text-gray-900 leading-snug">
+                <h1 class="mt-10 text-4xl font-bold tracking-tight text-gray-900 leading-snug">
                     Ručne maľované tričko alebo vankúš s vlastným dizajnom
                 </h1>
-                <h2 class="mt-7 text-md sm:text-lg leading-7 sm:leading-8 text-gray-700">
+                <h2 class="mt-10 text-md sm:text-lg leading-7 sm:leading-8 text-gray-700">
                     Ak máte vlastný nápad na dizajn, môžete si ho jednoducho nahrať cez náš konfigurátor a mi vám ho ručne namaľujeme na tričko alebo na vankúš.
                     <strong>Nechajte nás ručne vytvoriť váš jedinečný dizajn</strong> a vyjadrite sa prostredníctvom štýlu, ktorý je len váš.
                 </h2>
-                <h3 class="mt-5 text-gray-500 text-md text-green leading-loose">
-                    <i class="fa-solid fa-gift mr-2"></i> <strong>Skvelý darček:</strong> prekvapenie pre tých, ktorých ľúbite.
+                <h3 class="mt-5 text-gray-500 text-lg leading-loose text-gray-700">
+                    <i class="fa-solid fa-gift mr-2 text-orange"></i> <span><strong>Skvelý darček:</strong></span> prekvapenie pre tých, ktorých ľúbite.
                 </h3>
-                <div class="my-7 flex justify-center">
-                    <button @click="openModal2"  class="relative rounded-full w-full sm:w-auto leading-snug px-3 sm:px-5 py-3 text-md leading-6 text-gray-700 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                        💡 <span class="font-semibold text-orange">Nemáte vlastný design? </span> Navrhneme Vám niekoľko návrhov za skvelú cenu.
-                    </button>
-                </div>
                 <div class="mx-auto sm:max-w-md lg:max-w-4xl">
                     <div class="step-1 mt-12">
                         <h2 class="text-2xl mb-3 font-bold tracking-tight text-gray-900 text-center">
@@ -48,7 +43,7 @@
                                      peer-checked:border-success peer-checked:text-green peer-checked:bg-gray-50">
                                     <div class="h-24 w-full sm:w-24 flex-shrink-0 overflow-hidden rounded-md border border-2 border-gray-200 bg-white">
                                         <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                                             alt=""
+                                             :alt="Tricko"
                                              class="h-full sm:w-full sm:object-cover sm:object-center m-auto">
                                     </div>
                                     <div class="mt-4 sm:mt-0 sm:ml-4 flex flex-1 flex-col text-md leading-snug text-left">
@@ -129,6 +124,11 @@
                       </li>
                         </ul>
                     </div>
+                </div>
+                <div class="my-7 flex justify-center">
+                    <button @click="openModal2"  class="relative rounded-full w-full sm:w-auto leading-snug px-3 sm:px-5 py-3 text-md leading-6 text-gray-700 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                      💡 <span class="font-semibold text-orange">Nemáte vlastný design? </span> Navrhneme Vám niekoľko návrhov za skvelú cenu.
+                    </button>
                 </div>
             </div>
         </div>
@@ -600,6 +600,14 @@
                                @change="updateContact">
                     </div>
                     <div class="mb-5">
+                      <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Telefónne číslo:</label>
+                      <input type="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                             v-model="phone"
+                             placeholder="+421"
+                             required
+                             @change="updateContact">
+                    </div>
+                    <div class="mb-5">
                         <div class="block mb-2 text-sm font-medium text-gray-900">Adresa:</div>
                         <textarea v-model="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 min-h-[100px]"
                                   placeholder="Adresa"
@@ -659,8 +667,9 @@
                     </div>
                 </div>
                 <div class="p-6 text-green text-lg font-bold">
+                    <br>
                     <p>
-                        V najbližšej dobe Vám bude zaslaná faktúra na uvedený e-mail.
+                        V najbližšej dobe Vám bude zaslaná faktúra s platobnými informáciami na uvedený e-mail.
                     </p>
                     <br><br><br><br><br>
                 </div>
@@ -690,11 +699,11 @@
         <BenefitsModal :show="showModal2" @close-modal="showModal2 = false" />
     </SidebarModal>
 
-  <SidebarModal :show="showModal3" @close-modal="showModal3 = false">
-    <KidsModal :show="showModal3" @close-modal="showModal3 = false" />
-  </SidebarModal>
+    <SidebarModal :show="showModal3" @close-modal="showModal3 = false">
+      <KidsModal :show="showModal3" @close-modal="showModal3 = false" />
+    </SidebarModal>
 
-    <div class="elfsight-app-a213085d-300c-4ade-a8c6-78c653a577d3" data-elfsight-app-lazy></div>
+    <div class="elfsight-app-b57dac66-b2fd-4df5-a87b-6720e932eae6" data-elfsight-app-lazy></div>
 
     <div class="mx-auto max-w-4xl mt-16 sm:mt-20 lg:mt-24 leading-8 px-6">
         <h3 class="text-3xl mb-16 font-bold tracking-tight text-center">
@@ -783,6 +792,7 @@ export default {
             name: '',
             password: '',
             text: '',
+            phone: '',
             email: '',
             image: null,
             imageUrl: '',
@@ -803,7 +813,7 @@ export default {
             item1SubtotalPrice: 50,
             Tricko: 'Ručne maľované tričko',
             Vankus: 'Ručne maľovaný vankúš',
-            item2SubtotalPrice: 20,
+            item2SubtotalPrice: 25,
             item1Days: '1-3',
             item2Days: '1-2',
             continueButtonDisabled: true,
@@ -939,6 +949,7 @@ export default {
             let formData = new FormData();
             formData.append('name', this.name);
             formData.append('email', this.email);
+            formData.append('phone', this.phone);
             formData.append('text', this.text);
             formData.append('selectedItem', this.selectedItem);
             formData.append('size', this.size);
